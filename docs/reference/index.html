@@ -1,0 +1,1257 @@
+<!DOCTYPE html><html lang="en"><head><meta content="MATLAB R2026b with MATLAB DocMaker 0.7" name="generator"/><meta charset="utf-8"/><title>Functions and Properties</title><link href="../resources/github-markdown-light.css" rel="stylesheet"/><link href="../resources/matlaby.css" rel="stylesheet"/><link href="../resources/copycode.css" rel="stylesheet"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="../resources/ripple-manual.css" rel="stylesheet"/></head><body class="markdown-body"><main class="markdown-body ripple-reference-index"><nav aria-label="Documentation" class="ripple-navigation"><a href="../index.html">Ripple Simulator</a><a href="../guide/controls.html">Controls</a><a href="../guide/physics.html">Physics</a><a href="../guide/numerics.html">Numerical methods</a><a href="../guide/materials.html">Materials</a><a href="../guide/experiments.html">Experiments</a><a href="../guide/examples.html">Examples</a><a aria-current="page" href="../reference/index.html">Functions and Properties</a><a href="../guide/sound.html">Sound</a><a href="../guide/installation.html">Installation and requirements</a><a href="../guide/references.html">References</a><a href="../guide/notices.html">Third-party notices</a></nav><aside class="manual-contents"><details class="manual-tree" open="open"><summary>Contents</summary><nav aria-label="Manual contents"><details class="manual-chapter" data-page="index"><summary><a href="../index.html">Ripple Simulator</a></summary><ul><li><a href="../index.html#quick-start">Quick start</a></li><li><a href="../index.html#learning-objectives">Learning objectives</a></li><li><a href="../index.html#explore">Explore</a></li><li><a href="../index.html#user-guide">User guide</a></li><li><a href="../index.html#scientific-guide">Scientific guide</a></li><li><a href="../index.html#programming-and-documentation">Programming and documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/controls"><summary><a href="../guide/controls.html">Controls</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/controls.html#menus">Menus</a></summary><ul><li><a href="../guide/controls.html#experiment">Experiment</a></li><li><a href="../guide/controls.html#source">Source</a></li><li><a href="../guide/controls.html#view">View</a></li><li><a href="../guide/controls.html#playback">Playback</a></li><li><a href="../guide/controls.html#help">Help</a></li></ul></details></li><li><a href="../guide/controls.html#axes-toolbar">Axes toolbar</a></li><li><a href="../guide/controls.html#parameter-controls">Parameter controls</a></li><li><a href="../guide/controls.html#mouse-interaction">Mouse interaction</a></li><li><a href="../guide/controls.html#keyboard-shortcuts">Keyboard shortcuts</a></li></ul></details><details class="manual-chapter" data-page="guide/physics"><summary><a href="../guide/physics.html">Physics of ripples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/physics.html#governing-equations">Governing equations</a></summary><ul><li><a href="../guide/physics.html#linear-boundary-value-problem">Linear boundary-value problem</a></li></ul></details></li><li><a href="../guide/physics.html#gravity-and-surface-tension">Gravity and surface tension</a></li><li><a href="../guide/physics.html#wave-dispersion">Wave dispersion</a></li><li><a href="../guide/physics.html#constitutive-model-and-rheology">Constitutive model and rheology</a></li><li><a href="../guide/physics.html#viscosity-and-transient-motion">Viscosity and transient motion</a></li><li><a href="../guide/physics.html#why-a-ripple-becomes-less-visible">Why a ripple becomes less visible</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#wave-reflection">Wave reflection</a></summary><ul><li><a href="../guide/physics.html#partial-wave-reflection">Partial wave reflection</a></li></ul></details></li><li><a href="../guide/physics.html#depth">Depth</a></li><li><a href="../guide/physics.html#height-scale-and-simulation-time">Height scale and simulation time</a></li><li><a href="../guide/physics.html#model-assumptions-and-numerical-approximations">Model assumptions and numerical approximations</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#source-definitions">Source definitions</a></summary><ul><li><a href="../guide/physics.html#characteristic-wavelength">Characteristic wavelength</a></li><li><a href="../guide/physics.html#pressure-impulse">Pressure impulse</a></li><li><a href="../guide/physics.html#four-cycle-wavemaker">Four-cycle wavemaker</a></li><li><a href="../guide/physics.html#pressure-strength">Pressure strength</a></li><li><a href="../guide/physics.html#physical-scales-and-drop-impacts">Physical scales and drop impacts</a></li><li><a href="../guide/physics.html#overlapping-sources-and-rain">Overlapping sources and rain</a></li></ul></details></li><li><a href="../guide/physics.html#glossary">Glossary</a></li><li><a href="../guide/physics.html#further-reading">Further reading</a></li></ul></details><details class="manual-chapter" data-page="guide/numerics"><summary><a href="../guide/numerics.html">Numerical methods</a></summary><ul><li><a href="../guide/numerics.html#state-and-coordinates">State and coordinates</a></li><li><a href="../guide/numerics.html#elapsed-time-playback">Elapsed-time playback</a></li><li><a href="../guide/numerics.html#radial-reconstruction">Radial reconstruction</a></li><li><a href="../guide/numerics.html#open-water-response-tables">Open-water response tables</a></li><li><a href="../guide/numerics.html#exact-numerical-equilibrium">Exact numerical equilibrium</a></li><li><a href="../guide/numerics.html#wave-reflection-geometry">Wave reflection geometry</a></li><li><a href="../guide/numerics.html#reflecting-wall-reconstruction">Reflecting-wall reconstruction</a></li><li><details class="manual-section"><summary><a href="../guide/numerics.html#images-for-partial-wave-reflection">Images for partial wave reflection</a></summary><ul><li><a href="../guide/numerics.html#repeated-wall-encounters">Repeated wall encounters</a></li><li><a href="../guide/numerics.html#reusing-the-image-response">Reusing the image response</a></li><li><a href="../guide/numerics.html#numerical-evaluation-and-accuracy">Numerical evaluation and accuracy</a></li></ul></details></li><li><a href="../guide/numerics.html#spatial-sampling">Spatial sampling</a></li><li><a href="../guide/numerics.html#precomputed-animation-and-performance">Precomputed animation and performance</a></li><li><a href="../guide/numerics.html#small-disturbance-loading">Small-disturbance loading</a></li><li><a href="../guide/numerics.html#verification-and-interpretation">Verification and interpretation</a></li></ul></details><details class="manual-chapter" data-page="guide/materials"><summary><a href="../guide/materials.html">Materials</a></summary><ul><li><a href="../guide/materials.html#water">Water</a></li><li><a href="../guide/materials.html#olive-oil">Olive oil</a></li><li><a href="../guide/materials.html#silicone-oils">Silicone oils</a></li><li><a href="../guide/materials.html#honey">Honey</a></li><li><a href="../guide/materials.html#molten-chocolate">Molten chocolate</a></li><li><a href="../guide/materials.html#material-presets">Material presets</a></li><li><a href="../guide/materials.html#comparing-viscosity">Comparing viscosity</a></li><li><a href="../guide/materials.html#custom-fluids">Custom fluids</a></li></ul></details><details class="manual-chapter" data-page="guide/experiments"><summary><a href="../guide/experiments.html">Experiments</a></summary><ul><li><a href="../guide/experiments.html#scaled-water-experiments">Scaled water experiments</a></li><li><a href="../guide/experiments.html#reflecting-boundaries">Reflecting boundaries</a></li><li><a href="../guide/experiments.html#comparing-different-fluids">Comparing different fluids</a></li><li><details class="manual-section"><summary><a href="../guide/experiments.html#interpreting-the-experiments">Interpreting the experiments</a></summary><ul><li><a href="../guide/experiments.html#wave-propagation-and-dispersion">Wave propagation and dispersion</a></li><li><a href="../guide/experiments.html#wave-interference">Wave interference</a></li><li><a href="../guide/experiments.html#viscous-dissipation-and-geometric-spreading">Viscous dissipation and geometric spreading</a></li><li><a href="../guide/experiments.html#wave-reflection">Wave reflection</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/examples"><summary><a href="../guide/examples.html">Examples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/examples.html#application-examples">Application examples</a></summary><ul><li><a href="../guide/examples.html#interactive-examples">Interactive examples</a></li><li><a href="../guide/examples.html#demonstrations">Demonstrations</a></li></ul></details></li><li><a href="../guide/examples.html#apply-a-single-localized-impulse">Apply a single localized impulse</a></li><li><a href="../guide/examples.html#observe-the-wave-field">Observe the wave field</a></li><li><a href="../guide/examples.html#compare-physical-scales">Compare physical scales</a></li><li><a href="../guide/examples.html#compare-phase-and-group-velocities">Compare phase and group velocities</a></li><li><a href="../guide/examples.html#investigate-wave-interference">Investigate wave interference</a></li><li><a href="../guide/examples.html#change-wavelengths">Change wavelengths</a></li><li><a href="../guide/examples.html#investigate-wave-reflection">Investigate wave reflection</a></li><li><a href="../guide/examples.html#reproduce-rain">Reproduce rain</a></li><li><a href="../guide/examples.html#isolate-the-effect-of-viscosity">Isolate the effect of viscosity</a></li><li><a href="../guide/examples.html#examine-the-effect-of-spatial-resolution">Examine the effect of spatial resolution</a></li><li><a href="../guide/examples.html#compare-different-fluids">Compare different fluids</a></li></ul></details><details class="manual-chapter" data-page="reference/index" open="open"><summary><a aria-current="page" href="../reference/index.html">Functions and Properties</a></summary><ul><li><a href="../reference/index.html#function-and-class-reference">Function and class reference</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator">rippleSimulator</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-syntax">Syntax</a></li><li><a href="../reference/index.html#ripplesimulator-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-examples">Examples</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-explore-a-capillary-scale-disturbance">Explore a capillary-scale disturbance</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-name-value-arguments">Name-Value Arguments</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-app-owning-application">app – Owning application</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp">app.RippleSimulatorApp</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-syntax">Syntax</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp-examples">Examples</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-change-presentation-without-changing-the-physical-field">Change presentation without changing the physical field</a></li></ul></details></li><li><a href="../reference/index.html#app-ripplesimulatorapp-name-value-arguments">Name-Value Arguments</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-properties">Properties</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-methods">Methods</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-events">Events</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple">addRipple</a></summary><ul><li><a href="../reference/index.html#addripple-syntax">Syntax</a></li><li><a href="../reference/index.html#addripple-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-examples">Examples</a></summary><ul><li><a href="../reference/index.html#addripple-create-simultaneous-disturbances">Create simultaneous disturbances</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#addripple-position-source-center">position – Source center</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-identifier-accepted-input-number">identifier – Accepted input number</a></li></ul></details></li><li><a href="../reference/index.html#addripple-algorithms">Algorithms</a></li><li><a href="../reference/index.html#addripple-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain">rain</a></summary><ul><li><a href="../reference/index.html#rain-syntax">Syntax</a></li><li><a href="../reference/index.html#rain-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-examples">Examples</a></summary><ul><li><a href="../reference/index.html#rain-repeat-a-burst-s-positions">Repeat a burst's positions</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#rain-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#rain-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot">snapshot</a></summary><ul><li><a href="../reference/index.html#snapshot-syntax">Syntax</a></li><li><a href="../reference/index.html#snapshot-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-examples">Examples</a></summary><ul><li><a href="../reference/index.html#snapshot-inspect-the-wave-field">Inspect the wave field</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-name-value-arguments">Name-Value Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-derivatives-include-vertical-velocity-and-elevation-gradients">Derivatives – Include vertical velocity and elevation gradients</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-wavefield-wave-field-data">waveField – Wave field data</a></li></ul></details></li><li><a href="../reference/index.html#snapshot-limitations">Limitations</a></li><li><a href="../reference/index.html#snapshot-algorithms">Algorithms</a></li><li><a href="../reference/index.html#snapshot-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe">describe</a></summary><ul><li><a href="../reference/index.html#describe-syntax">Syntax</a></li><li><a href="../reference/index.html#describe-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-examples">Examples</a></summary><ul><li><a href="../reference/index.html#describe-inspect-the-scaled-experiment">Inspect the scaled experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#describe-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#describe-info-configuration-record">info – Configuration record</a></li></ul></details></li><li><a href="../reference/index.html#describe-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update">update</a></summary><ul><li><a href="../reference/index.html#update-syntax">Syntax</a></li><li><a href="../reference/index.html#update-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-examples">Examples</a></summary><ul><li><a href="../reference/index.html#update-update-without-advancing-the-clock">Update without advancing the clock</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#update-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#update-algorithms">Algorithms</a></li><li><a href="../reference/index.html#update-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup">applySetup</a></summary><ul><li><a href="../reference/index.html#applysetup-syntax">Syntax</a></li><li><a href="../reference/index.html#applysetup-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-examples">Examples</a></summary><ul><li><a href="../reference/index.html#applysetup-select-the-capillary-scale">Select the capillary scale</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#applysetup-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#applysetup-name-scaled-setup">name – Scaled setup</a></li></ul></details></li><li><a href="../reference/index.html#applysetup-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear">clear</a></summary><ul><li><a href="../reference/index.html#clear-syntax">Syntax</a></li><li><a href="../reference/index.html#clear-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-examples">Examples</a></summary><ul><li><a href="../reference/index.html#clear-cancel-a-scheduled-burst">Cancel a scheduled burst</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#clear-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#clear-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset">reset</a></summary><ul><li><a href="../reference/index.html#reset-syntax">Syntax</a></li><li><a href="../reference/index.html#reset-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-examples">Examples</a></summary><ul><li><a href="../reference/index.html#reset-restore-display-and-physical-defaults">Restore display and physical defaults</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#reset-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#reset-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera">setCameraView, restoreCamera</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-syntax">Syntax</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-examples">Examples</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-inspect-the-surface-from-above">Inspect the surface from above</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-name-camera-preset">name – Camera preset</a></li></ul></details></li><li><a href="../reference/index.html#setcameraview-restorecamera-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture">capture</a></summary><ul><li><a href="../reference/index.html#capture-syntax">Syntax</a></li><li><a href="../reference/index.html#capture-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-examples">Examples</a></summary><ul><li><a href="../reference/index.html#capture-capture-an-experiment">Capture an experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#capture-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#capture-filename-png-destination">filename – PNG destination</a></li></ul></details></li><li><a href="../reference/index.html#capture-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete">close, delete</a></summary><ul><li><a href="../reference/index.html#close-delete-syntax">Syntax</a></li><li><a href="../reference/index.html#close-delete-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-examples">Examples</a></summary><ul><li><a href="../reference/index.html#close-delete-close-an-owned-application">Close an owned application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#close-delete-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#close-delete-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#customization">Customization</a></summary><ul><li><a href="../reference/index.html#add-a-fluid-preset">Add a fluid preset</a></li></ul></details></li><li><a href="../reference/index.html#tests">Tests</a></li><li><a href="../reference/index.html#native-matlab-help">Native MATLAB help</a></li><li><a href="../reference/index.html#related-topics">Related Topics</a></li></ul></details><details class="manual-chapter" data-page="guide/sound"><summary><a href="../guide/sound.html">Sound</a></summary><ul><li><a href="../guide/sound.html#controls">Controls</a></li><li><a href="../guide/sound.html#recordings-and-overlap">Recordings and overlap</a></li><li><a href="../guide/sound.html#reusable-playback">Reusable playback</a></li></ul></details><details class="manual-chapter" data-page="guide/installation"><summary><a href="../guide/installation.html">Installation and requirements</a></summary><ul><li><a href="../guide/installation.html#matlab">MATLAB</a></li><li><a href="../guide/installation.html#optional-java-audio">Optional Java audio</a></li><li><a href="../guide/installation.html#documentation">Documentation</a></li><li><details class="manual-section"><summary><a href="../guide/installation.html#troubleshooting">Troubleshooting</a></summary><ul><li><a href="../guide/installation.html#reduced-playback-frame-rate">Reduced playback frame rate</a></li><li><a href="../guide/installation.html#playback-interruptions-during-mouse-movement">Playback interruptions during mouse movement</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/references"><summary><a href="../guide/references.html">References</a></summary><ul><li><a href="../guide/references.html#wave-physics">Wave physics</a></li><li><a href="../guide/references.html#impulsive-excitation-and-ring-waves">Impulsive excitation and ring waves</a></li><li><a href="../guide/references.html#wave-reflection">Wave reflection</a></li><li><a href="../guide/references.html#numerical-interpolation">Numerical interpolation</a></li><li><a href="../guide/references.html#material-properties">Material properties</a></li><li><a href="../guide/references.html#matlab-documentation">MATLAB documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/notices"><summary><a href="../guide/notices.html">Third-party notices</a></summary><ul><li><a href="../guide/notices.html#matlab-docmaker">MATLAB DocMaker</a></li><li><a href="../guide/notices.html#github-markdown-css">GitHub Markdown CSS</a></li><li><a href="../guide/notices.html#scientific-sources">Scientific sources</a></li></ul></details></nav></details></aside><div><div class="markdown-heading"><h1 class="heading-element" id="functions-and-properties">Functions and Properties</h1></div>
+<p><code>rippleSimulator</code> launches the interactive gravity-capillary ripple simulator application.
+<code>app.RippleSimulatorApp</code> provides the class-based interface.
+Use the following functions and properties to set up experiments, create sources,
+read physical quantities, and control the presentation from MATLAB code.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="function-and-class-reference">Function and class reference</h2></div>
+<table>
+<thead>
+<tr>
+<th>Reference</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#ripplesimulator"><code>rippleSimulator</code></a></td>
+<td>Launch the application</td>
+</tr>
+<tr>
+<td><a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a></td>
+<td>Create the application object</td>
+</tr>
+<tr>
+<td><a href="#addripple"><code>addRipple</code></a></td>
+<td>Apply a localized source</td>
+</tr>
+<tr>
+<td><a href="#rain"><code>rain</code></a></td>
+<td>Schedule twenty manual-equivalent inputs</td>
+</tr>
+<tr>
+<td><a href="#snapshot"><code>snapshot</code></a></td>
+<td>Retrieve the wave field data at the current simulation time</td>
+</tr>
+<tr>
+<td><a href="#describe"><code>describe</code></a></td>
+<td>Read configuration and material provenance</td>
+</tr>
+<tr>
+<td><a href="#update"><code>update</code></a></td>
+<td>Process elapsed time</td>
+</tr>
+<tr>
+<td><a href="#applysetup"><code>applySetup</code></a></td>
+<td>Select a physical scale</td>
+</tr>
+<tr>
+<td><a href="#clear"><code>clear</code></a></td>
+<td>Clear waves and scheduled input</td>
+</tr>
+<tr>
+<td><a href="#reset"><code>reset</code></a></td>
+<td>Restore the defaults</td>
+</tr>
+<tr>
+<td><a href="#setcameraview-restorecamera"><code>setCameraView</code>, <code>restoreCamera</code></a></td>
+<td>Select or restore the camera</td>
+</tr>
+<tr>
+<td><a href="#capture"><code>capture</code></a></td>
+<td>Export a PNG image</td>
+</tr>
+<tr>
+<td><a href="#close-delete"><code>close</code>, <code>delete</code></a></td>
+<td>Release the application</td>
+</tr>
+</tbody>
+</table>
+
+<div class="markdown-heading"><h2 class="heading-element" id="ripplesimulator">rippleSimulator</h2></div>
+<p>Launch the application</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="ripplesimulator-syntax">Syntax</h3></div>
+<pre lang="text"><code>rippleSimulator()
+app = rippleSimulator()
+app = rippleSimulator(Name=Value)
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="ripplesimulator-description">Description</h3></div>
+<p><code>rippleSimulator()</code> opens the default gravity-scale water experiment. Click
+the surface to create a ripple, or choose commands from the menus and axes
+toolbar. Closing the figure releases the app's resources.</p>
+<hr/>
+<p><code>app = rippleSimulator()</code> also returns the owning <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a>
+handle. Use it to change properties, create sources, and inspect physical data.</p>
+<hr/>
+<p><code>app = rippleSimulator(Name=Value)</code> forwards name-value arguments to the
+class constructor.</p>
+<hr/>
+<p>The only required MathWorks product is MATLAB R2022a or later. No additional
+toolboxes are required. See
+<a href="../guide/installation.html">Installation and requirements</a> for setup instructions and troubleshooting.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="ripplesimulator-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="ripplesimulator-explore-a-capillary-scale-disturbance">Explore a capillary-scale disturbance</h4></div>
+<p>Create a localized disturbance in the Capillary water experiment.</p>
+<div class="highlight highlight-source-matlab"><pre>app <span class="pl-k">=</span> rippleSimulator(<span class="pl-smi">Setup</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Capillary<span class="pl-pds">"</span></span>);
+<span class="pl-smi">app</span>.addRipple([<span class="pl-c1">0</span>, <span class="pl-c1">0</span>]);</pre></div>
+<p>Surface tension dominates over gravity at the Capillary setup's characteristic wavelength.
+The Gaussian pressure impulse excites a spectrum of wavelengths, producing a dispersive
+wave packet with concentric rings.</p>
+<p><a href="../assets/example-capillary.png" rel="noopener noreferrer" target="_blank"><img alt="Full application showing a single capillary-scale ring from a central impulse." src="../assets/example-capillary.png" style="max-width: 100%;"/></a></p>
+<p><em>Water at 20 °C, 8.72 ms after a central impulse; 5 mm characteristic wavelength,
+32.5 × 32.5 mm domain, 201 × 201 grid, and 100x height scale.</em></p>
+<p>Close the app when finished:</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">app</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="ripplesimulator-name-value-arguments">Name-Value Arguments</h3></div>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Setup</code></td>
+<td>
+<code>"Gravity"</code> (default), <code>"Balanced"</code>, or <code>"Capillary"</code>; select a scaled water experiment.</td>
+</tr>
+<tr>
+<td><code>GridResolution</code></td>
+<td>Integer from 51 to 801; default 201. Must also satisfy spatial sampling requirements.</td>
+</tr>
+<tr>
+<td><code>Visible</code></td>
+<td>
+<code>"on"</code> or <code>"off"</code>; default <code>"on"</code>.</td>
+</tr>
+<tr>
+<td><code>AutomaticUpdates</code></td>
+<td>Logical scalar; default <code>true</code>. Set <code>false</code> to call <code>update</code> explicitly.</td>
+</tr>
+<tr>
+<td><code>Paused</code></td>
+<td>Logical scalar; default <code>false</code>. Set <code>true</code> to start paused at physical time zero. Setting the <code>Paused</code> property to <code>false</code> resumes time; automatic updates start only if <code>AutomaticUpdates=true</code>.</td>
+</tr>
+<tr>
+<td><code>TimeSource</code></td>
+<td>Optional function handle returning a finite, monotonic scalar time in seconds. The default uses MATLAB's elapsed timer.</td>
+</tr>
+<tr>
+<td><code>ReflectionsEnabled</code></td>
+<td>Logical scalar; default <code>false</code>. Set <code>true</code> to start with reflecting boundaries.</td>
+</tr>
+<tr>
+<td><code>ReflectionCoefficient</code></td>
+<td>Real scalar from 0 to 1; default 1. Reflected amplitude fraction when wave reflections are enabled.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="markdown-heading"><h3 class="heading-element" id="ripplesimulator-output-arguments">Output Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="ripplesimulator-app-owning-application">app – Owning application</h4></div>
+<p>Scalar <code>app.RippleSimulatorApp</code> handle. The handle becomes invalid when the application closes.</p>
+<blockquote>
+<p><strong>Caution:</strong> An output variable named <code>app</code> shadows the <code>app</code> namespace.
+This does not affect calls to object methods, such as <code>app.addRipple</code>.
+Use a different variable name when calling <code>app.RippleSimulatorApp(...)</code>
+directly. If <code>app</code> already exists in the Command Window workspace, close
+the application and run <code>clear app</code> before accessing the namespace.</p>
+</blockquote>
+
+<div class="markdown-heading"><h3 class="heading-element" id="ripplesimulator-see-also">See Also</h3></div>
+<p><a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> · <a href="../guide/examples.html">Examples</a> · <a href="../guide/controls.html">Controls</a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="app-ripplesimulatorapp">app.RippleSimulatorApp</h2></div>
+<p>Create a Ripple Simulator application object</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-syntax">Syntax</h3></div>
+<pre lang="text"><code>simulator = app.RippleSimulatorApp()
+simulator = app.RippleSimulatorApp(Name=Value)
+</code></pre>
+<pre lang="text"><code>simulator.Property = value
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-description">Description</h3></div>
+<p><code>app.RippleSimulatorApp()</code> constructs the application object and creates its
+interface. The object owns its figure, controls, elapsed-time clock, and wave
+model. Public properties control the experiment
+and its presentation; menu commands use the same property setters. An accepted
+change updates the affected components before notifying observers.</p>
+<hr/>
+<p>The model represents linear waves on an infinitely deep, homogeneous Newtonian
+fluid with a clean free surface. The unmodified response includes gravity,
+surface tension, dispersion, and viscosity. A finite-duration envelope
+returns each source to exact stillness. See <a href="../guide/physics.html">Physics</a> for the
+governing equations and the assumptions required for quantitative interpretation.</p>
+<p>The class has handle semantics and cannot be subclassed. Its <code>app.internal</code>
+components are implementation details, not supported public interfaces.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="app-ripplesimulatorapp-change-presentation-without-changing-the-physical-field">Change presentation without changing the physical field</h4></div>
+<p>Freeze the experiment at its initial time, add an impulse, and compare a
+physical snapshot before and after changing the rendering.</p>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+<span class="pl-smi">simulator</span>.addRipple([<span class="pl-c1">0</span>, <span class="pl-c1">0</span>]);
+before <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.snapshot(<span class="pl-smi">Derivatives</span><span class="pl-k">=</span><span class="pl-c1">true</span>);
+simulator.Wireframe <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+simulator.HeightScale <span class="pl-k">=</span> <span class="pl-c1">1000</span>;
+after <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.snapshot(<span class="pl-smi">Derivatives</span><span class="pl-k">=</span><span class="pl-c1">true</span>);
+isequal(<span class="pl-smi">before</span>, <span class="pl-smi">after</span>)</pre></div>
+<pre lang="text"><code>ans =
+  logical
+   1
+</code></pre>
+<p>The impulse initially has zero elevation and nonzero vertical velocity. The
+unchanged snapshot verifies that display settings do not alter either field.</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-name-value-arguments">Name-Value Arguments</h3></div>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Setup</code></td>
+<td>
+<code>"Gravity"</code> (default), <code>"Balanced"</code>, or <code>"Capillary"</code>; select a scaled water experiment.</td>
+</tr>
+<tr>
+<td><code>GridResolution</code></td>
+<td>Integer from 51 to 801; default 201. Must also satisfy spatial sampling requirements.</td>
+</tr>
+<tr>
+<td><code>Visible</code></td>
+<td>
+<code>"on"</code> or <code>"off"</code>; default <code>"on"</code>.</td>
+</tr>
+<tr>
+<td><code>AutomaticUpdates</code></td>
+<td>Logical scalar; default <code>true</code>. Set <code>false</code> to call <code>update</code> explicitly.</td>
+</tr>
+<tr>
+<td><code>Paused</code></td>
+<td>Logical scalar; default <code>false</code>. Set <code>true</code> to start paused at physical time zero. Setting the <code>Paused</code> property to <code>false</code> resumes time; automatic updates start only if <code>AutomaticUpdates=true</code>.</td>
+</tr>
+<tr>
+<td><code>TimeSource</code></td>
+<td>Optional function handle returning a finite, monotonic scalar time in seconds. The default uses MATLAB's elapsed timer.</td>
+</tr>
+<tr>
+<td><code>ReflectionsEnabled</code></td>
+<td>Logical scalar; default <code>false</code>. Set <code>true</code> to start with reflecting boundaries.</td>
+</tr>
+<tr>
+<td><code>ReflectionCoefficient</code></td>
+<td>Real scalar from 0 to 1; default 1. Reflected amplitude fraction when wave reflections are enabled.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-properties">Properties</h3></div>
+<p>Use these properties to configure the experiment and its presentation.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type and units</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Wavelength</code></td>
+<td>Real scalar, 0.005–0.1 m</td>
+<td>Characteristic scale of new sources. Existing waves retain their scale.</td>
+</tr>
+<tr>
+<td><code>PressureImpulse</code></td>
+<td>Nonnegative scalar, Pa s</td>
+<td>Pressure strength for new sources, subject to the small-disturbance limit.</td>
+</tr>
+<tr>
+<td><code>SourceMode</code></td>
+<td>
+<code>"Impulse"</code> or <code>"Wavemaker"</code>
+</td>
+<td>Excitation method for new sources.</td>
+</tr>
+<tr>
+<td><code>DomainSize</code></td>
+<td>Real scalar, 0.005–2.4 m</td>
+<td>Domain width; starts a new experiment. Domain and source must satisfy supported extent and sampling limits.</td>
+</tr>
+<tr>
+<td><code>Material</code></td>
+<td>
+<code>"Water"</code>, <code>"Olive oil"</code>, <code>"KF-96L-5cs"</code>, <code>"KF-96-100cs"</code>, <code>"Honey"</code>, <code>"Chocolate"</code>, or <code>"Custom"</code>
+</td>
+<td>Starts a new experiment with the specified fluid. Honey and molten chocolate use the documented constant-viscosity approximations. Define custom data through <code>FluidProperties</code>.</td>
+</tr>
+<tr>
+<td><code>FluidProperties</code></td>
+<td>Scalar structure</td>
+<td>Complete custom record with <code>Density</code> (kg/m³), <code>DynamicViscosity</code> (Pa s), <code>SurfaceTension</code> (N/m), and <code>Temperature</code> (°C).</td>
+</tr>
+<tr>
+<td><code>Temperature</code></td>
+<td>Real scalar, °C</td>
+<td>Water accepts 0–40 °C. Other presets retain their specified temperature; custom temperature belongs to the complete property record.</td>
+</tr>
+<tr>
+<td><code>GridResolution</code></td>
+<td>Integer, 51–801</td>
+<td>Resamples existing waves without changing their time or physical state.</td>
+</tr>
+<tr>
+<td><code>PlaybackRate</code></td>
+<td>Real scalar, 0.1–2</td>
+<td>Multiplies elapsed real time to determine simulation time; prior elapsed time is unchanged. Gravity and Balanced start at 0.25; Capillary starts at 0.10.</td>
+</tr>
+<tr>
+<td><code>Paused</code></td>
+<td>Logical scalar</td>
+<td>Suspends waves and scheduled input.</td>
+</tr>
+<tr>
+<td><code>RandomSeed</code></td>
+<td>Integer, 0–4294967295</td>
+<td>Resets the private generator for subsequent rain bursts.</td>
+</tr>
+<tr>
+<td><code>RainStrengthScale</code></td>
+<td>Nonnegative finite scalar; default <code>1</code>
+</td>
+<td>Multiplies pressure strength for newly scheduled rain bursts.</td>
+</tr>
+<tr>
+<td><code>AutoclickStrengthScale</code></td>
+<td>Nonnegative finite scalar; default <code>0.2</code>
+</td>
+<td>Multiplies pressure strength for new Auto-click inputs. Existing waves and the Rain multiplier are unchanged.</td>
+</tr>
+<tr>
+<td><code>Wireframe</code></td>
+<td>Logical scalar</td>
+<td>Displays black mesh edges. Enabling Wireframe turns lighting on, showing lit white faces. Turn lighting off for transparent faces. Disabling Wireframe restores the previous surface mode and its default lighting: on for <code>"Shaded"</code> and <code>"Contrast"</code>, off for <code>"Elevation"</code>.</td>
+</tr>
+<tr>
+<td><code>SurfaceMode</code></td>
+<td>
+<code>"Shaded"</code>, <code>"Elevation"</code>, or <code>"Contrast"</code>
+</td>
+<td>Selects solid shading, elevation colors, or high contrast without changing the waves.</td>
+</tr>
+<tr>
+<td><code>Colormap</code></td>
+<td>Colormap function name, N-by-3 RGB array, or literal RGB matrix text; default <code>"winter"</code>
+</td>
+<td>Sets the elevation colors. RGB values must be finite and between 0 and 1. A single RGB triplet defines a constant-color map.</td>
+</tr>
+<tr>
+<td><code>ColormapReversed</code></td>
+<td>Logical scalar; default <code>false</code>
+</td>
+<td>Reverses the selected elevation colormap.</td>
+</tr>
+<tr>
+<td><code>FullScreen</code></td>
+<td>Logical scalar; default <code>false</code>
+</td>
+<td>Shows only the surface, hiding menus, toolbar, and bottom panels. F11 or Escape restores their previous settings.</td>
+</tr>
+<tr>
+<td><code>Appearance</code></td>
+<td>Named color preset</td>
+<td>Selects surface color and lighting independently of the physical material.</td>
+</tr>
+<tr>
+<td><code>SurfaceColor</code></td>
+<td>MATLAB color name, short name, hexadecimal code, or RGB row in [0, 1]</td>
+<td>Selects a custom surface color; reading the property returns its RGB triplet.</td>
+</tr>
+<tr>
+<td><code>BackgroundColor</code></td>
+<td>MATLAB color name, short name, hexadecimal code, RGB row in [0, 1], or <code>"Theme"</code>
+</td>
+<td>Sets the viewing-area background; returns its RGB triplet. Fixed colors persist across theme changes. The default and reset setting is <code>"Theme"</code>, which follows the figure theme, with a white fallback on releases without themes.</td>
+</tr>
+<tr>
+<td><code>SurfaceOpacity</code></td>
+<td>Scalar in [0.1, 1]</td>
+<td>Sets filled-surface opacity: 0.1 is 10% opaque and 1 is fully opaque. Wireframe and views without lighting ignore this setting. Named material presets use 1.</td>
+</tr>
+<tr>
+<td><code>SoundEnabled</code></td>
+<td>Logical scalar</td>
+<td>Enables or mutes manual, rain, and Auto-click sounds.</td>
+</tr>
+<tr>
+<td><code>AutoclickEnabled</code></td>
+<td>Logical scalar; default <code>false</code>
+</td>
+<td>Creates inputs as the pointer moves over the surface in Ripple mode, using <code>AutoclickStrengthScale</code>.</td>
+</tr>
+<tr>
+<td><code>LightingEnabled</code></td>
+<td>Logical scalar</td>
+<td>Enables or disables surface lighting. Solid surface uses unfilled, colored mesh edges when lighting is off; white surfaces use black edges.</td>
+</tr>
+<tr>
+<td><code>ReflectionsEnabled</code></td>
+<td>Logical scalar</td>
+<td>Switches between open water and reflecting boundaries. Clears waves and pending rain; preserves the camera, source settings, and pause state.</td>
+</tr>
+<tr>
+<td><code>ReflectionCoefficient</code></td>
+<td>Real scalar, 0–1</td>
+<td>Reflected amplitude fraction; default 1. Changing it with wave reflections enabled starts a new experiment. Intermediate values require a domain 6.5–26 characteristic wavelengths wide.</td>
+</tr>
+<tr>
+<td><code>ControlsVisible</code></td>
+<td>Logical scalar</td>
+<td>Shows the wavelength, pressure strength, and playback controls.</td>
+</tr>
+<tr>
+<td><code>ReadoutVisible</code></td>
+<td>Logical scalar</td>
+<td>Shows the explanatory text and numerical measurements; corresponds to View &gt; Display status.</td>
+</tr>
+<tr>
+<td><code>ShowFPS</code></td>
+<td>Logical scalar; default <code>true</code>
+</td>
+<td>Shows the rolling frame rate at the lower right.</td>
+</tr>
+<tr>
+<td><code>HeightScale</code></td>
+<td>Real scalar, 1–1,000,000</td>
+<td>Vertical display multiplier; assigning a value disables automatic scaling.</td>
+</tr>
+<tr>
+<td><code>AutomaticHeightScale</code></td>
+<td>Logical, initially <code>true</code>
+</td>
+<td>Match reference-impulse visibility to water when fluid properties or wavelength change. Selecting a named material disables it and applies that material's fixed height scale.</td>
+</tr>
+<tr>
+<td><code>NavigationMode</code></td>
+<td>
+<code>"Ripple"</code>, <code>"Rotate"</code>, <code>"Pan"</code>, or <code>"Zoom"</code>
+</td>
+<td>Selects pointer behavior.</td>
+</tr>
+</tbody>
+</table>
+<p>Selecting a named material restores its <a href="../guide/materials.html#material-presets">preset</a>
+fluid properties, wavelength, pressure strength, height scale, and appearance.
+Reselecting the same material restores those settings as well. Selecting Water
+restores its properties at 20 °C. The excitation method is preserved.
+Changing water temperature, material, physical domain, or boundary type clears existing waves
+and pending rain and establishes a new physical time origin.
+Assigning the already accepted domain or fluid properties preserves the experiment.
+Reselecting a material also preserves existing waves when its fluid properties
+and source settings already match the preset.
+Assigning the accepted boundary setting also preserves it. Material, domain,
+and scaled-setup changes retain the selected boundary type; <code>reset</code> restores
+open water.</p>
+<p>Read-only properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Figure</code></td>
+<td>Owned MATLAB figure handle.</td>
+</tr>
+<tr>
+<td><code>PhysicalTime</code></td>
+<td>Last processed physical time, in seconds.</td>
+</tr>
+<tr>
+<td><code>IsAtRest</code></td>
+<td>True when the represented surface has no active wave contribution.</td>
+</tr>
+<tr>
+<td><code>MeasuredFPS</code></td>
+<td>Playback updates per real second, averaged over the last ten frame intervals; zero while paused. This is the value displayed by <code>ShowFPS</code>.</td>
+</tr>
+<tr>
+<td><code>Status</code></td>
+<td>Current application state.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-methods">Methods</h3></div>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#addripple"><code>addRipple</code></a></td>
+<td>Add one localized source</td>
+</tr>
+<tr>
+<td><a href="#rain"><code>rain</code></a></td>
+<td>Schedule twenty localized inputs</td>
+</tr>
+<tr>
+<td><a href="#update"><code>update</code></a></td>
+<td>Process elapsed time and update the surface</td>
+</tr>
+<tr>
+<td><a href="#snapshot"><code>snapshot</code></a></td>
+<td>Retrieve the wave field data at the current simulation time</td>
+</tr>
+<tr>
+<td><a href="#describe"><code>describe</code></a></td>
+<td>Read experiment settings and material provenance</td>
+</tr>
+<tr>
+<td><a href="#applysetup"><code>applySetup</code></a></td>
+<td>Select a scaled water experiment</td>
+</tr>
+<tr>
+<td><a href="#clear"><code>clear</code></a></td>
+<td>Remove waves and pending rain</td>
+</tr>
+<tr>
+<td><a href="#reset"><code>reset</code></a></td>
+<td>Restore the default experiment and presentation</td>
+</tr>
+<tr>
+<td><a href="#setcameraview-restorecamera"><code>setCameraView</code>, <code>restoreCamera</code></a></td>
+<td>Select or restore the camera</td>
+</tr>
+<tr>
+<td><a href="#capture"><code>capture</code></a></td>
+<td>Export the application to PNG</td>
+</tr>
+<tr>
+<td><a href="#close-delete"><code>close</code>, <code>delete</code></a></td>
+<td>Release owned resources</td>
+</tr>
+</tbody>
+</table>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-events">Events</h3></div>
+<p><code>SettingsChanged</code> follows an accepted physical or display change.
+<code>PlaybackChanged</code> follows a pause or playback-rate change. Reset emits both.
+An observer can read the accepted properties, <code>snapshot</code>, or <code>describe</code>.
+Retain listener handles for as long as the subscription is needed.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="app-ripplesimulatorapp-see-also">See Also</h3></div>
+<p><a href="#ripplesimulator"><code>rippleSimulator</code></a> · <a href="../guide/physics.html">Physics</a> · <a href="../guide/numerics.html">Numerical methods</a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="addripple">addRipple</h2></div>
+<p>Apply one localized source at physical coordinates</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="addripple-syntax">Syntax</h3></div>
+<pre lang="text"><code>identifier = addRipple(simulator,position)
+identifier = simulator.addRipple(position)
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="addripple-description">Description</h3></div>
+<p><code>identifier = simulator.addRipple(position)</code> applies the current source at
+<code>position = [x, y]</code>, measured in meters from the domain's center. The input
+retains its physical start time, wavelength, pressure strength, and excitation method.
+Changing these settings later affects subsequent inputs only.</p>
+<p>The position must lie within the observation domain. Sources use the stated
+small-disturbance model. A pressure impulse starts with zero
+elevation and a velocity disturbance; its elevation develops during playback.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="addripple-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="addripple-create-simultaneous-disturbances">Create simultaneous disturbances</h4></div>
+<p>Use a fixed time source for exactly simultaneous inputs without relying on
+the speed of sequential commands.</p>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+first <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.addRipple([-<span class="pl-c1">0.1</span>, <span class="pl-c1">0</span>]);
+second <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.addRipple([<span class="pl-c1">0.1</span>, <span class="pl-c1">0</span>]);
+info <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.describe();
+[<span class="pl-smi">first</span>, <span class="pl-smi">second</span>; <span class="pl-smi">info</span>.Simulation.Events.Time]</pre></div>
+<pre lang="text"><code>ans =
+     1     2
+     0     0
+</code></pre>
+<p>The two sources have equal pressure strength and start time. Their wave fields
+are superimposed linearly. For an interactive experiment, pause before adding both
+sources, then resume playback.</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="addripple-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="addripple-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h4 class="heading-element" id="addripple-position-source-center">position – Source center</h4></div>
+<p>Finite, real, numeric 1-by-2 row vector in meters. Each coordinate must lie
+between <code>-simulator.DomainSize/2</code> and <code>simulator.DomainSize/2</code>, including the endpoints.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="addripple-output-arguments">Output Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="addripple-identifier-accepted-input-number">identifier – Accepted input number</h4></div>
+<p>Positive scalar integer stored as <code>double</code>. Numbers increase within the
+current experiment; a new physical experiment starts a new input sequence.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="addripple-algorithms">Algorithms</h3></div>
+<p>A pressure impulse has a Gaussian spatial profile with width
+<em>s</em> = <em>λ</em>/(2π). Its time-integrated pressure is</p>
+<p><a href="../assets/pressure-impulse.svg" rel="noopener noreferrer" target="_blank"><img alt="The pressure impulse at distance r is J times the exponential of minus r squared divided by twice s squared." src="../assets/pressure-impulse.svg" style="max-width: 100%;"/></a></p>
+<p><em>J</em> is the <code>PressureImpulse</code> scale in Pa s; positive applied pressure acts
+downward. The four-cycle mode instead applies a finite pressure history.
+See <a href="../guide/physics.html#source-definitions">Source definitions</a> for the forcing equations and
+<a href="../guide/physics.html#model-assumptions-and-numerical-approximations">Physics</a> for the
+source-age envelope applied to both direct and reflected contributions.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="addripple-see-also">See Also</h3></div>
+<p><a href="#rain"><code>rain</code></a> · <a href="#snapshot"><code>snapshot</code></a> · <a href="../guide/physics.html#source-definitions">Source definitions</a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="rain">rain</h2></div>
+<p>Schedule twenty localized sources</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="rain-syntax">Syntax</h3></div>
+<pre lang="text"><code>rain(simulator)
+simulator.rain()
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="rain-description">Description</h3></div>
+<p><code>simulator.rain()</code> schedules twenty inputs at positions drawn uniformly from
+the observation domain and placed at the nearest grid nodes. The first is issued immediately, followed by nineteen
+inputs spaced by 0.05 seconds of elapsed real time while playback runs. Each event uses
+the same source operation as a manual click. By default, its pressure strength is also
+the same. <code>RainStrengthScale</code> multiplies the selected pressure strength for rain.
+Each burst retains the multiplier selected when it was scheduled; wavelength,
+excitation method, and pressure strength follow their settings at each input time.</p>
+<p>The <a href="../guide/physics.html#pressure-impulse">source definition</a> gives the applied pressure
+impulse and its physical units. Rain demonstrates the superposition of
+localized gravity-capillary waves. The source idealization represents wave
+excitation without resolving drop deformation, impact cavities, or splashing.
+<a href="../guide/physics.html#wave-dispersion">Measured ring-wave scales</a> provide experimental
+context for the resulting elevations and propagation speeds.</p>
+<p>Pausing suspends the remaining schedule. Rain requests are ignored while paused.
+A delayed update processes overdue
+inputs at their intended timestamps. Additional bursts retain the pending drops
+and overlap their schedules. <code>clear</code> cancels unissued inputs.
+<code>RandomSeed</code> controls a private random number stream. Rain generation does not
+change the state of MATLAB's global random number stream.</p>
+<p>When sound is enabled during playback, each burst plays one recording of rain
+striking water. Mute or pause stops the recording. Repeated bursts can overlap
+their recordings as well as their wave fields.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="rain-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="rain-repeat-a-burst-s-positions">Repeat a burst's positions</h4></div>
+<p>Reinitialize the private seed to repeat the positions. Clearing alone retains
+the stream's progression.</p>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+simulator.RandomSeed <span class="pl-k">=</span> <span class="pl-c1">42</span>;
+<span class="pl-smi">simulator</span>.rain();
+first <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.describe();
+<span class="pl-smi">simulator</span>.clear();
+simulator.RandomSeed <span class="pl-k">=</span> <span class="pl-c1">42</span>;
+<span class="pl-smi">simulator</span>.rain();
+second <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.describe();
+isequal(<span class="pl-smi">first</span>.Simulation.Events.Position, <span class="pl-smi">second</span>.Simulation.Events.Position)</pre></div>
+<pre lang="text"><code>ans =
+  logical
+   1
+</code></pre>
+<p>Only the first source is due at this fixed time. The remaining nineteen
+positions are reserved for later playback.</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="rain-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="rain-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="rain-see-also">See Also</h3></div>
+<p><a href="#addripple"><code>addRipple</code></a> · <a href="#clear"><code>clear</code></a> · <a href="#update"><code>update</code></a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="snapshot">snapshot</h2></div>
+<p>Retrieve the wave field data at the current simulation time</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-syntax">Syntax</h3></div>
+<pre lang="text"><code>waveField = snapshot(simulator)
+waveField = snapshot(simulator,Derivatives=true)
+waveField = simulator.snapshot(Name=Value)
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-description">Description</h3></div>
+<p><code>waveField = simulator.snapshot()</code> retrieves the wave field data at the current
+simulation time. The <code>Time</code> field records the last processed simulation time.
+Call <a href="#update"><code>update</code></a> first when
+newly elapsed time must be processed. Display exaggeration and camera settings
+do not enter the returned quantities.</p>
+<hr/>
+<p><code>waveField = simulator.snapshot(Derivatives=true)</code> also returns vertical surface velocity
+and the horizontal surface-elevation gradients, ∂η/∂x and ∂η/∂y. Velocity includes the derivative of
+the finite-duration envelope during the settling interval.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-examples">Examples</h3></div>
+
+
+<div class="markdown-heading"><a id="snapshot-inspect-a-resolved-wave-field"></a><h4 class="heading-element" id="snapshot-inspect-the-wave-field">Inspect the wave field</h4></div>
+<p>Pause an open application before reading a fixed wave state:</p>
+<div class="highlight highlight-source-matlab"><pre>simulator.Paused <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+waveField <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.snapshot(<span class="pl-smi">Derivatives</span><span class="pl-k">=</span><span class="pl-c1">true</span>);</pre></div>
+<p>The <a href="../guide/examples.html#observe-the-wave-field">wave field inspection example</a>
+animates the complete time history and describes the <code>inspectWaveField</code> options.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="snapshot-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-name-value-arguments">Name-Value Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="snapshot-derivatives-include-vertical-velocity-and-elevation-gradients">Derivatives – Include vertical velocity and elevation gradients</h4></div>
+<p><code>false</code> (default) or <code>true</code>, specified as a logical scalar or numeric 0 or 1.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-output-arguments">Output Arguments</h3></div>
+
+
+<div class="markdown-heading"><a id="snapshot-frame-physical-wave-field"></a><h4 class="heading-element" id="snapshot-wavefield-wave-field-data">waveField – Wave field data</h4></div>
+<p>Scalar structure with the following fields. <em>N</em> is <code>simulator.GridResolution</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Size and description</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Elevation</code></td>
+<td>
+<em>N</em>-by-<em>N</em> surface elevation</td>
+<td>m</td>
+</tr>
+<tr>
+<td><code>Velocity</code></td>
+<td>
+<em>N</em>-by-<em>N</em> vertical surface velocity when requested; otherwise empty</td>
+<td>m/s</td>
+</tr>
+<tr>
+<td>
+<code>GradientX</code>, <code>GradientY</code>
+</td>
+<td>
+<em>N</em>-by-<em>N</em> horizontal derivatives when requested; otherwise empty</td>
+<td>Dimensionless</td>
+</tr>
+<tr>
+<td><code>Coordinates</code></td>
+<td>1-by-<em>N</em> x and y node coordinates</td>
+<td>m</td>
+</tr>
+<tr>
+<td><code>DomainSize</code></td>
+<td>Physical domain width</td>
+<td>m</td>
+</tr>
+<tr>
+<td><code>Time</code></td>
+<td>Last processed simulation time</td>
+<td>s</td>
+</tr>
+<tr>
+<td><code>IsAtRest</code></td>
+<td>True when the represented surface has no active wave contribution</td>
+<td>–</td>
+</tr>
+<tr>
+<td><code>GeometryRevision</code></td>
+<td>Observation grid revision identifier</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-limitations">Limitations</h3></div>
+<p>Maxima over the grid nodes are not certified continuous-space extrema. Compare finer
+grids when small features or slopes matter.</p>
+<p><code>IsAtRest</code> describes the represented surface. It does not characterize
+residual vorticity throughout the full fluid depth. The finite-duration
+envelope makes each source contribution exactly zero at its deadline.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-algorithms">Algorithms</h3></div>
+<p>For a pressure impulse in open water, the unmodified elevation is</p>
+<p><a href="../assets/hankel-response.svg" rel="noopener noreferrer" target="_blank"><img alt="The radial elevation is minus J s squared over density times the integral of k squared times the Gaussian spectrum, Bessel J zero, and h epsilon over omega zero." src="../assets/hankel-response.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>a</em> is source age, <em>s</em> its Gaussian width, <em>J</em> the pressure impulse,
+<em>ρ</em> density, <em>J</em>₀ the order-zero Bessel function, and <em>h</em>ε the inverse Laplace
+transform of the full viscous transfer function. The source contributions are superimposed. Ideal
+reflecting walls use a cosine expansion with the same viscous modal response.</p>
+<p>During finite settling, the reported elevation and velocity are</p>
+<p><a href="../assets/settling-fields.svg" rel="noopener noreferrer" target="_blank"><img alt="Elevation is E times the viscous elevation; vertical velocity is E times viscous velocity plus E prime times viscous elevation." src="../assets/settling-fields.svg" style="max-width: 100%;"/></a></p>
+<p>The <a href="../guide/physics.html">Physics</a> and <a href="../guide/numerics.html">Numerical methods</a> pages define
+the equations, interpolation, omission bounds, and finite-duration approximation.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="snapshot-see-also">See Also</h3></div>
+<p><a href="#update"><code>update</code></a> · <a href="#describe"><code>describe</code></a> · <a href="../guide/physics.html">Physics</a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="describe">describe</h2></div>
+<p>Read experiment settings and material provenance</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="describe-syntax">Syntax</h3></div>
+<pre lang="text"><code>info = describe(simulator)
+info = simulator.describe()
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="describe-description">Description</h3></div>
+<p><code>info = simulator.describe()</code> returns the experiment configuration from one processed state. It does not advance time.
+Fluid properties include SI unit names and source provenance.</p>
+<p>Use the record to identify the fluid, source definition, physical dimensions,
+playback rate, height scale, source settings, and simulation time.
+It is an inspection record, not a serialized app that can be loaded to resume
+an experiment.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="describe-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="describe-inspect-the-scaled-experiment">Inspect the scaled experiment</h4></div>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+info <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.describe();
+fprintf(<span class="pl-s"><span class="pl-pds">"</span>Domain: %.2f m\nGrid: %d nodes per side\nHeight scale: %gx\n<span class="pl-pds">"</span></span>, ...
+    <span class="pl-smi">info</span>.DomainSizeMeters, <span class="pl-smi">info</span>.GridResolution, <span class="pl-smi">info</span>.HeightScale);</pre></div>
+<pre lang="text"><code>Domain: 0.65 m
+Grid: 201 nodes per side
+Height scale: 100x
+</code></pre>
+<p>The domain spans 0.65 × 0.65 m. The rendering uses 201 nodes per side and a height
+multiplier of 100; the multiplier is absent from <code>snapshot</code> values.</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="describe-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="describe-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="describe-output-arguments">Output Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="describe-info-configuration-record">info – Configuration record</h4></div>
+<p>Scalar structure. Principal groups are <code>Fluid</code>, <code>Source</code>, <code>Display</code>, <code>Camera</code>,
+and <code>Simulation</code>. Other fields report material, domain width, grid resolution,
+playback rate, height scale, pause state, pending rain, rain multiplier, seed, boundary setting,
+and application state.</p>
+<p><code>Display.BackgroundColor</code> records the viewing area's current RGB background.</p>
+<p>The <code>Simulation.Events</code> records identify active source positions, start times,
+pressure strengths, and source definitions. Use these alongside the material record when
+comparing experiments. Physical quantities are returned by <code>snapshot</code>.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="describe-see-also">See Also</h3></div>
+<p><a href="#snapshot"><code>snapshot</code></a> · <a href="../guide/materials.html">Materials</a> · <a href="../guide/numerics.html">Numerical methods</a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="update">update</h2></div>
+<p>Process elapsed time and update the existing surface</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="update-syntax">Syntax</h3></div>
+<pre lang="text"><code>update(simulator)
+simulator.update()
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="update-description">Description</h3></div>
+<p><code>simulator.update()</code> samples the monotonic time source, processes due rain
+events at their scheduled timestamps, and renders the current wave state.
+Use it for an app created with <code>AutomaticUpdates=false</code>. Automatic playback
+calls the same update route.</p>
+<p>An update is an observation of elapsed time, not a fixed physical integration
+step. Fewer rendered frames do not slow the waves. Pausing stops the simulation
+and rain schedule; time spent preparing a configuration is excluded from playback.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="update-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="update-update-without-advancing-the-clock">Update without advancing the clock</h4></div>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+<span class="pl-smi">simulator</span>.addRipple([<span class="pl-c1">0</span>, <span class="pl-c1">0</span>]);
+before <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.snapshot(<span class="pl-smi">Derivatives</span><span class="pl-k">=</span><span class="pl-c1">true</span>);
+<span class="pl-smi">simulator</span>.update();
+after <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.snapshot(<span class="pl-smi">Derivatives</span><span class="pl-k">=</span><span class="pl-c1">true</span>);
+isequal(<span class="pl-smi">before</span>, <span class="pl-smi">after</span>)</pre></div>
+<pre lang="text"><code>ans =
+  logical
+   1
+</code></pre>
+<p>With no elapsed time, another update does not advance the physical state.
+The <a href="../guide/examples.html#observe-the-wave-field">wave field inspection example</a> uses
+a controllable clock to sample the wave field at uniformly spaced times.</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="update-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="update-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="update-algorithms">Algorithms</h3></div>
+<p>Within a running interval of fixed playback rate <em>b</em>, a real elapsed
+increment Δ<em>t</em> advances simulation time by</p>
+<p><a href="../assets/playback-time.svg" rel="noopener noreferrer" target="_blank"><img alt="The change in simulation time equals playback rate times elapsed real time." src="../assets/playback-time.svg" style="max-width: 100%;"/></a></p>
+<p>The clock accounts for pause intervals and changes in rate. A rate change
+affects subsequent playback and does not rescale elapsed simulation time.
+Source responses are sampled at their physical ages.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="update-see-also">See Also</h3></div>
+<p><a href="#snapshot"><code>snapshot</code></a> · <a href="#rain"><code>rain</code></a> · <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="applysetup">applySetup</h2></div>
+<p>Start a new gravity, balanced, or capillary experiment</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="applysetup-syntax">Syntax</h3></div>
+<pre lang="text"><code>applySetup(simulator,name)
+simulator.applySetup(name)
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="applysetup-description">Description</h3></div>
+<p><code>simulator.applySetup(name)</code> selects a scaled water experiment and clears
+existing waves and pending rain. Each preset uses water at 20 °C. The gravity
+setup uses a 50 mm characteristic wavelength in a 650 × 650 mm domain; the balanced
+and capillary setups span 6.5 characteristic wavelengths. Gravity and Balanced
+start at 0.25x playback; Capillary starts at 0.10x.
+The current grid must satisfy the selected source's sampling limits.</p>
+<p>The preset restores its pressure strength and height scale. The selected
+boundary type, camera, and pause state are preserved.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="applysetup-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="applysetup-select-the-capillary-scale">Select the capillary scale</h4></div>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+<span class="pl-smi">simulator</span>.applySetup(<span class="pl-s"><span class="pl-pds">"</span>Capillary<span class="pl-pds">"</span></span>);
+<span class="pl-smi">simulator</span>.DomainSize<span class="pl-k">/</span><span class="pl-smi">simulator</span>.Wavelength</pre></div>
+<pre lang="text"><code>ans =
+    6.5000
+</code></pre>
+<p>The physical dimensions change together. The visible framing stays comparable
+while the bottom panel reports the new domain size. Changing <code>Wavelength</code> alone instead
+retains the domain and affects only new sources.</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="applysetup-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="applysetup-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h4 class="heading-element" id="applysetup-name-scaled-setup">name – Scaled setup</h4></div>
+<p><code>"Gravity"</code>, <code>"Balanced"</code>, or <code>"Capillary"</code>, as a string scalar or character
+vector. Both gravity and surface tension contribute to the wave motion in every setup.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="applysetup-see-also">See Also</h3></div>
+<p><a href="#reset"><code>reset</code></a> · <a href="../guide/physics.html#source-definitions">Source definitions</a> · <a href="../guide/physics.html">Physics</a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="clear">clear</h2></div>
+<p>Clear waves and cancel pending rain</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="clear-syntax">Syntax</h3></div>
+<pre lang="text"><code>clear(simulator)
+simulator.clear()
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="clear-description">Description</h3></div>
+<p><code>simulator.clear()</code> removes active sources and pending rain. The surface elevation,
+vertical velocity, and horizontal elevation gradients become exactly zero.
+Physical time, settings, camera, pause state, and the state of the private random
+number stream are preserved. Use <a href="#reset"><code>reset</code></a> to restore the complete default experiment.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="clear-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="clear-cancel-a-scheduled-burst">Cancel a scheduled burst</h4></div>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+<span class="pl-smi">simulator</span>.rain();
+<span class="pl-smi">simulator</span>.clear();
+info <span class="pl-k">=</span> <span class="pl-smi">simulator</span>.describe();
+[<span class="pl-smi">simulator</span>.IsAtRest, <span class="pl-smi">info</span>.PendingRain]</pre></div>
+<pre lang="text"><code>ans =
+     1     0
+</code></pre>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="clear-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="clear-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="clear-see-also">See Also</h3></div>
+<p><a href="#reset"><code>reset</code></a> · <a href="#rain"><code>rain</code></a> · <a href="#snapshot"><code>snapshot</code></a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="reset">reset</h2></div>
+<p>Restore the default experiment and presentation</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="reset-syntax">Syntax</h3></div>
+<pre lang="text"><code>reset(simulator)
+simulator.reset()
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="reset-description">Description</h3></div>
+<p><code>simulator.reset()</code> restores the gravity-scale water experiment, 201-node grid,
+open boundaries, pressure impulse, original camera, display defaults, playback
+rate, and initial private rain seed. Existing waves and scheduled rain are
+cleared. Playback resumes from zero simulation time.
+The viewing-area background follows the figure theme, or uses white on releases without theme support.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="reset-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="reset-restore-display-and-physical-defaults">Restore display and physical defaults</h4></div>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>, TimeSource<span class="pl-k">=</span>@() <span class="pl-c1">0</span>);
+simulator.Wireframe <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+simulator.Paused <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+<span class="pl-smi">simulator</span>.reset();
+[<span class="pl-smi">simulator</span>.Wireframe, <span class="pl-smi">simulator</span>.Paused, <span class="pl-smi">simulator</span>.ReflectionsEnabled]</pre></div>
+<pre lang="text"><code>ans =
+  1x3 logical array
+   0   0   0
+</code></pre>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="reset-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="reset-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="reset-see-also">See Also</h3></div>
+<p><a href="#clear"><code>clear</code></a> · <a href="#applysetup"><code>applySetup</code></a> · <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="setcameraview-restorecamera">setCameraView, restoreCamera</h2></div>
+<p>Select a predefined view or restore the original camera</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="setcameraview-restorecamera-syntax">Syntax</h3></div>
+<pre lang="text"><code>setCameraView(simulator,name)
+simulator.setCameraView(name)
+</code></pre>
+<pre lang="text"><code>restoreCamera(simulator)
+simulator.restoreCamera()
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="setcameraview-restorecamera-description">Description</h3></div>
+<p><code>simulator.setCameraView(name)</code> selects the close oblique view, a top view, or
+a wide view of the surface.</p>
+<hr/>
+<p><code>simulator.restoreCamera()</code> selects the original close view.</p>
+<hr/>
+<p>Camera changes do not affect physical dimensions, waves, or vertical
+exaggeration. Use the top or wide view to inspect the boundaries.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="setcameraview-restorecamera-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="setcameraview-restorecamera-inspect-the-surface-from-above">Inspect the surface from above</h4></div>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp();
+<span class="pl-smi">simulator</span>.setCameraView(<span class="pl-s"><span class="pl-pds">"</span>Top<span class="pl-pds">"</span></span>);
+<span class="pl-smi">simulator</span>.addRipple([<span class="pl-c1">0.2</span>, <span class="pl-k">-</span><span class="pl-c1">0.1</span>]);</pre></div>
+<p>Return to the close view after inspecting the disturbance:</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.restoreCamera();
+<span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="setcameraview-restorecamera-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="setcameraview-restorecamera-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h4 class="heading-element" id="setcameraview-restorecamera-name-camera-preset">name – Camera preset</h4></div>
+<p><code>"Close"</code>, <code>"Top"</code>, or <code>"Wide"</code>, as a string scalar or character vector.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="setcameraview-restorecamera-see-also">See Also</h3></div>
+<p><a href="#capture"><code>capture</code></a> · <a href="../guide/controls.html">Controls</a> · <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="capture">capture</h2></div>
+<p>Export the application view to a PNG image</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="capture-syntax">Syntax</h3></div>
+<pre lang="text"><code>capture(simulator,filename)
+simulator.capture(filename)
+simulator.capture()
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="capture-description">Description</h3></div>
+<p><code>simulator.capture(filename)</code> saves the currently displayed application frame.</p>
+<hr/>
+<p><code>simulator.capture()</code> opens a filename dialog after copying the displayed pixels.
+The saved image therefore represents the view when capture was requested,
+regardless of time spent choosing the filename.</p>
+<hr/>
+<p>Visible controls and panels are included; the native menu bar and window border
+are not. The filename
+must end in <code>.png</code>. Existing files can be overwritten; use a distinct filename
+to preserve previous captures.</p>
+<p>Choose <strong>View &gt; Save Screenshot...</strong> or press <strong>Ctrl+S</strong> (<strong>Command+S</strong> on
+macOS) to capture the current view. The shortcut also works in full screen.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="capture-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="capture-capture-an-experiment">Capture an experiment</h4></div>
+<p>Create a ripple and pause at a frame of interest. Then choose an output path:</p>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp();
+<span class="pl-smi">simulator</span>.addRipple([<span class="pl-c1">0</span>, <span class="pl-c1">0</span>]);</pre></div>
+<div class="highlight highlight-source-matlab"><pre>simulator.Paused <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+<span class="pl-smi">simulator</span>.capture(<span class="pl-s"><span class="pl-pds">"</span>ripples.png<span class="pl-pds">"</span></span>);</pre></div>
+<p>When visible, the bottom panel identifies the domain, display
+height scale, and playback rate used for the view. Full-screen capture contains
+only the surface.</p>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-smi">simulator</span>.close();</pre></div>
+
+<div class="markdown-heading"><h3 class="heading-element" id="capture-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="capture-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h4 class="heading-element" id="capture-filename-png-destination">filename – PNG destination</h4></div>
+<p>String scalar or character vector with a <code>.png</code> extension. Relative paths
+are interpreted from MATLAB's current folder.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="capture-see-also">See Also</h3></div>
+<p><a href="#setcameraview-restorecamera"><code>setCameraView</code></a> · <a href="#snapshot"><code>snapshot</code></a> · <a href="https://www.mathworks.com/help/matlab/ref/getframe.html" rel="nofollow">MATLAB getframe</a></p>
+
+<div class="markdown-heading"><h2 class="heading-element" id="close-delete">close, delete</h2></div>
+<p>Close the app and release its owned resources</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="close-delete-syntax">Syntax</h3></div>
+<pre lang="text"><code>close(simulator)
+simulator.close()
+delete(simulator)
+</code></pre>
+
+<div class="markdown-heading"><h3 class="heading-element" id="close-delete-description">Description</h3></div>
+<p><code>simulator.close()</code> stops and releases the app's timer, controls, and figure,
+then invalidates the application handle. <code>delete(simulator)</code> performs the same owned
+resource cleanup. Closing the application figure also closes its owning app.
+Other figures and timers are unaffected.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="close-delete-examples">Examples</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="close-delete-close-an-owned-application">Close an owned application</h4></div>
+<div class="highlight highlight-source-matlab"><pre>simulator <span class="pl-k">=</span> <span class="pl-smi">app</span>.RippleSimulatorApp(<span class="pl-smi">Visible</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>off<span class="pl-pds">"</span></span>, AutomaticUpdates<span class="pl-k">=</span><span class="pl-c1">false</span>);
+<span class="pl-smi">simulator</span>.close();
+isvalid(<span class="pl-smi">simulator</span>)</pre></div>
+<pre lang="text"><code>ans =
+  logical
+   0
+</code></pre>
+<p>In a function, use <code>onCleanup(@() simulator.close())</code> when the application should
+close on both normal completion and an error. Keep the cleanup object alive
+for the required lifetime.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="close-delete-input-arguments">Input Arguments</h3></div>
+
+<div class="markdown-heading"><h4 class="heading-element" id="close-delete-simulator-application">simulator – Application</h4></div>
+<p>Scalar <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a> handle.</p>
+
+<div class="markdown-heading"><h3 class="heading-element" id="close-delete-see-also">See Also</h3></div>
+<p><a href="#ripplesimulator"><code>rippleSimulator</code></a> · <a href="#app-ripplesimulatorapp"><code>app.RippleSimulatorApp</code></a></p>
+<div class="markdown-heading"><h2 class="heading-element" id="customization">Customization</h2></div>
+<p>Custom fluid properties can be supplied through <code>FluidProperties</code> or
+<strong>Experiment &gt; Material &gt; Custom &gt; Define properties...</strong>. Additional named
+presets are implemented in the source code. See
+<a href="../guide/materials.html#custom-fluids">Custom fluids</a> for the property inputs and
+<a href="../guide/physics.html#constitutive-model-and-rheology">Constitutive model and rheology</a>
+for the material assumptions.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="add-a-fluid-preset">Add a fluid preset</h3></div>
+<ol>
+<li>
+<p><strong>Define the material properties.</strong> Add a function in
+<code>+app/+internal/+materials/</code> that returns an <code>app.internal.materials.Fluid</code>
+object. The existing <code>oliveOil.m</code> definition provides a compact template.
+The constructor accepts the material name, temperature in degrees Celsius,
+density in kg/m³, dynamic viscosity in Pa·s, surface tension in N/m, and a
+reference string, in that order. The reference identifies the property
+sources and measurement conditions. Kinematic viscosity is calculated from
+the dynamic viscosity and density.</p>
+</li>
+<li>
+<p><strong>Integrate the preset into the application.</strong> In
+<code>+app/RippleSimulatorApp.m</code>, extend the accepted values and selection branch
+in <code>set.Material</code>. The branch calls the new material function and specifies
+the characteristic wavelength, pressure strength, and height scale.
+<code>get.Material</code> maps the fluid's <code>Name</code> to the same preset identifier. The
+local <code>materialStyle</code> function supplies its surface appearance. These
+settings are applied whenever the material is selected, including when it
+is selected again. Wavelength is specified in meters and <code>PressureImpulse</code>
+in Pa·s; the controls display millimeters and mPa·s.</p>
+</li>
+<li>
+<p><strong>Add the menu entry.</strong> In <code>createMenus</code> in
+<code>+app/+internal/+ui/Controls.m</code>, add a material choice using the same preset
+identifier. The existing choices pass the <code>material</code> action and the
+<code>Material</code> property to <code>obj.choice</code>. This routes menu selections through
+the property setter and synchronizes the checkmark with the selected
+material.</p>
+</li>
+</ol>
+<p>Preset properties apply at their specified temperature. A temperature-dependent
+preset also requires a property correlation and corresponding support in
+<code>set.Temperature</code> and the temperature menu; a single-temperature property record
+does not define that dependence. The material assumptions and supporting data
+are described in <a href="../guide/materials.html">Materials</a>.</p>
+<p><code>tests/+unit/FluidPropertiesTest.m</code> checks property values, units, correlations,
+and input ranges. <code>tests/+integration/MaterialPresetsTest.m</code> checks material
+selection and restoration of experiment settings. Additional presets require
+corresponding cases for their property values and selection behavior.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="tests">Tests</h2></div>
+<p>After modifying the source code, run the test suite from the project folder:</p>
+<div class="highlight highlight-source-matlab"><pre>results <span class="pl-k">=</span> runtests(<span class="pl-s"><span class="pl-pds">"</span>tests<span class="pl-pds">"</span></span>, IncludeSubfolders<span class="pl-k">=</span><span class="pl-c1">true</span>);
+assertSuccess(<span class="pl-smi">results</span>);</pre></div>
+<p>The suite uses <code>matlab.unittest.TestCase</code> classes. <code>runtests</code> returns the
+individual test results; <code>assertSuccess</code> raises an error if any test fails, so
+an automated run can report the failure to its caller. See the
+<a href="https://www.mathworks.com/help/matlab/ref/matlab.unittest.testresult.assertsuccess.html" rel="nofollow">MathWorks documentation</a>
+for more details.</p>
+<table>
+<thead>
+<tr>
+<th>Test group</th>
+<th>Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Physical limits, fluid properties, elapsed-time behavior, and packaged audio</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Source superposition, boundary conditions, material selection, graphics retention, timer cleanup, and the examples' wave-field histories and dispersion data</td>
+</tr>
+</tbody>
+</table>
+<p>Run a test group by specifying its tag:</p>
+<div class="highlight highlight-source-matlab"><pre>results <span class="pl-k">=</span> runtests(<span class="pl-s"><span class="pl-pds">"</span>tests<span class="pl-pds">"</span></span>, IncludeSubfolders<span class="pl-k">=</span><span class="pl-c1">true</span>, Tag<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Unit<span class="pl-pds">"</span></span>);
+assertSuccess(<span class="pl-smi">results</span>);</pre></div>
+<p>Use <code>Tag="Integration"</code> to select the integration tests. An individual test
+class can also be run by its file path:</p>
+<div class="highlight highlight-source-matlab"><pre>results <span class="pl-k">=</span> runtests(<span class="pl-s"><span class="pl-pds">"</span>tests/+integration/MaterialPresetsTest.m<span class="pl-pds">"</span></span>);
+assertSuccess(<span class="pl-smi">results</span>);</pre></div>
+<p>Application tests create hidden figures and release their figures and timers.
+The <code>support</code> namespace in <code>tests/+support/</code> contains the shared test base class
+and a controllable clock for reproducible timing checks.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="native-matlab-help">Native MATLAB help</h2></div>
+<p>The code includes class, property, and method help for MATLAB's native routes:</p>
+<pre lang="text"><code>help rippleSimulator
+help app.RippleSimulatorApp.addRipple
+doc app.RippleSimulatorApp
+doc app.RippleSimulatorApp.snapshot
+</code></pre>
+<p>MATLAB generates the class reference from its metadata and source comments.
+The HTML manual is generated with DocMaker and registered
+under <strong>Supplemental Software</strong>. Both documentation routes describe the same
+public API; the custom manual adds worked figures, equations, and topic guides.
+See <a href="../guide/installation.html">Installation and requirements</a> for additional details.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="related-topics">Related Topics</h2></div>
+<p><a href="../guide/physics.html">Governing physics</a> · <a href="../guide/physics.html#source-definitions">Source definitions</a> ·
+<a href="../guide/materials.html">Material properties</a> · <a href="../guide/numerics.html">Numerical methods</a></p></div></main><script src="../resources/copycode.js">//</script><script src="../resources/ripple-reference.js">//</script><script src="../resources/ripple-navigation.js">//</script></body></html>

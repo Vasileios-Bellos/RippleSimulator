@@ -1,0 +1,649 @@
+<!DOCTYPE html><html lang="en"><head><meta content="MATLAB R2026b with MATLAB DocMaker 0.7" name="generator"/><meta charset="utf-8"/><title>Numerical methods</title><link href="../resources/github-markdown-light.css" rel="stylesheet"/><link href="../resources/matlaby.css" rel="stylesheet"/><link href="../resources/copycode.css" rel="stylesheet"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="../resources/ripple-manual.css" rel="stylesheet"/></head><body class="markdown-body"><main class="markdown-body"><nav aria-label="Documentation" class="ripple-navigation"><a href="../index.html">Ripple Simulator</a><a href="../guide/controls.html">Controls</a><a href="../guide/physics.html">Physics</a><a aria-current="page" href="../guide/numerics.html">Numerical methods</a><a href="../guide/materials.html">Materials</a><a href="../guide/experiments.html">Experiments</a><a href="../guide/examples.html">Examples</a><a href="../reference/index.html">Functions and Properties</a><a href="../guide/sound.html">Sound</a><a href="../guide/installation.html">Installation and requirements</a><a href="../guide/references.html">References</a><a href="../guide/notices.html">Third-party notices</a></nav><aside class="manual-contents"><details class="manual-tree" open="open"><summary>Contents</summary><nav aria-label="Manual contents"><details class="manual-chapter" data-page="index"><summary><a href="../index.html">Ripple Simulator</a></summary><ul><li><a href="../index.html#quick-start">Quick start</a></li><li><a href="../index.html#learning-objectives">Learning objectives</a></li><li><a href="../index.html#explore">Explore</a></li><li><a href="../index.html#user-guide">User guide</a></li><li><a href="../index.html#scientific-guide">Scientific guide</a></li><li><a href="../index.html#programming-and-documentation">Programming and documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/controls"><summary><a href="../guide/controls.html">Controls</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/controls.html#menus">Menus</a></summary><ul><li><a href="../guide/controls.html#experiment">Experiment</a></li><li><a href="../guide/controls.html#source">Source</a></li><li><a href="../guide/controls.html#view">View</a></li><li><a href="../guide/controls.html#playback">Playback</a></li><li><a href="../guide/controls.html#help">Help</a></li></ul></details></li><li><a href="../guide/controls.html#axes-toolbar">Axes toolbar</a></li><li><a href="../guide/controls.html#parameter-controls">Parameter controls</a></li><li><a href="../guide/controls.html#mouse-interaction">Mouse interaction</a></li><li><a href="../guide/controls.html#keyboard-shortcuts">Keyboard shortcuts</a></li></ul></details><details class="manual-chapter" data-page="guide/physics"><summary><a href="../guide/physics.html">Physics of ripples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/physics.html#governing-equations">Governing equations</a></summary><ul><li><a href="../guide/physics.html#linear-boundary-value-problem">Linear boundary-value problem</a></li></ul></details></li><li><a href="../guide/physics.html#gravity-and-surface-tension">Gravity and surface tension</a></li><li><a href="../guide/physics.html#wave-dispersion">Wave dispersion</a></li><li><a href="../guide/physics.html#constitutive-model-and-rheology">Constitutive model and rheology</a></li><li><a href="../guide/physics.html#viscosity-and-transient-motion">Viscosity and transient motion</a></li><li><a href="../guide/physics.html#why-a-ripple-becomes-less-visible">Why a ripple becomes less visible</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#wave-reflection">Wave reflection</a></summary><ul><li><a href="../guide/physics.html#partial-wave-reflection">Partial wave reflection</a></li></ul></details></li><li><a href="../guide/physics.html#depth">Depth</a></li><li><a href="../guide/physics.html#height-scale-and-simulation-time">Height scale and simulation time</a></li><li><a href="../guide/physics.html#model-assumptions-and-numerical-approximations">Model assumptions and numerical approximations</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#source-definitions">Source definitions</a></summary><ul><li><a href="../guide/physics.html#characteristic-wavelength">Characteristic wavelength</a></li><li><a href="../guide/physics.html#pressure-impulse">Pressure impulse</a></li><li><a href="../guide/physics.html#four-cycle-wavemaker">Four-cycle wavemaker</a></li><li><a href="../guide/physics.html#pressure-strength">Pressure strength</a></li><li><a href="../guide/physics.html#physical-scales-and-drop-impacts">Physical scales and drop impacts</a></li><li><a href="../guide/physics.html#overlapping-sources-and-rain">Overlapping sources and rain</a></li></ul></details></li><li><a href="../guide/physics.html#glossary">Glossary</a></li><li><a href="../guide/physics.html#further-reading">Further reading</a></li></ul></details><details class="manual-chapter" data-page="guide/numerics" open="open"><summary><a aria-current="page" href="../guide/numerics.html">Numerical methods</a></summary><ul><li><a href="../guide/numerics.html#state-and-coordinates">State and coordinates</a></li><li><a href="../guide/numerics.html#elapsed-time-playback">Elapsed-time playback</a></li><li><a href="../guide/numerics.html#radial-reconstruction">Radial reconstruction</a></li><li><a href="../guide/numerics.html#open-water-response-tables">Open-water response tables</a></li><li><a href="../guide/numerics.html#exact-numerical-equilibrium">Exact numerical equilibrium</a></li><li><a href="../guide/numerics.html#wave-reflection-geometry">Wave reflection geometry</a></li><li><a href="../guide/numerics.html#reflecting-wall-reconstruction">Reflecting-wall reconstruction</a></li><li><details class="manual-section"><summary><a href="../guide/numerics.html#images-for-partial-wave-reflection">Images for partial wave reflection</a></summary><ul><li><a href="../guide/numerics.html#repeated-wall-encounters">Repeated wall encounters</a></li><li><a href="../guide/numerics.html#reusing-the-image-response">Reusing the image response</a></li><li><a href="../guide/numerics.html#numerical-evaluation-and-accuracy">Numerical evaluation and accuracy</a></li></ul></details></li><li><a href="../guide/numerics.html#spatial-sampling">Spatial sampling</a></li><li><a href="../guide/numerics.html#precomputed-animation-and-performance">Precomputed animation and performance</a></li><li><a href="../guide/numerics.html#small-disturbance-loading">Small-disturbance loading</a></li><li><a href="../guide/numerics.html#verification-and-interpretation">Verification and interpretation</a></li></ul></details><details class="manual-chapter" data-page="guide/materials"><summary><a href="../guide/materials.html">Materials</a></summary><ul><li><a href="../guide/materials.html#water">Water</a></li><li><a href="../guide/materials.html#olive-oil">Olive oil</a></li><li><a href="../guide/materials.html#silicone-oils">Silicone oils</a></li><li><a href="../guide/materials.html#honey">Honey</a></li><li><a href="../guide/materials.html#molten-chocolate">Molten chocolate</a></li><li><a href="../guide/materials.html#material-presets">Material presets</a></li><li><a href="../guide/materials.html#comparing-viscosity">Comparing viscosity</a></li><li><a href="../guide/materials.html#custom-fluids">Custom fluids</a></li></ul></details><details class="manual-chapter" data-page="guide/experiments"><summary><a href="../guide/experiments.html">Experiments</a></summary><ul><li><a href="../guide/experiments.html#scaled-water-experiments">Scaled water experiments</a></li><li><a href="../guide/experiments.html#reflecting-boundaries">Reflecting boundaries</a></li><li><a href="../guide/experiments.html#comparing-different-fluids">Comparing different fluids</a></li><li><details class="manual-section"><summary><a href="../guide/experiments.html#interpreting-the-experiments">Interpreting the experiments</a></summary><ul><li><a href="../guide/experiments.html#wave-propagation-and-dispersion">Wave propagation and dispersion</a></li><li><a href="../guide/experiments.html#wave-interference">Wave interference</a></li><li><a href="../guide/experiments.html#viscous-dissipation-and-geometric-spreading">Viscous dissipation and geometric spreading</a></li><li><a href="../guide/experiments.html#wave-reflection">Wave reflection</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/examples"><summary><a href="../guide/examples.html">Examples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/examples.html#application-examples">Application examples</a></summary><ul><li><a href="../guide/examples.html#interactive-examples">Interactive examples</a></li><li><a href="../guide/examples.html#demonstrations">Demonstrations</a></li></ul></details></li><li><a href="../guide/examples.html#apply-a-single-localized-impulse">Apply a single localized impulse</a></li><li><a href="../guide/examples.html#observe-the-wave-field">Observe the wave field</a></li><li><a href="../guide/examples.html#compare-physical-scales">Compare physical scales</a></li><li><a href="../guide/examples.html#compare-phase-and-group-velocities">Compare phase and group velocities</a></li><li><a href="../guide/examples.html#investigate-wave-interference">Investigate wave interference</a></li><li><a href="../guide/examples.html#change-wavelengths">Change wavelengths</a></li><li><a href="../guide/examples.html#investigate-wave-reflection">Investigate wave reflection</a></li><li><a href="../guide/examples.html#reproduce-rain">Reproduce rain</a></li><li><a href="../guide/examples.html#isolate-the-effect-of-viscosity">Isolate the effect of viscosity</a></li><li><a href="../guide/examples.html#examine-the-effect-of-spatial-resolution">Examine the effect of spatial resolution</a></li><li><a href="../guide/examples.html#compare-different-fluids">Compare different fluids</a></li></ul></details><details class="manual-chapter" data-page="reference/index"><summary><a href="../reference/index.html">Functions and Properties</a></summary><ul><li><a href="../reference/index.html#function-and-class-reference">Function and class reference</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator">rippleSimulator</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-syntax">Syntax</a></li><li><a href="../reference/index.html#ripplesimulator-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-examples">Examples</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-explore-a-capillary-scale-disturbance">Explore a capillary-scale disturbance</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-name-value-arguments">Name-Value Arguments</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-app-owning-application">app – Owning application</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp">app.RippleSimulatorApp</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-syntax">Syntax</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp-examples">Examples</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-change-presentation-without-changing-the-physical-field">Change presentation without changing the physical field</a></li></ul></details></li><li><a href="../reference/index.html#app-ripplesimulatorapp-name-value-arguments">Name-Value Arguments</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-properties">Properties</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-methods">Methods</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-events">Events</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple">addRipple</a></summary><ul><li><a href="../reference/index.html#addripple-syntax">Syntax</a></li><li><a href="../reference/index.html#addripple-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-examples">Examples</a></summary><ul><li><a href="../reference/index.html#addripple-create-simultaneous-disturbances">Create simultaneous disturbances</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#addripple-position-source-center">position – Source center</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-identifier-accepted-input-number">identifier – Accepted input number</a></li></ul></details></li><li><a href="../reference/index.html#addripple-algorithms">Algorithms</a></li><li><a href="../reference/index.html#addripple-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain">rain</a></summary><ul><li><a href="../reference/index.html#rain-syntax">Syntax</a></li><li><a href="../reference/index.html#rain-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-examples">Examples</a></summary><ul><li><a href="../reference/index.html#rain-repeat-a-burst-s-positions">Repeat a burst's positions</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#rain-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#rain-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot">snapshot</a></summary><ul><li><a href="../reference/index.html#snapshot-syntax">Syntax</a></li><li><a href="../reference/index.html#snapshot-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-examples">Examples</a></summary><ul><li><a href="../reference/index.html#snapshot-inspect-the-wave-field">Inspect the wave field</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-name-value-arguments">Name-Value Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-derivatives-include-vertical-velocity-and-elevation-gradients">Derivatives – Include vertical velocity and elevation gradients</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-wavefield-wave-field-data">waveField – Wave field data</a></li></ul></details></li><li><a href="../reference/index.html#snapshot-limitations">Limitations</a></li><li><a href="../reference/index.html#snapshot-algorithms">Algorithms</a></li><li><a href="../reference/index.html#snapshot-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe">describe</a></summary><ul><li><a href="../reference/index.html#describe-syntax">Syntax</a></li><li><a href="../reference/index.html#describe-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-examples">Examples</a></summary><ul><li><a href="../reference/index.html#describe-inspect-the-scaled-experiment">Inspect the scaled experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#describe-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#describe-info-configuration-record">info – Configuration record</a></li></ul></details></li><li><a href="../reference/index.html#describe-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update">update</a></summary><ul><li><a href="../reference/index.html#update-syntax">Syntax</a></li><li><a href="../reference/index.html#update-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-examples">Examples</a></summary><ul><li><a href="../reference/index.html#update-update-without-advancing-the-clock">Update without advancing the clock</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#update-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#update-algorithms">Algorithms</a></li><li><a href="../reference/index.html#update-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup">applySetup</a></summary><ul><li><a href="../reference/index.html#applysetup-syntax">Syntax</a></li><li><a href="../reference/index.html#applysetup-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-examples">Examples</a></summary><ul><li><a href="../reference/index.html#applysetup-select-the-capillary-scale">Select the capillary scale</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#applysetup-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#applysetup-name-scaled-setup">name – Scaled setup</a></li></ul></details></li><li><a href="../reference/index.html#applysetup-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear">clear</a></summary><ul><li><a href="../reference/index.html#clear-syntax">Syntax</a></li><li><a href="../reference/index.html#clear-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-examples">Examples</a></summary><ul><li><a href="../reference/index.html#clear-cancel-a-scheduled-burst">Cancel a scheduled burst</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#clear-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#clear-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset">reset</a></summary><ul><li><a href="../reference/index.html#reset-syntax">Syntax</a></li><li><a href="../reference/index.html#reset-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-examples">Examples</a></summary><ul><li><a href="../reference/index.html#reset-restore-display-and-physical-defaults">Restore display and physical defaults</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#reset-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#reset-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera">setCameraView, restoreCamera</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-syntax">Syntax</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-examples">Examples</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-inspect-the-surface-from-above">Inspect the surface from above</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-name-camera-preset">name – Camera preset</a></li></ul></details></li><li><a href="../reference/index.html#setcameraview-restorecamera-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture">capture</a></summary><ul><li><a href="../reference/index.html#capture-syntax">Syntax</a></li><li><a href="../reference/index.html#capture-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-examples">Examples</a></summary><ul><li><a href="../reference/index.html#capture-capture-an-experiment">Capture an experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#capture-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#capture-filename-png-destination">filename – PNG destination</a></li></ul></details></li><li><a href="../reference/index.html#capture-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete">close, delete</a></summary><ul><li><a href="../reference/index.html#close-delete-syntax">Syntax</a></li><li><a href="../reference/index.html#close-delete-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-examples">Examples</a></summary><ul><li><a href="../reference/index.html#close-delete-close-an-owned-application">Close an owned application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#close-delete-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#close-delete-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#customization">Customization</a></summary><ul><li><a href="../reference/index.html#add-a-fluid-preset">Add a fluid preset</a></li></ul></details></li><li><a href="../reference/index.html#tests">Tests</a></li><li><a href="../reference/index.html#native-matlab-help">Native MATLAB help</a></li><li><a href="../reference/index.html#related-topics">Related Topics</a></li></ul></details><details class="manual-chapter" data-page="guide/sound"><summary><a href="../guide/sound.html">Sound</a></summary><ul><li><a href="../guide/sound.html#controls">Controls</a></li><li><a href="../guide/sound.html#recordings-and-overlap">Recordings and overlap</a></li><li><a href="../guide/sound.html#reusable-playback">Reusable playback</a></li></ul></details><details class="manual-chapter" data-page="guide/installation"><summary><a href="../guide/installation.html">Installation and requirements</a></summary><ul><li><a href="../guide/installation.html#matlab">MATLAB</a></li><li><a href="../guide/installation.html#optional-java-audio">Optional Java audio</a></li><li><a href="../guide/installation.html#documentation">Documentation</a></li><li><details class="manual-section"><summary><a href="../guide/installation.html#troubleshooting">Troubleshooting</a></summary><ul><li><a href="../guide/installation.html#reduced-playback-frame-rate">Reduced playback frame rate</a></li><li><a href="../guide/installation.html#playback-interruptions-during-mouse-movement">Playback interruptions during mouse movement</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/references"><summary><a href="../guide/references.html">References</a></summary><ul><li><a href="../guide/references.html#wave-physics">Wave physics</a></li><li><a href="../guide/references.html#impulsive-excitation-and-ring-waves">Impulsive excitation and ring waves</a></li><li><a href="../guide/references.html#wave-reflection">Wave reflection</a></li><li><a href="../guide/references.html#numerical-interpolation">Numerical interpolation</a></li><li><a href="../guide/references.html#material-properties">Material properties</a></li><li><a href="../guide/references.html#matlab-documentation">MATLAB documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/notices"><summary><a href="../guide/notices.html">Third-party notices</a></summary><ul><li><a href="../guide/notices.html#matlab-docmaker">MATLAB DocMaker</a></li><li><a href="../guide/notices.html#github-markdown-css">GitHub Markdown CSS</a></li><li><a href="../guide/notices.html#scientific-sources">Scientific sources</a></li></ul></details></nav></details></aside><div><div class="markdown-heading"><h1 class="heading-element" id="numerical-methods">Numerical methods</h1></div>
+<div class="markdown-heading"><h2 class="heading-element" id="state-and-coordinates">State and coordinates</h2></div>
+<p>The physical state is a history of accepted localized sources in a homogeneous
+fluid. Each source retains its position, start time, wavelength parameter,
+pressure strength, and forcing mode. The field is the sum of their responses at
+the requested physical time: radial responses in open water, weighted radial
+images for partial reflections, or cosine modes between ideal reflecting walls.</p>
+<p>The observation grid samples that continuous response. It is not a finite
+difference state that is advanced once per animation frame. Changing the
+grid resolution resamples the same sources at the same time. Existing waves
+therefore retain their phase and wavelength. Coarsening the grid can still
+reduce visible detail; it cannot make unresolved wavelengths accurate.</p>
+<p>Mouse clicks and rain place sources at the nearest observation-grid node.
+Changing resolution changes the spacing available to later interactive inputs; accepted source
+positions remain fixed. Programmatic <code>addRipple</code> calls retain their supplied
+physical coordinates.</p>
+<p>Positions, wavelengths, and surface elevation use meters. Time uses seconds.
+The renderer normalizes horizontal coordinates by the domain width and applies
+the selected vertical exaggeration to elevation. Neither transformation enters
+the physical calculation.</p>
+<p>Automatic height scaling compares the peak center displacement of a
+unit Gaussian pressure impulse with the corresponding response in water at
+20 °C. Both calculations use the selected characteristic wavelength and the
+full viscous response. The water reference has a display multiplier of 100;
+the selected fluid uses 100 times the ratio of the two reference peaks, rounded
+to three significant digits and bounded between 1 and 1,000,000. The impulse
+reference is also used in wavemaker mode. This is a visibility convention,
+not a physical amplitude correction.</p>
+<p>The reference calculation occurs when the fluid properties or wavelength
+change. Up to sixteen results are retained for reuse. Playback applies the
+fixed multiplier to the existing surface; no amplitude search or rescaling
+based on the current wave field occurs per frame. Pressure strength is excluded
+from the ratio, so changing it still changes the visible displacement.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="elapsed-time-playback">Elapsed-time playback</h2></div>
+<p>The playback clock measures elapsed time independently of the rendering rate.
+Each frame samples the wave field at the current simulation time. If rendering
+takes longer on a particular computer, fewer intermediate views are shown;
+the waves do not propagate more slowly. Elapsed playback time excludes user
+pauses and input preparation through the first complete frame. A playback-rate change
+applies only to subsequent elapsed time.</p>
+<p>Scheduled rain retains each drop's due time even when an update arrives late.
+The response is evaluated at its resulting age, preserving the same source
+history and wave field at matching simulation times. Frame-rate measurement
+uses a separate real-time clock and does not drive propagation.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="radial-reconstruction">Radial reconstruction</h2></div>
+<p>A Hankel integral combines the response of individual horizontal wavenumbers
+with the Gaussian source spectrum. Bessel functions provide the radial spatial
+dependence. For a pressure impulse, the unmodified viscous response is</p>
+<p><a href="../assets/hankel-response.svg" rel="noopener noreferrer" target="_blank"><img alt="The radial elevation is minus J s squared over density times the integral of k squared times the Gaussian spectrum, Bessel J zero, and h epsilon over omega zero." src="../assets/hankel-response.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>J</em>₀ is the Bessel function of the first kind, order zero, and <em>h</em>ε is
+the inverse Laplace transform of the <a href="physics.html#viscosity-and-transient-motion">viscous transfer function</a>.
+The positive pressure strength <em>J</em> acts downward. Elevation, vertical velocity,
+radial slope, and their mixed derivative follow from the same integral.</p>
+<p>The viscous temporal response contains a pair of surface-wave poles and a
+branch contribution associated with diffusing vorticity. A paired pole
+representation remains finite when the poles approach one another near the
+transition to nonoscillatory relaxation. Dropping the branch contribution
+would change the initial transient and the late response.</p>
+<p>The pole pair is calculated in batches through a scaled factorization of its
+quartic equation. Computing the slow pole from the pole product avoids
+cancellation in strongly viscous modes. This evaluates the same transfer
+function without a general polynomial-root calculation for every wavenumber.
+The temporal pole terms are evaluated in the same bounded modal blocks as
+the branch integral. Real sine and cosine factors evaluate conjugate pairs;
+local series preserve accuracy as the poles coalesce.
+For wavemaker excitation, preparation combines the branch-quadrature weights
+for each forcing frequency before evaluating its sine and cosine terms.
+Elevation and velocity share one matrix contraction of the exponential terms,
+with separate weights for the response and its time derivative.
+Conjugate symmetry gives the oscillatory pole-pair response from one complex
+convolution. Independent modal convolutions are evaluated in bounded arrays.
+After the forcing ends, each pole contribution is propagated from its value
+at that final forcing time. Near coalescence, a divided-difference formulation retains
+numerical accuracy. These evaluations preserve the prescribed forcing integral.</p>
+<p>The real-axis radial and reflecting cosine-mode calculations use 64 quadrature
+points for the viscous branch. Checks against 256 points cover weakly and strongly viscous modes,
+the transition between oscillation and relaxation, and both source types.
+These quadrature settings affect numerical accuracy, not the physical damping rate.</p>
+<p>At early ages, composite Gaussian quadrature evaluates the real-wavenumber
+integral. The quadrature density increases with the oscillation in space and
+time. Large quadratures use the piecewise Chebyshev interpolation described
+under <a href="#reflecting-wall-reconstruction">reflecting-wall reconstruction</a> to evaluate
+the temporal response. Every original quadrature node contributes to the
+spatial reconstruction. For quadrature wavenumbers <em>k</em>ⱼ, weights <em>b</em>ⱼ containing
+the signed source spectrum, and interpolation weights <em>W</em>ⱼℓ, preparation forms</p>
+<p><a href="../assets/radial-modal-projection.svg" rel="noopener noreferrer" target="_blank"><img alt="B i ell is the sum over quadrature nodes j of b j times Bessel J zero at k j r i times W j ell. Elevation at r i and t is approximated by the sum over interpolation nodes ell of B i ell times F at kappa ell and t." src="../assets/radial-modal-projection.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>F(k, t)</em> = <em>h</em>ε(<em>ω</em>₀<em>t</em>)/<em>ω</em>₀ for an impulse; the wavemaker uses the
+corresponding forced response. Replacing <em>J</em>₀(<em>kr</em>) with −<em>kJ</em>₁(<em>kr</em>) gives
+the radial derivative. Replacing <em>F</em> with its time derivative gives velocity.
+Thus the weighted spatial matrices are shared by elevation and velocity.
+Interpolation is used when it more than halves the temporal evaluations;
+smaller quadratures are evaluated directly.</p>
+<p>Comparisons with direct evaluation at the same quadrature nodes cover 5, 50,
+and 100 mm sources, both excitation methods, water from 0 to 40 °C, the acacia
+and compound-chocolate approximations, a strongly viscous reference fluid,
+and a zero-surface-tension reference. Across those sampled cases, the largest
+difference in any of the four fields is below 2.5 × 10⁻⁹ of that field's peak
+absolute reference value. This measures interpolation error separately from
+the quadrature error.</p>
+<p>At sufficiently late ages, a qualified low-wavenumber contour avoids
+cancellation in an otherwise highly oscillatory integral. A real-axis
+calculation completes the higher-wavenumber part when viscosity requires a
+smaller contour region. The terminal arc and viscous branch are retained.</p>
+<p>These quadrature methods evaluate the same wave response over its wavenumber
+spectrum.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="open-water-response-tables">Open-water response tables</h2></div>
+<p>Immutable response tables accelerate repeated evaluation. Their four stored
+fields support a tensor cubic Hermite interpolant in radius and time. Radial
+nodes are spaced at one thirty-second of the source wavelength parameter.
+Time nodes are denser near the viscous onset and during the early oscillations.</p>
+<p>The app prepares the complete finite source lifetime when a source
+configuration is selected. During playback, open-water sources sample these
+tables; a new radial integral is not needed when a source becomes old.
+An input's finite-duration envelope reaches zero at the tabulated endpoint.
+Tables belonging to active sources remain pinned when source settings change.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="exact-numerical-equilibrium">Exact numerical equilibrium</h2></div>
+<p>Physical dissipation is already part of the viscous solution. The app also
+applies the <a href="physics.html#model-assumptions-and-numerical-approximations">finite-duration envelope</a>:
+each source becomes exactly zero after ten settling time scales. The scale is
+the larger of its inviscid reference period and the longest retained Stokes
+relaxation time. That additional
+approximation is distinct from viscosity. Numerical omission estimates do not
+measure the envelope's difference from an indefinitely evolving viscous solution.</p>
+<p>Each accepted source keeps its full precomputed response until that deadline.
+The envelope multiplies elevation and spatial gradients. Vertical velocity
+includes both the envelope-scaled physical velocity and the derivative of
+the envelope times physical elevation. This preserves consistency between
+the displayed displacement and its time derivative.</p>
+<p>At the deadline, elevation, velocity, and spatial gradients are exactly zero
+for that source. Removing it then introduces no further approximation to the
+finite-duration model. Later sources retain their own start times and deadlines.
+Reflection does not restart a source's age or its settling envelope.</p>
+<p>The unmodified viscous continuum response generally approaches equilibrium
+asymptotically. The app's exactly flat final surface is a deliberate consequence
+of the stated finite-duration approximation, not a new physical viscosity law.</p>
+
+<div class="markdown-heading"><a id="reflection-geometry"></a><h2 class="heading-element" id="wave-reflection-geometry">Wave reflection geometry</h2></div>
+<p>The method of images replaces a reflected path with a straight path from a
+mirrored source. For a source at <em>(x₀, y₀)</em>, reflection across the wall <em>x</em> = <em>b</em>
+places its image at <em>(2b − x₀, y₀)</em>. Mirroring across a second, perpendicular
+wall <em>y</em> = <em>c</em> gives</p>
+<p><a href="../assets/wall-image-geometry.svg" rel="noopener noreferrer" target="_blank"><img alt="The image across x equals b is at two b minus x zero, y zero. The image across both perpendicular walls is at two b minus x zero, two c minus y zero." src="../assets/wall-image-geometry.svg" style="max-width: 100%;"/></a></p>
+<p><a href="../assets/reflection-geometry.svg" rel="noopener noreferrer" target="_blank"><img alt="Image-source construction for wave reflection at a single wall and two perpendicular walls. Solid paths lie in the fluid; dashed paths connect the corresponding image sources." src="../assets/reflection-geometry.svg" style="max-width: 100%;"/></a></p>
+<p><em>Wave reflection geometry.</em> <strong>a) Single wall (side):</strong> the path from <em>S</em> through the wall point
+<em>Q</em> to the observation point <em>P</em> has the same length as the straight path from
+<em>S</em>ₓ to <em>P</em>. <strong>b) Perpendicular walls (corner):</strong> unfolding two successive reflections
+gives a straight path from the doubly reflected image to <em>P</em>. The image across
+both walls carries the amplitude factor <em>R</em>². The shaded area is the fluid
+domain; the images are mathematical source locations outside it.</p>
+<p>The reflected contribution is the same radial response evaluated at the
+distance from the image source, multiplied by the boundary coefficient.
+Its dispersion and viscous evolution remain part of that response. All images
+use the original source age <em>a</em> = <em>t</em> − <em>t</em>₀; a wall encounter does not start a
+new source clock. The diagram describes the reflection geometry, without
+assigning a common speed or a sharp wave front to a dispersive ripple.</p>
+<p>For <em>N</em> successive encounters, the boundary amplitude multiplier is</p>
+<p><a href="../assets/reflection-path-weight.svg" rel="noopener noreferrer" target="_blank"><img alt="The amplitude multiplier for N successive wall encounters is the product of their reflection coefficients; for identical coefficients it is R to power N." src="../assets/reflection-path-weight.svg" style="max-width: 100%;"/></a></p>
+<p>Thus two encounters give <em>R</em> × <em>R</em> = <em>R</em>². Adding two distinct, coincident
+singly reflected components is a different operation: their elevations are
+superimposed. Also distinguish the path multiplier from the energy fraction:
+one reflected component retains the amplitude fraction <em>R</em> and the energy
+fraction <em>R</em>² at a single encounter.</p>
+<p>The app uses a real, nonnegative coefficient with no reflection-induced phase
+change. Its physical scope is described under
+<a href="physics.html#partial-wave-reflection">Partial wave reflection</a>. The image construction
+and the role of amplitude and phase are discussed in the
+<a href="references.html#wave-reflection">reflection references</a>.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="reflecting-wall-reconstruction">Reflecting-wall reconstruction</h2></div>
+<p>For perfectly reflecting walls, the image construction is an even, periodic
+extension of the source across the boundaries. A cosine expansion represents
+the same repeated reflections without enumerating individual image paths.
+The reflecting domain uses products of cosine modes in the two horizontal directions:</p>
+<p><a href="../assets/reflecting-modes.svg" rel="noopener noreferrer" target="_blank"><img alt="A cosine mode is cos of m pi X over L times cos of n pi Y over L; its wavenumber is pi over L times the square root of m squared plus n squared." src="../assets/reflecting-modes.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>X</em> and <em>Y</em> measure distance from the lower domain boundaries; <em>m</em> and
+<em>n</em> are nonnegative integers. The zero mode has no elevation response.
+The largest retained index in each direction is the ceiling of <em>8L/(πs)</em>.
+This numerical spectral cutoff does not depend on the display grid.
+Gaussian-tail inequalities account for omitted modes beyond this index range.</p>
+<p>Preparation evaluates the complete viscous pole pair and a 64-point branch
+quadrature at Chebyshev nodes in dimensionless wavenumber <em>q</em> = <em>ks</em>.
+Piecewise degree-19 barycentric interpolation reconstructs the response at
+every retained cosine-mode wavenumber. For an impulse, define
+<em>F(k, t)</em> = <em>h</em>ε(<em>ω</em>₀<em>t</em>)/<em>ω</em>₀, whose long-wavelength limit is <em>t</em>.
+Within each panel, the same interpolation weights
+apply to this response and its time derivative:</p>
+<p><a href="../assets/modal-wavenumber-interpolation.svg" rel="noopener noreferrer" target="_blank"><img alt="F at wavenumber k j is approximated by a weighted sum of F at Chebyshev wavenumbers kappa l. Its time derivative uses the same weights." src="../assets/modal-wavenumber-interpolation.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>κ</em>ℓ denotes a panel's Chebyshev wavenumbers and <em>W</em> its barycentric
+interpolation weights. Panels span at most 0.125 in <em>q</em> and become narrower
+for response intervals longer than ten inviscid reference periods. The
+wavemaker uses its forced response in the same construction. Small mode sets
+are evaluated directly. Bounded matrix batches limit temporary storage, and
+the exact initial modal values are retained.</p>
+<p>This preparation expands the complete elevation and velocity tables before
+playback; it does not reduce the spatial mode set or add a spectral
+reconstruction to each frame. The interpolation uses the barycentric Lagrange
+formula (<a href="https://doi.org/10.1137/S0036144502417715" rel="nofollow">Berrut &amp; Trefethen, 2004</a>).
+Cubic Hermite interpolation then evaluates the precomputed
+modal response at the requested elapsed time; cosine products reconstruct
+its spatial field. The observation grid does not determine the modal spectrum.
+The time table normally uses 128 intervals per settling time scale. For larger
+modal spectra it uses 64 or 32 intervals to stay within the response-storage
+budget, retaining additional samples through the physical forcing interval
+and both Hermite fields.
+This changes interpolation accuracy, not the governing response or retained
+wavenumbers.</p>
+<p>A bounded cache reuses immutable modal responses calculated per unit pressure
+strength. Responses share a cache entry when the fluid, domain, wavelength,
+excitation method, response duration, and memory budget agree. Each experiment
+retains its own source history, wave state, and clock. Existing sources keep
+their response tables when the source settings change; a new table uses the
+remaining storage budget.</p>
+
+<div class="markdown-heading"><a id="partial-reflection-images"></a><h2 class="heading-element" id="images-for-partial-wave-reflection">Images for partial wave reflection</h2></div>
+<p>For a coefficient between 0 and 1, the model uses weighted images of the
+open-water source. If the original source is at <em>(x₀, y₀)</em> in a domain centered
+at the origin, its image positions are</p>
+<p><a href="../assets/image-positions.svg" rel="noopener noreferrer" target="_blank"><img alt="Image m n is at m L plus minus one to power m times x zero, and n L plus minus one to power n times y zero." src="../assets/image-positions.svg" style="max-width: 100%;"/></a></p>
+<p>The weighted-image model for one source's elevation is</p>
+<p><a href="../assets/weighted-images.svg" rel="noopener noreferrer" target="_blank"><img alt="The reflected elevation is the infinite sum over integer m and n of R to the power absolute m plus absolute n, times the open-water response at the distance from image m n and the original source age." src="../assets/weighted-images.svg" style="max-width: 100%;"/></a></p>
+<p>Each term retains the same physical age <em>a</em>, including the viscous response
+and finite-duration envelope. The coefficient changes only the returning
+amplitude. A two-wall corner contribution carries <em>R</em>². At <em>R</em> = 1 the app
+instead uses the independent cosine reconstruction;
+at <em>R</em> = 0 it uses open-water propagation directly.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="repeated-wall-encounters">Repeated wall encounters</h3></div>
+<p>The integer indices include reflections from opposite walls as well as the
+first return from each side. An image with index <em>(m, n)</em> represents |<em>m</em>|
+encounters with the <em>x</em> = ±<em>L</em>/2 boundaries and |<em>n</em>| encounters with the
+<em>y</em> = ±<em>L</em>/2 boundaries.
+For example, <em>(1, 0)</em> has weight <em>R</em>, <em>(1, 1)</em> has weight <em>R</em>², and <em>(2, 0)</em>
+also has weight <em>R</em>². The last image lies at <em>(2L + x₀, y₀)</em> and represents a
+return after encounters with both opposing <em>x</em> boundaries. Images farther
+away continue this sequence.</p>
+<p><a href="../assets/reflection-lattice.svg" rel="noopener noreferrer" target="_blank"><img alt="A five-by-five portion of the image-source lattice for repeated wave reflection. The central fluid domain contains the source; image labels give R raised to the number of wall encounters." src="../assets/reflection-lattice.svg" style="max-width: 100%;"/></a></p>
+<p><em>Repeated images.</em> The central source is at <em>(0.18L, −0.14L)</em>. Mirroring into
+neighboring domains alternates its local orientation. Each label gives the
+amplitude weight <em>R</em><sup>|<em>m</em>|+|<em>n</em>|</sup>; the lattice extends indefinitely.
+Moving across two cells in one direction represents two encounters with
+opposing walls, while moving one cell in each direction represents an encounter
+with each of two perpendicular walls.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="reusing-the-image-response">Reusing the image response</h3></div>
+<p>Translation invariance of the unbounded fluid makes one precomputed radial
+response reusable at every image location. A bounded domain requires an
+additional geometric step: moving a source shifts its even and odd images in
+opposite directions. The app therefore groups the image sum by the parity of
+<em>m</em> and <em>n</em>. For <em>p</em>, <em>q</em> ∈ {0, 1}, define</p>
+<p><a href="../assets/image-parity-basis.svg" rel="noopener noreferrer" target="_blank"><img alt="B p q is the weighted sum of the open-water radial response over image indices m equals two i plus p and n equals two j plus q." src="../assets/image-parity-basis.svg" style="max-width: 100%;"/></a></p>
+<p>The source position then enters through four translated groups:</p>
+<p><a href="../assets/translated-image-basis.svg" rel="noopener noreferrer" target="_blank"><img alt="The reflected elevation is the sum over parity p and q of B p q evaluated at x minus minus one to power p times x zero, y minus minus one to power q times y zero, and source age a." src="../assets/translated-image-basis.svg" style="max-width: 100%;"/></a></p>
+<p>This is a rearrangement of the weighted-image sum. Preparation evaluates these
+expressions at unit pressure strength. The groups can be precomputed
+once for a fluid, source shape, domain, and reflection coefficient. Symmetry
+allows the two mixed-parity groups to share transposed spatial data. A new
+input translates the precomputed groups to its location and scales their response
+by its pressure strength. It does not require another wave-propagation solve
+or a new image-by-image construction.</p>
+<p>The translated field has spatial factors with time-dependent coefficients.
+At input, their matrix product supplies the source's elevation history,
+which is superimposed on a shared animation sequence. Playback interpolates
+the combined field, while physical snapshots retain the individual precomputed
+responses. One existing surface displays the result. The accumulated
+representations and their numerical accuracy are described under
+<a href="#precomputed-animation-and-performance">Precomputed animation and performance</a>.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="numerical-evaluation-and-accuracy">Numerical evaluation and accuracy</h3></div>
+<p>Partial reflections require a domain between 6.5 and 26 characteristic
+wavelengths wide. The response is precomputed for the complete finite source
+lifetime. The image order is at most four in each direction and decreases
+for wider domains to keep the radial table within its memory limit; at the
+maximum width it is two. This is a numerical operating range, not a physical
+restriction on reflection.</p>
+<p>Long-wave contributions can remain significant beyond the retained images,
+particularly in strongly viscous fluids. Preparation separates a smooth
+filtered response from a spatially localized remainder. The filter multiplies
+the original Fourier response by</p>
+<p><a href="../assets/image-filter.svg" rel="noopener noreferrer" target="_blank"><img alt="The smooth filter F of k equals one minus the fourth power of one minus G of k, where G of k equals exp of minus one half times k L over four squared." src="../assets/image-filter.svg" style="max-width: 100%;"/></a></p>
+<p>The complementary remainder has multiplier [1 − <em>G</em>(<em>k</em>)]⁴, which approaches
+zero as <em>k</em>⁸ at small wavenumbers. Its distant image contributions therefore
+decrease more rapidly than those of the original response. The smooth part
+retains the broad, slowly relaxing contribution. Both parts use the same
+viscous evolution and, for wavemaker excitation, the original forcing frequency.
+Writing the unfiltered and filtered responses as <em>η</em>ₛ and <em>η</em><sub><em>f</em></sub>,
+the numerical reconstruction is</p>
+<p><a href="../assets/filtered-images.svg" rel="noopener noreferrer" target="_blank"><img alt="The reflected response is approximated by S M applied to the unfiltered response minus the filtered response, plus S infinity applied to the filtered response." src="../assets/filtered-images.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>S</em><sub><em>M</em></sub> denotes the weighted image sum with |<em>m</em>|, |<em>n</em>| ≤ <em>M</em>, and
+<em>S</em>∞ denotes the complete sum defined above.</p>
+<p>The filtered infinite sum is evaluated in Fourier space using the summed
+geometric series of even and odd images. A change of integration variable
+resolves its narrow peaks when the reflection coefficient approaches one.
+The remaining finite sum has much smaller long-wave contributions. This is a
+numerical decomposition of the same weighted-image model; it adds no damping
+and does not change the viscosity or reflection coefficient.</p>
+<p>Preparation separates the radial Hermite table and the filtered correction
+into shared spatial and temporal factors. An adaptive orthogonal projection
+reduces the matrix before its singular-value decomposition. The complete
+reconstruction is checked against the original samples; a full decomposition
+is used if the reduced calculation cannot meet the prescribed tolerance.
+The peak-scaled Frobenius residual must be at most 10⁻¹⁰ for the combined
+response and 10⁻¹² for the filtered spectral response. These are factorization
+tolerances, separate from quadrature, interpolation, and single-precision
+storage errors. A private deterministic random number stream makes the projection
+repeatable without changing the application's random state.</p>
+<p>The weighted spatial images are then summed once. Their cubic-Hermite
+interpolation operators are combined in bounded blocks before multiplication
+by the spatial factors. This preserves the image weights while avoiding a
+separate large matrix product for every image. Transposed image groups share
+the same spatial data. With identical coefficients at all four walls, the
+even/even and odd/odd groups are symmetric under interchange of the horizontal
+coordinates. Each is assembled on one triangular half of the grid and completed
+by transposition. The mixed-parity group uses the full grid. This symmetry
+preserves every retained image and its coefficient. The smooth correction uses
+17 spatial nodes per direction before interpolation onto the preparation grid.
+A new source translates this precomputed basis
+to the observation grid. Inputs at the same position reuse an active spatial
+mapping for that response and grid. Their start times and pressure strengths
+remain independent. A pressure strength change reuses the precomputed maps for
+scheduled sources; a change in wavelength or excitation method prepares new
+maps. The combined-wave loading check uses the requested pressure strength
+before the configuration is accepted. Within the animation-storage budget, each source's
+elevation history is added to the combined display sequence. Direct evaluation of the precomputed factors
+supplies onset corrections and the fallback when that budget is
+exceeded. Neither path traces reflection paths during playback.
+Precomputed spatial factors use single precision, and derivatives follow from
+the same interpolated elevation.
+The spatial preparation grid targets at least 24 intervals per characteristic
+wavelength. If that grid exceeds the storage budget, a smaller preparation
+grid retains at least 12 intervals per wavelength. Local fifth-degree
+interpolation translates its factors to the display grid. The selected display
+resolution and physical source definition remain unchanged.</p>
+<p>Changing only the reflection coefficient reuses the most recent radial
+response and filtered spectral factors. Their storage is bounded at 128 MiB
+and 8 MiB, respectively. The coefficient-dependent image sums are recalculated
+for an unfamiliar configuration. Up to two complete partial-reflection
+responses are also retained within a 512 MiB budget, allowing a recent
+configuration to be selected again without rebuilding its image sums.
+Source histories, input maps, graphics, and playback clocks remain independently
+owned.</p>
+<p>Finite residual-image truncation, Fourier quadrature, and interpolation introduce numerical error. They
+are distinct from the prescribed boundary approximation, which assumes a
+real, frequency-independent reflection coefficient. See
+<a href="physics.html#partial-wave-reflection">Partial wave reflection</a> for its physical meaning.</p>
+<p>The following checks use the response at unit pressure strength before applying
+the common finite-duration envelope. An independent reconstruction checks
+elevations at all four walls, all four
+corners, and nearby interior points for an off-center source. The checked
+cases include water at a 50 mm source scale with <em>R</em> = 0.75, and a viscous
+reference fluid at 5 mm with <em>R</em> = 0.99 under both excitation methods. The
+reference properties are 1496 kg/m³, 7.85 Pa s, and 0.0801 N/m, based on
+measured honey properties
+(<a href="https://doi.org/10.3389/frsfm.2023.1163393" rel="nofollow">Tyowua et al., 2023</a>).
+Refinement
+compares residual-image orders 4, 8, and 12 and Fourier quadrature orders 128
+and 256. Across six sampled ages, the largest elevation difference is below
+0.002% of each case's largest sampled reference elevation. Reflection and
+coordinate-exchange symmetries are also checked. The ideal-wall solution
+is checked separately against a direct cosine expansion and zero normal
+surface slope at every wall. These sampled checks assess the numerical
+reconstruction; they are not a universal error bound or an experimental
+validation of a wall.</p>
+<p>A further 5 mm water case at <em>R</em> = 0.75 checks repeated returns. Restricting
+the sum to the first nine images, with |<em>m</em>|, |<em>n</em>| ≤ 1, changes the late
+sampled field by up to 11.2% of the largest reference elevation in that check.
+The complete implementation agrees with the refined reference within 0.00075%
+on the same observations and ages. These comparisons distinguish retained
+repeated reflections from the first returns alone.</p>
+<p>Separate limiting-case checks compare coefficients of 0.000001 and 0.999999
+with independently evaluated unbounded and ideal-wall fields. For the tested
+water and viscous-reference cases at a 50 mm source scale, the largest differences are
+below 0.001% of the corresponding peak reference elevation.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="spatial-sampling">Spatial sampling</h2></div>
+<p>The surface grid provides the spatial discretization used to sample and render
+the wave field. It does not determine the underlying wave propagation, which
+is calculated from the source responses.</p>
+<p>The app accepts 51 to 801 grid nodes per side. It requires at least 6 grid
+intervals per selected wavelength parameter and limits the physical domain
+width to 26 such wavelengths, within a 0.005–2.4 m domain range. Camera zoom
+can inspect a smaller region without changing the physical experiment.
+These are supported configuration limits, not
+a claim that every visual derivative is equally accurate at the coarsest grid.
+The Gaussian source contains a spectrum of wavelengths, so convergence must
+be judged for the quantity being inspected.</p>
+<p>Grid sizes count nodes, including both boundaries. Thus 51 nodes give 50
+intervals, and 201 nodes give 200 intervals. Odd node counts include the center
+of the domain. The 51-node option provides a coarse display; it does not reduce
+the underlying physical response to a 51-node propagation calculation.</p>
+<p>Use at least 24 intervals per wavelength for visual inspection, and compare
+with a finer grid when slopes or small features matter. The default 201-node
+grid has about 15.4 intervals per wavelength in the default gravity setup
+and 30.8 in the balanced and capillary setups. At 25 mm in the default domain,
+it has about 7.7; increase the grid resolution for a smoother representation.
+The 51-node option requires a longer wavelength or smaller domain. A study
+covering three wavelengths, water and both silicone presets, and both source
+modes found approximately second-order convergence of the reconstructed surface
+elevation and finite-difference slope when the sampling density doubled from
+12 to 24 to 48 intervals per wavelength. This does not make the minimum grid
+a precision guarantee. Physical point samples and the triangular displayed
+surface have different approximation errors.</p>
+
+<div class="markdown-heading"><a id="precalculated-animation-and-performance"></a><h2 class="heading-element" id="precomputed-animation-and-performance">Precomputed animation and performance</h2></div>
+<p>For fixed fluid properties and source shape, let <em>K(r, a)</em> be the radial
+response per unit pressure strength. Translation invariance and linearity give
+the unbounded field as</p>
+<p><a href="../assets/translated-source-sum.svg" rel="noopener noreferrer" target="_blank"><img alt="The unbounded elevation is the sum of each source pressure strength times its precomputed radial response at the distance from that source and its elapsed age." src="../assets/translated-source-sum.svg" style="max-width: 100%;"/></a></p>
+<p>Sources with the same fluid, wavelength parameter, and forcing mode share
+the same <em>K</em>. Position changes its spatial argument; start time changes its
+age; pressure strength supplies the scalar <em>J</em>. Preparing this response once
+therefore removes repeated physical integrations from both input handling
+and rendering. The <a href="#reusing-the-image-response">image groups</a> apply the same
+principle to partial reflections, and cosine modes provide the corresponding
+representation for ideal walls.
+Here <em>K</em> includes the selected forcing history, viscous evolution, and the
+documented finite-duration envelope.</p>
+<p>For grid-aligned sources in open water, the app prepares the response at every
+distinct distance on the display grid. The same distance occurs at many grid
+points and for many source locations, so these values can be shared. Placing a
+new source changes its lookup indices; it does not require solving another
+propagation problem. Their elevations are superimposed.</p>
+<p>Preparation applies the existing radial Hermite interpolation to the complete
+elevation and velocity tables. When a source is accepted, its translated
+elevation history is added to a rolling sequence. Each source configuration has a sequence
+sampled fourteen times per settling time scale for open water and ideal walls,
+or sixteen times for partial reflections. The physical response table
+retains finer early-time samples; inputs near their onset or within the forcing
+interval are evaluated from that table. For each configuration,</p>
+<p><a href="../assets/prepared-height-sum.svg" rel="noopener noreferrer" target="_blank"><img alt="Each stored frame H n is the sum of the accepted source elevations at physical time t n, where t n equals n times the sampling interval." src="../assets/prepared-height-sum.svg" style="max-width: 100%;"/></a></p>
+<p>The source response includes viscosity and the finite settling envelope. Source
+times are not rounded to animation frames. Between stored frames, a ninth-degree
+Lagrange interpolant reconstructs the displayed elevation:</p>
+<p><a href="../assets/prepared-height-interpolation.svg" rel="noopener noreferrer" target="_blank"><img alt="The displayed elevation is the weighted sum of ten neighboring stored frames, with n the integer part of t divided by delta t and theta its fractional part." src="../assets/prepared-height-interpolation.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>n</em> is the integer part of <em>t/Δt</em>. The ten Lagrange weights interpolate
+the neighboring time nodes. Interpolation and superposition are linear,
+so the stored sum can be interpolated without reconstructing every established
+ripple on every frame. When a stencil crosses a source's onset or final settling
+time, that source's precomputed response supplies a direct correction. This prevents
+pre-impact interpolation artifacts and retains exact final stillness. The
+wider interpolation stencil permits fewer stored time samples while retaining
+the resolved wave motion. It changes the display approximation, not the
+physical response tables or the source timestamps.</p>
+<p>Ideal reflecting walls use the same approach for their cosine coefficients.
+One cosine reconstruction then produces the combined surface for each retained
+source configuration. Reflections do not require a new propagation calculation
+on every frame. Partial reflections contract each translated image basis with
+its temporal coefficients at input and accumulate the resulting surface elevations.
+Their onset corrections reuse the physical source maps. Five endpoint samples
+per source suffice to remove its remaining interpolation contribution after
+retirement, without retaining its full spatial map in the animation sequence.</p>
+<p>The rolling sequence occupies a fixed array whose expired columns are reused.
+Advancing playback changes its logical indices rather than shifting the stored
+fields. For sequences that fit the temporary-storage budget, source insertion
+aligns the precomputed time profiles and adds the translated field in one array
+operation. Larger sequences use bounded blocks. Both paths perform the same
+superposition without introducing another approximation to the wave response.</p>
+<p>The renderer updates existing surface coordinates, rain graphics, and text.
+Spectral integration, spatial-map construction, source translation, and the
+addition of complete source sequences occur outside ordinary frame sampling.
+Elapsed-time interpolation remains necessary: using a fixed frame index would
+make wave speed depend on the computer's rendering rate.</p>
+<p>A MATLAB timer schedules each frame after the preceding callback finishes.
+The callback updates the retained graphics and processes pending interaction
+with <code>drawnow</code>. After a slow frame, the next update samples the current simulation
+time rather than queuing intermediate frames. Rendering cadence therefore
+changes the number of displayed samples, while the physical timestamps remain
+determined by elapsed time and the playback multiplier.</p>
+<p>Manual and Auto-click source insertion preserve the running timer. An operation
+guard prevents a frame from reading an incomplete update. The simulation clock
+excludes input preparation, the associated bottom panel and audio updates, and the
+wait for the first complete frame containing the input. A source accepted
+during <code>drawnow</code> retains this exclusion until the following frame. This pause
+applies to the complete wave field; subsequent frames follow elapsed time.
+Configuration changes suspend timer delivery when they occur
+outside an active frame callback; their preparation time is excluded from the
+simulation clock. Pause stops the playback timer, and Resume restores its
+previous running state. A calm, unpaused surface retains normal frame scheduling.</p>
+<p>Precomputed display profiles and their accumulated elevations use single precision.
+For open water and ideal reflections, <code>snapshot</code> uses finer response tables
+without the accumulated display sequence. Partial reflections use the precomputed
+spatial and temporal factors described above. Direct
+lattice comparisons, before the additional time-sequence interpolation,
+across the gravity, balanced, and capillary water setups included centered,
+corner, and off-center sources, followed by 120 staggered sources on a 101-node
+grid. Each error was normalized by the largest absolute elevation in the
+corresponding double-precision field. The largest normalized difference was
+below 7.5 × 10⁻⁷.</p>
+<p>The accumulated animation introduces a separate temporal approximation.
+Tests with five independently timed impacts on a 101×101 grid, at 50 and 5 mm
+in water with open water and ideal walls, sampled onset, propagation,
+interference, and final settling. The largest absolute elevation difference
+from the snapshot calculation was below 1.16 × 10⁻³ of the reference
+sequence's largest absolute elevation. Source
+changes and resampling from 101 to 201 nodes also preserved the physical state.
+These are sampled verification results, not universal error bounds or
+experimental validation. The crest elevation and trough depth shown in the bottom panel
+use the displayed samples in physical units; <code>snapshot</code> uses the separate evaluation
+described above.</p>
+<p>For partial reflections, five independently timed sources were checked at
+centered, off-center, and corner positions on a 101×101 grid. Water at 50 and
+5 mm, including four-cycle wavemaker excitation at 5 mm, and two viscous Newtonian test fluids
+were compared with the individual precomputed responses through onset,
+superposition, and complete settling. Their property sets are
+(1496 kg/m³, 7.85 Pa s, 0.0801 N/m) and
+(1270 kg/m³, 0.992 Pa s, 0.0226 N/m), respectively. These numerical test
+parameters are independent of the selectable material presets.
+The largest peak-scaled elevation
+difference was below 2.6 × 10⁻⁴. A separate 401×401 water case exercised the
+blocked preparation path. These checks concern the additional display
+interpolation; the image-sum accuracy checks above assess the underlying
+reflected response separately.</p>
+<p>Off-grid open-water sources and configurations outside the animation-memory budget use
+direct interpolation of the precomputed responses. Changing the grid rebuilds eligible
+sequences from the unchanged source history. Different source scales retain
+their own time sampling. Storage for expired frames is reused as playback advances.
+The memory budget includes source mappings retained through the interpolation
+stencil after the corresponding waves have settled.</p>
+<p>These preparation steps reduce arithmetic during playback without changing the source spectrum,
+dispersion relation, viscosity, or physical timestamps. Actual frame rate also
+depends on grid resolution, graphics workload, and other work running on the
+computer.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="small-disturbance-loading">Small-disturbance loading</h2></div>
+<p>The linear approximation requires small surface slopes
+(<a href="https://web.mit.edu/fluids-modules/www/potential_flows/LecturesHTML/lec19bu/node3.html" rel="nofollow">MIT</a>).
+This requirement is asymptotic: it does not specify a universal numerical
+cutoff or guarantee a fixed nonlinear error at a particular slope.</p>
+<p>An input is accepted only when the upper bound on the magnitude of the combined
+horizontal surface gradient does not exceed <strong>0.1</strong> throughout the remaining
+motion. The criterion includes active waves and inputs reserved by pending
+rain bursts.</p>
+<p>The criterion corresponds to a maximum surface inclination of 5.71°.
+For a sinusoidal wave, this is an amplitude-to-wavelength ratio of approximately
+0.0159, or a crest-to-trough height of 0.0318 wavelengths.
+For a monochromatic deep-water gravity wave, the second-order Stokes harmonic
+has amplitude <em>ka</em>/2 relative to the fundamental: 5% at <em>ka</em> = 0.1.
+This provides a weakly nonlinear reference scale for the operating criterion
+(<a href="https://doi.org/10.1175/2007JPO3634.1" rel="nofollow">Toffoli et al., 2007, Section 2a</a>).
+The geometric capillary correction is smaller: for a profile varying along
+one horizontal direction, the exact curvature is</p>
+<p><a href="../assets/slope-curvature.svg" rel="noopener noreferrer" target="_blank"><img alt="Exact profile curvature equals the second derivative of elevation divided by one plus slope squared to the power three halves. At a maximum slope of 0.1, the curvature coefficient differs from its linear value by less than 0.01482." src="../assets/slope-curvature.svg" style="max-width: 100%;"/></a></p>
+<p><a href="../assets/small-slope-corrections.svg" rel="noopener noreferrer" target="_blank"><img alt="Second-order Stokes-harmonic and geometric curvature corrections as functions of the surface-slope parameter, with the app's 0.1 criterion marked." src="../assets/small-slope-corrections.svg" style="max-width: 100%;"/></a></p>
+<p><em>The solid curve gives the second-order harmonic amplitude relative to the
+fundamental for a monochromatic deep-water gravity wave. The dashed curve gives
+the relative departure of the exact profile-curvature coefficient from its
+linear value. The vertical line marks the app's slope criterion.</em></p>
+<p>These reference calculations quantify the selected small-slope range; they
+do not bound the accumulated nonlinear error of an arbitrary ripple field.
+Gravity-capillary interactions also depend on the spectrum and elapsed time,
+including resonant interactions between wave components
+(<a href="https://doi.org/10.1111/j.1467-9590.2012.00574.x" rel="nofollow">Akers &amp; Nicholls, 2013</a>).</p>
+<p>Admission uses a hierarchy of bounds. Sums of individual gradient magnitudes
+provide inexpensive sufficient conditions. Where necessary, spatial and
+temporal intervals retain source locations and scheduled ages; the ideal-wall
+calculation also retains signed gradient components before bounding their
+combined magnitude. Every accepted bound covers complete intervals between
+the numerical samples. A rejected bound may exceed the actual maximum slope
+because its component extrema do not necessarily occur together.</p>
+<p>In open water, the slope estimate combines a modal-energy bound, the spatial future envelope,
+and a Bernstein bound for the response-table interpolant, with a stated
+interpolation allowance. The same small-disturbance criterion applies to manual input and rain.
+With finite settling, source validation covers the complete active lifetime.
+If that lifetime extends beyond the precomputed response, an analytical future
+envelope bounds the remaining motion. Unrestricted settling retains the
+infinite-future bound.</p>
+<p>For sources with known positions, the observation domain is also divided into
+Cartesian cells. Each cell spans a complete interval of distances from each
+source. The radial interpolant's Bernstein coefficients bound the slope over
+that interval and the relevant tabulated ages. Summing these local bounds accounts for
+the separation of source positions without assuming favorable interference.
+The check includes the interpolation allowance, omitted-wave bounds, and any
+motion beyond the tabulated time range. These bounds are used only for input
+acceptance; they do not modify the superimposed field.</p>
+<p>Within each source map, identical radial intervals share one range query.
+The required response-table columns are gathered once per temporal batch and
+reused across its age intervals. Sources with the same age, lifetime, and
+precomputed response share these queries through a sparse spatial operator.
+Their individual positions, pressure strengths, and reflection weights are
+retained, together with the roundoff allowance for every contribution.</p>
+<p>Repeated inputs reuse a table of cell-gradient bounds for each source position.
+The table covers the tabulated age intervals independently of the source start
+time and pressure strength. Temporal refinement is applied when the combined
+cell bounds exceed the admissibility limit. A 128 MiB cache retains these tables and their
+spatial mappings. Source and grid changes invalidate the retained entries;
+the complete calculation remains available when the storage budget is exceeded.</p>
+<p>A previously established future bound remains valid at later times for the
+same source history. Adding the complete gradient bound of each new source
+gives a conservative trial bound by the triangle inequality. If this bound
+exceeds the criterion, the combined sources are evaluated over space and time.
+Removing or modifying an active source requires a new calculation; expired
+sources contribute zero.</p>
+<p>For partial reflections, weighted image bounds are summed at common ages before
+the temporal maximum is taken. Distant-image contributions remain enclosed by
+an absolute allowance. Ideal walls retain the signed-gradient refinement when
+magnitude bounds alone cannot establish admissibility. These calculations
+preserve the small-slope criterion and do not change the wave field.</p>
+<p>For ideal reflecting walls, admission also uses the actual cosine coefficients of
+each source position. A spatial grid bounds the sums of absolute modal
+gradient contributions; an analytical Hessian bound covers the distance
+between grid points. For a finite precomputed response, a complementary envelope
+retains the modal phase relationships before bounding the gradient. Temporal
+Bernstein controls and spatial interpolation remainders enclose the periodic
+source response over complete cells. Four translated copies account for the
+source and its even reflections. Compression residuals, spectral tails, and
+response-interpolation allowances are included in the envelope. The envelope
+is precomputed with the response and reused for input checks; it does not alter
+the propagated wave field.</p>
+<p>Rain positions are prepared before admission, without
+advancing the private random number stream until the burst is accepted. The same
+loading rules apply to manual and scheduled sources, including each rain burst's
+pressure multiplier. Reservations retain their positions, multipliers, and
+physical start times. Changes to pressure strength or playback rate are checked
+against the complete pending schedule before acceptance. An accepted burst
+does not repeat the admission calculation for each arriving drop.
+The four-cycle forcing uses a conservative forcing-integral bound and may
+require a lower pressure strength to accept a complete reflected rain burst.</p>
+<p>For ideal walls, the app also prepares the modal decay bounds used by this
+check. It takes the preceding sample of each nonincreasing bound, at eight
+samples per settling time scale. This preserves a conservative loading estimate
+without reevaluating modal exponentials for every existing source on each
+click. The lookup affects input admission, not the wave response.</p>
+<p>When the sum of stored, all-time slope bounds already fits within the loading
+limit, the app accepts an input without reevaluating the remaining motion of
+every existing source. Otherwise it evaluates the age-dependent bounds.
+Partial reflections retain each image's coefficient and source age. Dominant
+image contributions use radial space-time envelopes; absolute future bounds
+cover the remaining images and the smooth long-wave correction. This grouping
+reduces the admission work without removing reflected contributions from the
+wave calculation.</p>
+<p>Accepted source amplitudes are not clipped or normalized after superposition.</p>
+<p>A separate second-order inviscid calculation provides a reference for the
+weakly nonlinear response of two twenty-impact water experiments. Both use
+50-mm characteristic wavelength, 0.10 Pa s per impact, a 0.65-m domain,
+ideal reflecting walls, and 0.0125-s spacing between physical input times.
+The rain seeds are 20261021 and 1, with source positions on a 201×201 grid.
+The maximum first-order slopes are 0.0354 and 0.0546. Over 1.8 s, the ratios
+of peak absolute second-order elevation to peak absolute first-order elevation
+are approximately 1.22% and 2.15%, respectively. The calculation uses 512
+Fourier nodes per direction on the even, 1.3-m periodic extension, with
+quadratic dealiasing. For the first experiment,
+halving the integration step from 1 ms to 0.5 ms changes the ratio by less
+than 0.001 percentage points. These comparisons assess the leading inviscid
+nonlinear correction for the stated inputs; they do not establish a uniform
+error bound for viscous fluids, other spectra, or longer forcing sequences.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="verification-and-interpretation">Verification and interpretation</h2></div>
+<p>The numerical verification compares independently refined real-axis integrals
+with the late evaluation, checks modal initial conditions and limiting
+behavior, and checks future-motion estimates against sampled responses.
+Interpolation, grid sampling, timing, and app interactions require separate
+checks because agreement of the modal equations alone does not verify the
+complete application.</p>
+<p>Numerical agreement is not experimental validation. The principal physical
+restrictions remain linear disturbances, infinite depth,
+and a homogeneous Newtonian fluid. See <a href="physics.html">Physics</a> and
+<a href="materials.html">Materials</a> for the model assumptions and material properties.</p></div></main><script src="../resources/copycode.js">//</script><script src="../resources/ripple-navigation.js">//</script></body></html>

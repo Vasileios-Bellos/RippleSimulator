@@ -1,0 +1,730 @@
+<!DOCTYPE html><html lang="en"><head><meta content="MATLAB R2026b with MATLAB DocMaker 0.7" name="generator"/><meta charset="utf-8"/><title>Physics of ripples</title><link href="../resources/github-markdown-light.css" rel="stylesheet"/><link href="../resources/matlaby.css" rel="stylesheet"/><link href="../resources/copycode.css" rel="stylesheet"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="../resources/ripple-manual.css" rel="stylesheet"/></head><body class="markdown-body"><main class="markdown-body"><nav aria-label="Documentation" class="ripple-navigation"><a href="../index.html">Ripple Simulator</a><a href="../guide/controls.html">Controls</a><a aria-current="page" href="../guide/physics.html">Physics</a><a href="../guide/numerics.html">Numerical methods</a><a href="../guide/materials.html">Materials</a><a href="../guide/experiments.html">Experiments</a><a href="../guide/examples.html">Examples</a><a href="../reference/index.html">Functions and Properties</a><a href="../guide/sound.html">Sound</a><a href="../guide/installation.html">Installation and requirements</a><a href="../guide/references.html">References</a><a href="../guide/notices.html">Third-party notices</a></nav><aside class="manual-contents"><details class="manual-tree" open="open"><summary>Contents</summary><nav aria-label="Manual contents"><details class="manual-chapter" data-page="index"><summary><a href="../index.html">Ripple Simulator</a></summary><ul><li><a href="../index.html#quick-start">Quick start</a></li><li><a href="../index.html#learning-objectives">Learning objectives</a></li><li><a href="../index.html#explore">Explore</a></li><li><a href="../index.html#user-guide">User guide</a></li><li><a href="../index.html#scientific-guide">Scientific guide</a></li><li><a href="../index.html#programming-and-documentation">Programming and documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/controls"><summary><a href="../guide/controls.html">Controls</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/controls.html#menus">Menus</a></summary><ul><li><a href="../guide/controls.html#experiment">Experiment</a></li><li><a href="../guide/controls.html#source">Source</a></li><li><a href="../guide/controls.html#view">View</a></li><li><a href="../guide/controls.html#playback">Playback</a></li><li><a href="../guide/controls.html#help">Help</a></li></ul></details></li><li><a href="../guide/controls.html#axes-toolbar">Axes toolbar</a></li><li><a href="../guide/controls.html#parameter-controls">Parameter controls</a></li><li><a href="../guide/controls.html#mouse-interaction">Mouse interaction</a></li><li><a href="../guide/controls.html#keyboard-shortcuts">Keyboard shortcuts</a></li></ul></details><details class="manual-chapter" data-page="guide/physics" open="open"><summary><a aria-current="page" href="../guide/physics.html">Physics of ripples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/physics.html#governing-equations">Governing equations</a></summary><ul><li><a href="../guide/physics.html#linear-boundary-value-problem">Linear boundary-value problem</a></li></ul></details></li><li><a href="../guide/physics.html#gravity-and-surface-tension">Gravity and surface tension</a></li><li><a href="../guide/physics.html#wave-dispersion">Wave dispersion</a></li><li><a href="../guide/physics.html#constitutive-model-and-rheology">Constitutive model and rheology</a></li><li><a href="../guide/physics.html#viscosity-and-transient-motion">Viscosity and transient motion</a></li><li><a href="../guide/physics.html#why-a-ripple-becomes-less-visible">Why a ripple becomes less visible</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#wave-reflection">Wave reflection</a></summary><ul><li><a href="../guide/physics.html#partial-wave-reflection">Partial wave reflection</a></li></ul></details></li><li><a href="../guide/physics.html#depth">Depth</a></li><li><a href="../guide/physics.html#height-scale-and-simulation-time">Height scale and simulation time</a></li><li><a href="../guide/physics.html#model-assumptions-and-numerical-approximations">Model assumptions and numerical approximations</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#source-definitions">Source definitions</a></summary><ul><li><a href="../guide/physics.html#characteristic-wavelength">Characteristic wavelength</a></li><li><a href="../guide/physics.html#pressure-impulse">Pressure impulse</a></li><li><a href="../guide/physics.html#four-cycle-wavemaker">Four-cycle wavemaker</a></li><li><a href="../guide/physics.html#pressure-strength">Pressure strength</a></li><li><a href="../guide/physics.html#physical-scales-and-drop-impacts">Physical scales and drop impacts</a></li><li><a href="../guide/physics.html#overlapping-sources-and-rain">Overlapping sources and rain</a></li></ul></details></li><li><a href="../guide/physics.html#glossary">Glossary</a></li><li><a href="../guide/physics.html#further-reading">Further reading</a></li></ul></details><details class="manual-chapter" data-page="guide/numerics"><summary><a href="../guide/numerics.html">Numerical methods</a></summary><ul><li><a href="../guide/numerics.html#state-and-coordinates">State and coordinates</a></li><li><a href="../guide/numerics.html#elapsed-time-playback">Elapsed-time playback</a></li><li><a href="../guide/numerics.html#radial-reconstruction">Radial reconstruction</a></li><li><a href="../guide/numerics.html#open-water-response-tables">Open-water response tables</a></li><li><a href="../guide/numerics.html#exact-numerical-equilibrium">Exact numerical equilibrium</a></li><li><a href="../guide/numerics.html#wave-reflection-geometry">Wave reflection geometry</a></li><li><a href="../guide/numerics.html#reflecting-wall-reconstruction">Reflecting-wall reconstruction</a></li><li><details class="manual-section"><summary><a href="../guide/numerics.html#images-for-partial-wave-reflection">Images for partial wave reflection</a></summary><ul><li><a href="../guide/numerics.html#repeated-wall-encounters">Repeated wall encounters</a></li><li><a href="../guide/numerics.html#reusing-the-image-response">Reusing the image response</a></li><li><a href="../guide/numerics.html#numerical-evaluation-and-accuracy">Numerical evaluation and accuracy</a></li></ul></details></li><li><a href="../guide/numerics.html#spatial-sampling">Spatial sampling</a></li><li><a href="../guide/numerics.html#precomputed-animation-and-performance">Precomputed animation and performance</a></li><li><a href="../guide/numerics.html#small-disturbance-loading">Small-disturbance loading</a></li><li><a href="../guide/numerics.html#verification-and-interpretation">Verification and interpretation</a></li></ul></details><details class="manual-chapter" data-page="guide/materials"><summary><a href="../guide/materials.html">Materials</a></summary><ul><li><a href="../guide/materials.html#water">Water</a></li><li><a href="../guide/materials.html#olive-oil">Olive oil</a></li><li><a href="../guide/materials.html#silicone-oils">Silicone oils</a></li><li><a href="../guide/materials.html#honey">Honey</a></li><li><a href="../guide/materials.html#molten-chocolate">Molten chocolate</a></li><li><a href="../guide/materials.html#material-presets">Material presets</a></li><li><a href="../guide/materials.html#comparing-viscosity">Comparing viscosity</a></li><li><a href="../guide/materials.html#custom-fluids">Custom fluids</a></li></ul></details><details class="manual-chapter" data-page="guide/experiments"><summary><a href="../guide/experiments.html">Experiments</a></summary><ul><li><a href="../guide/experiments.html#scaled-water-experiments">Scaled water experiments</a></li><li><a href="../guide/experiments.html#reflecting-boundaries">Reflecting boundaries</a></li><li><a href="../guide/experiments.html#comparing-different-fluids">Comparing different fluids</a></li><li><details class="manual-section"><summary><a href="../guide/experiments.html#interpreting-the-experiments">Interpreting the experiments</a></summary><ul><li><a href="../guide/experiments.html#wave-propagation-and-dispersion">Wave propagation and dispersion</a></li><li><a href="../guide/experiments.html#wave-interference">Wave interference</a></li><li><a href="../guide/experiments.html#viscous-dissipation-and-geometric-spreading">Viscous dissipation and geometric spreading</a></li><li><a href="../guide/experiments.html#wave-reflection">Wave reflection</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/examples"><summary><a href="../guide/examples.html">Examples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/examples.html#application-examples">Application examples</a></summary><ul><li><a href="../guide/examples.html#interactive-examples">Interactive examples</a></li><li><a href="../guide/examples.html#demonstrations">Demonstrations</a></li></ul></details></li><li><a href="../guide/examples.html#apply-a-single-localized-impulse">Apply a single localized impulse</a></li><li><a href="../guide/examples.html#observe-the-wave-field">Observe the wave field</a></li><li><a href="../guide/examples.html#compare-physical-scales">Compare physical scales</a></li><li><a href="../guide/examples.html#compare-phase-and-group-velocities">Compare phase and group velocities</a></li><li><a href="../guide/examples.html#investigate-wave-interference">Investigate wave interference</a></li><li><a href="../guide/examples.html#change-wavelengths">Change wavelengths</a></li><li><a href="../guide/examples.html#investigate-wave-reflection">Investigate wave reflection</a></li><li><a href="../guide/examples.html#reproduce-rain">Reproduce rain</a></li><li><a href="../guide/examples.html#isolate-the-effect-of-viscosity">Isolate the effect of viscosity</a></li><li><a href="../guide/examples.html#examine-the-effect-of-spatial-resolution">Examine the effect of spatial resolution</a></li><li><a href="../guide/examples.html#compare-different-fluids">Compare different fluids</a></li></ul></details><details class="manual-chapter" data-page="reference/index"><summary><a href="../reference/index.html">Functions and Properties</a></summary><ul><li><a href="../reference/index.html#function-and-class-reference">Function and class reference</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator">rippleSimulator</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-syntax">Syntax</a></li><li><a href="../reference/index.html#ripplesimulator-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-examples">Examples</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-explore-a-capillary-scale-disturbance">Explore a capillary-scale disturbance</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-name-value-arguments">Name-Value Arguments</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-app-owning-application">app – Owning application</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp">app.RippleSimulatorApp</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-syntax">Syntax</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp-examples">Examples</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-change-presentation-without-changing-the-physical-field">Change presentation without changing the physical field</a></li></ul></details></li><li><a href="../reference/index.html#app-ripplesimulatorapp-name-value-arguments">Name-Value Arguments</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-properties">Properties</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-methods">Methods</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-events">Events</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple">addRipple</a></summary><ul><li><a href="../reference/index.html#addripple-syntax">Syntax</a></li><li><a href="../reference/index.html#addripple-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-examples">Examples</a></summary><ul><li><a href="../reference/index.html#addripple-create-simultaneous-disturbances">Create simultaneous disturbances</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#addripple-position-source-center">position – Source center</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-identifier-accepted-input-number">identifier – Accepted input number</a></li></ul></details></li><li><a href="../reference/index.html#addripple-algorithms">Algorithms</a></li><li><a href="../reference/index.html#addripple-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain">rain</a></summary><ul><li><a href="../reference/index.html#rain-syntax">Syntax</a></li><li><a href="../reference/index.html#rain-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-examples">Examples</a></summary><ul><li><a href="../reference/index.html#rain-repeat-a-burst-s-positions">Repeat a burst's positions</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#rain-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#rain-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot">snapshot</a></summary><ul><li><a href="../reference/index.html#snapshot-syntax">Syntax</a></li><li><a href="../reference/index.html#snapshot-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-examples">Examples</a></summary><ul><li><a href="../reference/index.html#snapshot-inspect-the-wave-field">Inspect the wave field</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-name-value-arguments">Name-Value Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-derivatives-include-vertical-velocity-and-elevation-gradients">Derivatives – Include vertical velocity and elevation gradients</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-wavefield-wave-field-data">waveField – Wave field data</a></li></ul></details></li><li><a href="../reference/index.html#snapshot-limitations">Limitations</a></li><li><a href="../reference/index.html#snapshot-algorithms">Algorithms</a></li><li><a href="../reference/index.html#snapshot-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe">describe</a></summary><ul><li><a href="../reference/index.html#describe-syntax">Syntax</a></li><li><a href="../reference/index.html#describe-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-examples">Examples</a></summary><ul><li><a href="../reference/index.html#describe-inspect-the-scaled-experiment">Inspect the scaled experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#describe-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#describe-info-configuration-record">info – Configuration record</a></li></ul></details></li><li><a href="../reference/index.html#describe-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update">update</a></summary><ul><li><a href="../reference/index.html#update-syntax">Syntax</a></li><li><a href="../reference/index.html#update-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-examples">Examples</a></summary><ul><li><a href="../reference/index.html#update-update-without-advancing-the-clock">Update without advancing the clock</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#update-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#update-algorithms">Algorithms</a></li><li><a href="../reference/index.html#update-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup">applySetup</a></summary><ul><li><a href="../reference/index.html#applysetup-syntax">Syntax</a></li><li><a href="../reference/index.html#applysetup-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-examples">Examples</a></summary><ul><li><a href="../reference/index.html#applysetup-select-the-capillary-scale">Select the capillary scale</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#applysetup-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#applysetup-name-scaled-setup">name – Scaled setup</a></li></ul></details></li><li><a href="../reference/index.html#applysetup-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear">clear</a></summary><ul><li><a href="../reference/index.html#clear-syntax">Syntax</a></li><li><a href="../reference/index.html#clear-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-examples">Examples</a></summary><ul><li><a href="../reference/index.html#clear-cancel-a-scheduled-burst">Cancel a scheduled burst</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#clear-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#clear-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset">reset</a></summary><ul><li><a href="../reference/index.html#reset-syntax">Syntax</a></li><li><a href="../reference/index.html#reset-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-examples">Examples</a></summary><ul><li><a href="../reference/index.html#reset-restore-display-and-physical-defaults">Restore display and physical defaults</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#reset-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#reset-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera">setCameraView, restoreCamera</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-syntax">Syntax</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-examples">Examples</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-inspect-the-surface-from-above">Inspect the surface from above</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-name-camera-preset">name – Camera preset</a></li></ul></details></li><li><a href="../reference/index.html#setcameraview-restorecamera-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture">capture</a></summary><ul><li><a href="../reference/index.html#capture-syntax">Syntax</a></li><li><a href="../reference/index.html#capture-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-examples">Examples</a></summary><ul><li><a href="../reference/index.html#capture-capture-an-experiment">Capture an experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#capture-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#capture-filename-png-destination">filename – PNG destination</a></li></ul></details></li><li><a href="../reference/index.html#capture-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete">close, delete</a></summary><ul><li><a href="../reference/index.html#close-delete-syntax">Syntax</a></li><li><a href="../reference/index.html#close-delete-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-examples">Examples</a></summary><ul><li><a href="../reference/index.html#close-delete-close-an-owned-application">Close an owned application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#close-delete-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#close-delete-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#customization">Customization</a></summary><ul><li><a href="../reference/index.html#add-a-fluid-preset">Add a fluid preset</a></li></ul></details></li><li><a href="../reference/index.html#tests">Tests</a></li><li><a href="../reference/index.html#native-matlab-help">Native MATLAB help</a></li><li><a href="../reference/index.html#related-topics">Related Topics</a></li></ul></details><details class="manual-chapter" data-page="guide/sound"><summary><a href="../guide/sound.html">Sound</a></summary><ul><li><a href="../guide/sound.html#controls">Controls</a></li><li><a href="../guide/sound.html#recordings-and-overlap">Recordings and overlap</a></li><li><a href="../guide/sound.html#reusable-playback">Reusable playback</a></li></ul></details><details class="manual-chapter" data-page="guide/installation"><summary><a href="../guide/installation.html">Installation and requirements</a></summary><ul><li><a href="../guide/installation.html#matlab">MATLAB</a></li><li><a href="../guide/installation.html#optional-java-audio">Optional Java audio</a></li><li><a href="../guide/installation.html#documentation">Documentation</a></li><li><details class="manual-section"><summary><a href="../guide/installation.html#troubleshooting">Troubleshooting</a></summary><ul><li><a href="../guide/installation.html#reduced-playback-frame-rate">Reduced playback frame rate</a></li><li><a href="../guide/installation.html#playback-interruptions-during-mouse-movement">Playback interruptions during mouse movement</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/references"><summary><a href="../guide/references.html">References</a></summary><ul><li><a href="../guide/references.html#wave-physics">Wave physics</a></li><li><a href="../guide/references.html#impulsive-excitation-and-ring-waves">Impulsive excitation and ring waves</a></li><li><a href="../guide/references.html#wave-reflection">Wave reflection</a></li><li><a href="../guide/references.html#numerical-interpolation">Numerical interpolation</a></li><li><a href="../guide/references.html#material-properties">Material properties</a></li><li><a href="../guide/references.html#matlab-documentation">MATLAB documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/notices"><summary><a href="../guide/notices.html">Third-party notices</a></summary><ul><li><a href="../guide/notices.html#matlab-docmaker">MATLAB DocMaker</a></li><li><a href="../guide/notices.html#github-markdown-css">GitHub Markdown CSS</a></li><li><a href="../guide/notices.html#scientific-sources">Scientific sources</a></li></ul></details></nav></details></aside><div><div class="markdown-heading"><h1 class="heading-element" id="physics-of-ripples">Physics of ripples</h1></div>
+<p><a href="../index.html">Ripple Simulator</a> / Physics</p>
+<p>Ripple Simulator models small-amplitude gravity–capillary waves on a homogeneous,
+incompressible Newtonian fluid of infinite depth. A source supplies a localized
+excitation, and the response propagates according to the governing equations below.
+Gravity and surface tension restore the displaced surface, and viscosity dissipates
+the wave energy. The full viscous response is obtained by solving the linearized
+Navier–Stokes and continuity equations subject to the linearized kinematic and
+dynamic free-surface boundary conditions. For the definitions of the terms used
+below, see the <a href="#glossary">Glossary</a>.</p>
+<p>The following table lists the physical quantities used in the model and their
+units in the International System of Units (SI):</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Quantity</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>η</em></td>
+<td>Surface elevation relative to the still water level</td>
+<td>m</td>
+</tr>
+<tr>
+<td>
+<strong>u</strong> = (<em>u</em>, <em>v</em>, <em>w</em>)</td>
+<td>Fluid velocity</td>
+<td>m/s</td>
+</tr>
+<tr>
+<td><em>p</em></td>
+<td>Pressure perturbation from hydrostatic equilibrium</td>
+<td>Pa</td>
+</tr>
+<tr>
+<td>
+<em>p</em><sub>ext</sub>
+</td>
+<td>Applied downward pressure</td>
+<td>Pa</td>
+</tr>
+<tr>
+<td><em>ρ</em></td>
+<td>Density</td>
+<td>kg/m³</td>
+</tr>
+<tr>
+<td><em>μ</em></td>
+<td>Dynamic viscosity</td>
+<td>Pa s</td>
+</tr>
+<tr>
+<td>
+<em>ν</em> = <em>μ</em>/<em>ρ</em>
+</td>
+<td>Kinematic viscosity</td>
+<td>m²/s</td>
+</tr>
+<tr>
+<td><em>σ</em></td>
+<td>Surface tension</td>
+<td>N/m</td>
+</tr>
+<tr>
+<td><em>g</em></td>
+<td>Gravitational acceleration, 9.81</td>
+<td>m/s²</td>
+</tr>
+<tr>
+<td>
+<em>k</em> = 2π/λ</td>
+<td>Wavenumber</td>
+<td>rad/m</td>
+</tr>
+<tr>
+<td>
+<em>ω</em>₀</td>
+<td>Inviscid reference angular frequency</td>
+<td>rad/s</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element" id="governing-equations">Governing equations</h2></div>
+<p>The model is based on
+<a href="https://web.mit.edu/fluids-modules/www/potential_flows/LecturesHTML/lec19bu/node3.html" rel="nofollow">small-amplitude wave theory</a>
+(<a href="https://books.google.com/books?id=41dSAAAAcAAJ" rel="nofollow">Airy, 1845</a>).
+It assumes small wave amplitudes relative to the wavelengths and small
+free-surface slopes. The governing equations are therefore linearized,
+retaining first-order terms in the surface displacement and fluid velocity.
+For a sinusoidal component of amplitude <em>a</em> and wavenumber <em>k</em>, the maximum
+slope is <em>ka</em>.</p>
+<p><a href="../assets/maximum-surface-slope.svg" rel="noopener noreferrer" target="_blank"><img alt="For a sinusoidal wave, the maximum surface slope is k times a, equal to two pi times a divided by wavelength." src="../assets/maximum-surface-slope.svg" style="max-width: 100%;"/></a></p>
+<p>For overlapping ripples, the small-slope condition applies to the combined
+surface:</p>
+<p><a href="../assets/combined-surface-slope.svg" rel="noopener noreferrer" target="_blank"><img alt="The maximum slope of the combined surface is the maximum magnitude of the horizontal gradient of the sum of the individual elevations, and must be much smaller than one." src="../assets/combined-surface-slope.svg" style="max-width: 100%;"/></a></p>
+<div class="markdown-heading"><h3 class="heading-element" id="linear-boundary-value-problem">Linear boundary-value problem</h3></div>
+<p>Let <strong>u</strong> be the three-dimensional fluid velocity, <em>w</em> its vertical component,
+and <em>ξ</em> the upward vertical coordinate. The undisturbed surface is at <em>ξ</em> = 0.
+The pressure <em>p</em> is the perturbation after subtracting hydrostatic equilibrium.
+The fluid satisfies the linearized incompressible Navier–Stokes and continuity
+equations (<a href="https://doi.org/10.1016/j.ijmultiphaseflow.2023.104592" rel="nofollow">Patibandla et al., 2023</a>):</p>
+<p><a href="../assets/linear-momentum.svg" rel="noopener noreferrer" target="_blank"><img alt="The time derivative of velocity equals minus the pressure gradient divided by density plus kinematic viscosity times the velocity Laplacian. The velocity divergence is zero." src="../assets/linear-momentum.svg" style="max-width: 100%;"/></a></p>
+<p>At the undisturbed surface, <em>ξ</em> = 0, the linearized kinematic and
+tangential stress boundary conditions are:</p>
+<p><a href="../assets/surface-kinematics.svg" rel="noopener noreferrer" target="_blank"><img alt="The time derivative of surface elevation equals vertical velocity. The vertical derivative of horizontal velocity plus the horizontal gradient of vertical velocity is zero, at xi equals zero." src="../assets/surface-kinematics.svg" style="max-width: 100%;"/></a></p>
+<p>The linearized normal stress boundary condition includes gravity, surface
+tension, and the imposed pressure:</p>
+<p><a href="../assets/surface-normal-stress.svg" rel="noopener noreferrer" target="_blank"><img alt="Pressure minus twice dynamic viscosity times the vertical derivative of vertical velocity equals density times gravity times elevation minus surface tension times the horizontal Laplacian of elevation plus external pressure, at xi equals zero." src="../assets/surface-normal-stress.svg" style="max-width: 100%;"/></a></p>
+<p>The tangential and normal stress conditions are the dynamic free-surface
+boundary conditions. The subscript <em>h</em> denotes horizontal components or
+derivatives. Velocity and pressure disturbances decay with depth. The fluid is
+initially at rest before the applied excitation. Positive external pressure
+acts downward.</p>
+<p>Linearization about a flat, stationary surface omits nonlinear advection and
+higher-order free-surface geometry. The viscous terms remain in the momentum
+equation and surface stress conditions.</p>
+<p>The pressure input does not add fluid. Its zero-wavenumber elevation response
+is zero, so it does not impose a uniform change in the level of the unbounded
+surface. The mean elevation within the visible area can still
+vary as waves enter and leave that region. Subtracting that local mean would
+change the physical response and is not part of the calculation.
+For perfectly reflecting boundaries, the zero cosine mode is absent from elevation,
+so the mean over the entire domain remains zero.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="gravity-and-surface-tension">Gravity and surface tension</h2></div>
+<p>For an inviscid wave of wavenumber <em>k</em> on deep water, the angular frequency satisfies</p>
+<p><a href="../assets/deep-dispersion.svg" rel="noopener noreferrer" target="_blank"><img alt="Omega squared equals g times k plus surface tension divided by density times k cubed." src="../assets/deep-dispersion.svg" style="max-width: 100%;"/></a></p>
+<p>Gravity supplies the term proportional to <em>k</em>. Surface tension supplies the
+term proportional to <em>k</em> cubed. Surface tension is a restoring mechanism; it
+is not the damping coefficient.</p>
+<p>The two restoring terms are equal at the gravity–capillary crossover
+wavelength (<a href="https://doi.org/10.1146/annurev-fluid-021021-102043" rel="nofollow">Falcon &amp; Mordant, 2022</a>):</p>
+<p><a href="../assets/crossover.svg" rel="noopener noreferrer" target="_blank"><img alt="The crossover wavelength is two pi times the square root of surface tension divided by density times gravity." src="../assets/crossover.svg" style="max-width: 100%;"/></a></p>
+<p>For clean water at 20 °C, this is approximately 17.1 mm. Waves much longer than
+this are predominantly gravity waves. Much shorter waves are predominantly
+capillary waves. The model includes both restoring terms at every wavelength.
+The capillary length, √(σ/(ρ<em>g</em>)), is approximately 2.7 mm; the crossover
+wavelength is 2π times that length. The 50-mm water experiment is predominantly
+gravity driven at its characteristic wavenumber, whereas the 5-mm experiment
+is predominantly capillary driven. Both exhibit dispersion.</p>
+<p>The everyday word <em>ripple</em> does not identify a single physical regime. A pond
+disturbance contains a spectrum of wavelengths, and its gravity and capillary
+components can behave differently. The small, short waves are often strongly
+influenced by surface tension. The initial cavity and splash from a falling
+stone lie outside this linear model.</p>
+
+<div class="markdown-heading"><a id="dispersion"></a><h2 class="heading-element" id="wave-dispersion">Wave dispersion</h2></div>
+<p>Different wavelengths travel at different speeds. Phase velocity describes a
+moving crest; group velocity describes the propagation of a narrow wave packet:</p>
+<p><a href="../assets/wave-speeds.svg" rel="noopener noreferrer" target="_blank"><img alt="Phase velocity is omega divided by k. Group velocity is the derivative of omega with respect to k." src="../assets/wave-speeds.svg" style="max-width: 100%;"/></a></p>
+<p>In the deep-water gravity limit, group velocity is half the phase velocity. In the
+capillary limit, group velocity is one and a half times the phase velocity. These
+limits explain why a packet's crests and its envelope do not necessarily move together.
+They do not describe every feature of a broad, viscous disturbance with one
+constant propagation speed.</p>
+<p>For water at 20 °C, the inviscid relation gives the following reference values:</p>
+<table>
+<thead>
+<tr>
+<th>Wavelength (mm)</th>
+<th>Period (s)</th>
+<th>Phase velocity (m/s)</th>
+<th>Group velocity (m/s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>0.1044</td>
+<td>0.2395</td>
+<td>0.1962</td>
+</tr>
+<tr>
+<td>50</td>
+<td>0.1693</td>
+<td>0.2953</td>
+<td>0.1787</td>
+</tr>
+<tr>
+<td>100</td>
+<td>0.2494</td>
+<td>0.4009</td>
+<td>0.2119</td>
+</tr>
+</tbody>
+</table>
+<p>The 50-mm component completes approximately 5.91 oscillations per second.
+These are physical time and distance scales; playback speed changes the rate
+at which they are displayed. The complete viscous response also includes the
+attenuation and frequency effects described below.</p>
+<p>Each source is reconstructed from its wavenumber spectrum. The reconstruction
+accounts for wave dispersion, geometric spreading, and viscous dissipation.</p>
+<p>Small elevations can produce visible rings by changing the surface slope and
+the reflected light. Measurements of drop-generated waves give a
+characteristic wavelength of approximately 31 mm and elevations of order
+0.05–0.1 mm near a radius of 130 mm, approximately 0.8 s after impact
+(<a href="https://doi.org/10.1109/48.775294" rel="nofollow">Craeye et al., 1999</a>). The
+optical measurements distinguish the outgoing ring waves from the initial
+crater, crown, and subsequent water jet. These measurements provide experimental
+scales for <a href="references.html#impulsive-excitation-and-ring-waves">ring waves</a>; the Gaussian
+source parameters specify a localized pressure load rather than a drop size
+and fall height.</p>
+<p>Wave-height measurements also depend on the excitation. In wind-driven tank
+experiments, reported crest-to-trough heights range from 0.06 to 8.8 mm for
+wind speeds of 2.2–7.6 m/s (<a href="https://doi.org/10.1364/AO.18.001167" rel="nofollow">Bobb et al., 1979</a>).
+Those conditions cover a broad range of surface motion and do not define a
+universal capillary-wave amplitude. Optical methods also measure capillary wave
+dispersion and spatial decay, including the effects of surface films
+(<a href="https://doi.org/10.1063/5.0066759" rel="nofollow">Slavchov et al., 2021</a>).</p>
+<div class="markdown-heading"><h2 class="heading-element" id="constitutive-model-and-rheology">Constitutive model and rheology</h2></div>
+<p>The viscous stress is proportional to the instantaneous rate of deformation:</p>
+<p><a href="../assets/newtonian-stress.svg" rel="noopener noreferrer" target="_blank"><img alt="The viscous stress tensor equals twice the dynamic viscosity times the rate-of-deformation tensor. The latter is one half of the velocity gradient plus its transpose." src="../assets/newtonian-stress.svg" style="max-width: 100%;"/></a></p>
+<p>Here, <strong>T</strong>ᵥ is the viscous stress tensor, <strong>D</strong> is the rate-of-deformation
+tensor, and <em>μ</em> is constant throughout
+each experiment. This Newtonian constitutive law gives the viscous term
+<em>ν</em>∇²<strong>u</strong> in the incompressible momentum equation. In simple shear, it reduces
+to shear stress equal to viscosity times shear rate
+(<a href="https://goldbook.iupac.org/terms/view/N04138" rel="nofollow">IUPAC</a>).</p>
+<p>The honey and compound-chocolate presets use constant-viscosity
+approximations supported by specified flow measurements. Their
+<a href="materials.html">material descriptions</a> distinguish measured conditions from
+extrapolation to weak surface motion. Small amplitude justifies linearizing
+the surface equations; it does not, by itself, establish Newtonian rheology.</p>
+<p>Shear thinning, yield stress, thixotropy, and viscoelastic stress memory are
+not represented. With shear-dependent viscosity or yielding, the constitutive
+response generally depends on the combined flow, so adding fixed single-source
+responses would not solve that nonlinear problem. Linear viscoelastic models
+can also admit superposition, but require a different stress law and response
+kernel. These distinctions matter particularly for chocolate formulations
+with measurable yield stress or strong low-shear viscosity variation
+(<a href="https://www.tainstruments.com/pdf/literature/RH113.pdf" rel="nofollow">TA Instruments</a>).</p>
+<div class="markdown-heading"><h2 class="heading-element" id="viscosity-and-transient-motion">Viscosity and transient motion</h2></div>
+<p>The underlying equations are the linearized incompressible Navier–Stokes and
+continuity equations, subject to the linearized kinematic and dynamic boundary
+conditions at the free surface. The response includes the surface-wave modes
+and the transient contribution from vorticity diffusion.</p>
+<p>For one wavenumber, define the inviscid frequency <em>ω</em>₀, dimensionless
+viscosity <em>ε = νk</em>²/<em>ω</em>₀, and dimensionless Laplace variable <em>z</em>.
+With dimensionless time <em>τ = ω</em>₀<em>t</em>, the response satisfies <em>h</em>ε(0) = 0 and
+<em>h</em>ε′(0) = 1, where the derivative is with respect to <em>τ</em>. Its Laplace transform is</p>
+<p><a href="../assets/viscous-transfer.svg" rel="noopener noreferrer" target="_blank"><img alt="H of z equals one over the quantity: (z plus two epsilon) squared, plus one, minus four epsilon squared times the square root of (one plus z divided by epsilon)." src="../assets/viscous-transfer.svg" style="max-width: 100%;"/></a></p>
+<p>The square root uses the branch consistent with decay into the fluid. The
+surface-wave modes correspond to poles of the Laplace transform, where its
+denominator vanishes. Their real and imaginary parts determine modal decay
+and oscillation, respectively. The inverse transform also includes the branch
+contribution from vorticity diffusion.</p>
+<p>As viscosity tends to zero, the transfer function tends to 1/(<em>z</em>² + 1),
+whose inverse is sin(<em>τ</em>). This limit supplies the inviscid response; the
+formula containing <em>z/ε</em> is not evaluated by substituting <em>ε</em> = 0 directly.</p>
+<p>In the weak-viscosity limit, a nearly monochromatic wave has the familiar
+leading amplitude decay</p>
+<p><a href="../assets/weak-damping.svg" rel="noopener noreferrer" target="_blank"><img alt="Wave amplitude is proportional to the exponential of minus two times kinematic viscosity times wavenumber squared times time." src="../assets/weak-damping.svg" style="max-width: 100%;"/></a></p>
+<p>Short waves therefore attenuate more rapidly under this approximation. The
+full response is used in the app, including regimes where this simple
+exponential is insufficient. Dynamic viscosity and kinematic viscosity have
+different units; the latter is computed from the former and the density.</p>
+<p>At sufficiently large viscosity, a spectral component ceases to oscillate.
+It relaxes toward equilibrium instead of traveling as a wave. In the limit
+of strong viscosity, the slower relaxation mode has the approximate time scale</p>
+<p><a href="../assets/viscous-relaxation.svg" rel="noopener noreferrer" target="_blank"><img alt="The viscous relaxation time is approximately twice kinematic viscosity times wavenumber squared divided by the squared inviscid frequency, equivalently twice dynamic viscosity times wavenumber divided by density times gravity plus surface tension times wavenumber squared. This applies when epsilon is much greater than one." src="../assets/viscous-relaxation.svg" style="max-width: 100%;"/></a></p>
+<p>For a given wavelength, increasing viscosity in this regime prolongs the
+leveling of an established deformation. It also suppresses the displacement
+produced by a brief pressure impulse. Slow leveling therefore does not imply
+a slowly traveling ring. This expression describes the strong-viscosity limit;
+the simulator evaluates the full response above.</p>
+<p><a href="../assets/viscous-mode-response.svg" rel="noopener noreferrer" target="_blank"><img alt="Normalized modal impulse responses for weak and strong viscosity, showing oscillatory decay and overdamped relaxation." src="../assets/viscous-mode-response.svg" style="max-width: 100%;"/></a></p>
+<p><em>Calculated modal responses with equal initial downward velocities at a fixed
+wavenumber and inviscid frequency. The curves show −h<sub>ε</sub>, with
+ε = νk²/ω₀ and time scaled by the inviscid period 2π/ω₀.
+Increasing viscosity suppresses the displacement and, in the overdamped
+regime, prolongs its late relaxation. Axis ranges differ between plots.
+These modal responses exclude the finite-duration settling envelope.</em></p>
+<p>Viscous dispersion relations establish the limits of common damping
+approximations (<a href="https://doi.org/10.1103/PhysRevFluids.3.124803" rel="nofollow">Armaroli et al., 2018</a>).
+Initial-value analyses distinguish the surface-wave and vorticity contributions
+(<a href="https://doi.org/10.1016/j.ijmultiphaseflow.2023.104592" rel="nofollow">Patibandla et al., 2023</a>).</p>
+<div class="markdown-heading"><h2 class="heading-element" id="why-a-ripple-becomes-less-visible">Why a ripple becomes less visible</h2></div>
+<p>Several effects contribute, with different meanings:</p>
+<ul>
+<li>
+<strong>Viscous dissipation:</strong> viscous stresses within the deforming fluid convert
+wave mechanical energy into heat.</li>
+<li>
+<strong>Geometric spreading:</strong> a localized disturbance distributes its motion over
+a growing region.</li>
+<li>
+<strong>Wave dispersion:</strong> wavelengths separate and a packet changes shape.</li>
+<li>
+<strong>Radiation from the window:</strong> waves travel beyond the visible area.</li>
+</ul>
+<p>The last three effects are not additional viscosity. They must not be counted
+as arbitrary damping. Radiation carries energy beyond the visible area.
+Perfectly reflecting walls return waves into the observation domain.
+Viscous dissipation remains active in both cases.
+The finite-duration envelope described below applies equally to both.</p>
+
+<div class="markdown-heading"><a id="reflecting-walls"></a><h2 class="heading-element" id="wave-reflection">Wave reflection</h2></div>
+<p>Perfectly reflecting boundaries are modeled as impermeable, free-slip vertical
+walls: fluid cannot flow through them,
+and tangential viscous stress at each wall is zero. The free surface meets the
+walls at 90 degrees. Cosine modes enforce zero wall-normal surface slope;
+their wavenumbers enter the same gravity-capillary and full-viscosity response
+used for open water.</p>
+<p>The boundary model excludes no-slip wall layers, contact-angle hysteresis,
+dynamic wetting, and bottom friction. The slipping, 90-degree contact-line
+idealization also appears in an inviscid rectangular-container model
+(<a href="https://doi.org/10.1115/1.4035363" rel="nofollow">Daqaq et al., 2017</a>).</p>
+<p>The following views show a localized impulse in water at 20 °C, with a
+50-mm characteristic wavelength, a pressure strength of 100 mPa·s, and a 100%
+reflection coefficient. The 300 × 300 mm domain is sampled on an 801 × 801 grid. Both
+views show the field at 0.50 s.</p>
+<p><a href="../assets/reflection-side.png" rel="noopener noreferrer" target="_blank"><img alt="Complete app showing an outgoing ripple and returning arcs at one boundary" src="../assets/reflection-side.png" style="max-width: 100%;"/></a></p>
+<p><em>Single wall (side), viewed from above. Incident rings meet the right boundary.
+The reflected arcs curve back into the domain and overlap the outgoing waves.</em></p>
+<p><a href="../assets/reflection-corner.png" rel="noopener noreferrer" target="_blank"><img alt="Complete app showing a ripple reflected by two perpendicular boundaries" src="../assets/reflection-corner.png" style="max-width: 100%;"/></a></p>
+<p><em>Perpendicular walls (corner), viewed from above. Reflections from the right and upper boundaries
+intersect near the corner. The incident, singly reflected, and two-wall
+contributions are superimposed in the displayed field.</em></p>
+
+<div class="markdown-heading"><a id="partial-reflection"></a><h3 class="heading-element" id="partial-wave-reflection">Partial wave reflection</h3></div>
+<p><strong>Experiment &gt; Wave reflection &gt; Reflection coefficient</strong> selects the reflected
+amplitude fraction <em>R</em>, from 0 to 1. For an individual incident wave component, the
+corresponding reflected energy fraction is <em>R</em>². Thus 50% amplitude reflection
+corresponds to 25% reflected energy. Viscosity acts throughout the motion;
+changing <em>R</em> does not change the fluid's viscosity.</p>
+<p>For intermediate coefficients, the app superimposes mirrored copies of the
+open-water response. A copy associated with <em>N</em> wall encounters has weight
+<em>R</em> to the power <em>N</em>. The copies retain the original source age, spectrum,
+and viscous evolution. A reflection does not create a fresh, undamped ripple.</p>
+<p>This model prescribes a real, frequency-independent coefficient and specular
+reflection without a phase reversal. It represents reduced returning wave
+amplitude, without resolving whether the missing energy is transmitted into
+another region or dissipated in a boundary. It is not a viscous wall-layer or
+wall-impedance calculation. For <em>R</em> &lt; 1, the boundary is not the impermeable
+free-slip boundary used by the 100% model, and the mean elevation within the domain
+does not necessarily remain zero. At 0%, propagation is the open-water response.</p>
+<p>The <a href="numerics.html#wave-reflection-geometry">reflection diagrams and equations</a>
+show how mirrored sources represent single, corner, and repeated reflections.
+The <a href="numerics.html#images-for-partial-wave-reflection">numerical methods</a> describe their
+precomputed representation, convergence checks, and supported spatial range.</p>
+<p>Switching boundaries clears existing waves and scheduled rain. A surface
+elevation alone is insufficient to transfer the fluid's velocity and vorticity
+into a different boundary problem. Pressure strength, material, physical size,
+display settings, and pause state are preserved.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="depth">Depth</h2></div>
+<p>For an inviscid fluid of finite depth <em>h</em>, the restoring relation contains
+the factor tanh(<em>kh</em>), which approaches one in the deep-water limit. A
+finite-depth viscous model requires a bottom boundary condition and can include
+bottom boundary-layer losses. The model assumes infinite depth.</p>
+
+<div class="markdown-heading"><a id="physical-elevation-display-elevation-and-time"></a><h2 class="heading-element" id="height-scale-and-simulation-time">Height scale and simulation time</h2></div>
+<p>The numerical field is stored and sampled in meters. Vertical exaggeration
+multiplies only the rendered elevation; it does not change the forcing, wave
+frequency, viscosity, or propagation. The displayed factor is the total
+Cartesian vertical exaggeration, including the axes aspect ratio.</p>
+<p>Playback rate specifies simulation seconds per second of real time. Slowing
+playback makes fast waves easier to inspect without changing the physical
+equations. The simulation pauses while a new wave response is calculated.
+During playback, wave motion follows elapsed time rather than advancing by a
+fixed amount per frame.</p>
+<p>The displayed crest elevation is the maximum sampled surface elevation relative
+to the still water level. Trough depth is the greatest depth below the still water
+level, reported as a nonnegative value. Wave height is the difference between the maximum and
+minimum sampled elevations. Opposite extrema are
+equal in magnitude for a single sinusoid, but a localized or superimposed
+wave field does not necessarily have that symmetry. Its largest crest and deepest trough
+can also occur in different parts of the domain. These readings are in
+physical units and do not include vertical exaggeration.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="model-assumptions-and-numerical-approximations">Model assumptions and numerical approximations</h2></div>
+<p>The model assumes a clean interface, negligible air inertia and stress, no
+background current, and small surface slopes. It does not resolve an impacting
+object, splashes, breaking waves, bubbles, surfactant films, or a container's
+bottom or dynamic wetting. By default, the model represents the fluid's
+unbounded surface. Perfectly reflecting boundaries use ideal free-slip vertical
+walls and a freely moving contact line with a fixed 90-degree angle.
+Lower reflection coefficients use the partial-reflection approximation
+described in <a href="#wave-reflection">Wave reflection</a>.</p>
+<p>The simulator's
+<a href="numerics.html#small-disturbance-loading">loading criterion</a> bounds the slope
+of the combined disturbance; its numerical cutoff is an operating choice,
+not a universal threshold established by linear theory.</p>
+<p>Finite-amplitude limiting waves belong to a different regime. Crapper's
+exact progressive pure-capillary family reaches a limiting
+crest-to-trough height ratio <em>H</em>/λ ≈ 0.730. Here <em>H</em> is the full wave height,
+not the sinusoidal amplitude <em>a</em>. This nonlinear geometric limit does not
+define the range of a linear approximation
+(<a href="https://doi.org/10.1017/S0022112057000348" rel="nofollow">Crapper, 1957</a>).</p>
+<p>The linear, clean-interface, infinite-depth equations describe the underlying
+response. Their viscous tails generally approach equilibrium asymptotically.
+To provide a definite end to each disturbance, the app applies a separate
+finite-duration envelope. This is an explicit model approximation,
+not a material property or an exact consequence of viscosity.</p>
+<p>The duration accounts for both the inviscid reference period and slow viscous
+relaxation. With Gaussian width <em>s</em> and source wavenumber <em>k</em>₀, define</p>
+<p><a href="../assets/settling-time-scale.svg" rel="noopener noreferrer" target="_blank"><img alt="The settling time scale is the maximum of the inviscid reference period and the longest Stokes relaxation time over retained wavenumbers up to twelve divided by the Gaussian width." src="../assets/settling-time-scale.svg" style="max-width: 100%;"/></a></p>
+<p>The second term is the Stokes relaxation time of an overdamped surface mode.
+It sets the numerical lifetime; the full viscous response still determines
+the wave motion. For positive surface tension, the longest such time occurs
+at the smaller of √(<em>ρg/σ</em>) and <em>12/s</em>. This prevents the inviscid period from
+prematurely truncating a slowly relaxing viscous disturbance.</p>
+<p>For source age <em>a</em>, the physical response is unchanged through <em>8T</em>ₛ. Between
+<em>8T</em>ₛ and <em>10T</em>ₛ, define <em>q</em> = (<em>10T</em>ₛ − <em>a</em>)/(<em>2T</em>ₛ) and use</p>
+<p><a href="../assets/settling-polynomial.svg" rel="noopener noreferrer" target="_blank"><img alt="The settling envelope is q cubed times ten minus fifteen q plus six q squared." src="../assets/settling-polynomial.svg" style="max-width: 100%;"/></a></p>
+<p>Before this interval, <em>E</em> = 1; at and after <em>10T</em>ₛ, <em>E</em> = 0. The envelope and
+its first two derivatives join continuously. The reported physical fields
+include the time derivative of the envelope:</p>
+<p><a href="../assets/settling-fields.svg" rel="noopener noreferrer" target="_blank"><img alt="Elevation is E times the viscous elevation; vertical velocity is E times viscous velocity plus E prime times viscous elevation." src="../assets/settling-fields.svg" style="max-width: 100%;"/></a></p>
+<p>The subscript v denotes the unmodified viscous response. Every reflected
+contribution uses the original source age; reflection never restarts the
+fade. Subsequent clicks have their own start times and settling time scales.
+Each accepted source is retained through its deadline; all of its
+contributions are exactly zero afterward.</p>
+<p>In the default gravity-scale experiment at 0.25x playback, the unmodified
+interval lasts approximately 5.4 real seconds and exact settling occurs by
+approximately 6.8 seconds after each input. Smaller-scale presets have shorter
+reference periods. Pausing or changing playback speed changes these real durations.
+This timing is chosen for the
+interactive presentation; it is not a measured relaxation time for water or oil.
+During the fade, the reported field is the modified field above and no longer
+the unforced solution of the stated boundary-value problem. Numerical omission
+bounds cover the response evaluation, not the discrepancy introduced by this
+envelope. Quantitative decay studies must therefore use the initial unmodified
+interval and account for all other model assumptions.</p>
+<p>The envelope is uniform in space for each source. Viscosity acts throughout
+the entire lifetime, including on reflected waves.</p>
+<p>See <a href="numerics.html#exact-numerical-equilibrium">Numerical methods</a> for source
+retirement and the distinction between finite settling and numerical error.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="source-definitions">Source definitions</h2></div>
+<p>A click in open water applies a circular Gaussian excitation centered at its physical
+position. Automatic rain calls the same source operation at twenty scheduled
+positions, with the same pressure strength by default. A separate multiplier
+adjusts the pressure strength for rain without changing the source shape or propagation model.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="characteristic-wavelength">Characteristic wavelength</h3></div>
+<p>The source's characteristic wavelength <em>λ</em> defines its Gaussian width
+<em>s</em> and reference wavenumber <em>k</em>₀:</p>
+<p><a href="../assets/source-scale.svg" rel="noopener noreferrer" target="_blank"><img alt="Gaussian width s equals lambda divided by two pi, and reference wavenumber k0 equals one divided by s." src="../assets/source-scale.svg" style="max-width: 100%;"/></a></p>
+<p>A localized ripple contains a spectrum of wavelengths. Their different
+propagation speeds produce dispersion and varying ring spacing.</p>
+<p>In <strong>Pressure impulse</strong> mode, this parameter controls the spatial footprint
+of the applied impulse. There is no imposed oscillation frequency. Each
+wavenumber evolves according to the fluid's gravity-capillary and viscous
+response. The characteristic wavelength is a source parameter, not a material
+property or a single wavelength shared by all the rings.</p>
+<p>Changing the source wavelength affects subsequent clicks. Existing waves keep
+their original source definition and physical age. A resolution change samples
+those same waves on another grid; it does not retune their wavelength.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="pressure-impulse">Pressure impulse</h3></div>
+<p>For an individual Gaussian source in <strong>Pressure impulse</strong> mode, the
+time-integrated applied pressure is</p>
+<p><a href="../assets/pressure-impulse.svg" rel="noopener noreferrer" target="_blank"><img alt="The pressure impulse at distance r is J times the exponential of minus r squared divided by twice s squared." src="../assets/pressure-impulse.svg" style="max-width: 100%;"/></a></p>
+<p>The pressure impulse has its maximum value <em>J</em>, in Pa·s, at the source center.
+Positive applied pressure acts downward. The idealized impulse changes the fluid's
+velocity instantaneously; surface elevation is continuous at the input time.
+This initial-value formulation follows the pressure-impulse treatment
+(<a href="https://doi.org/10.1017/S0022112093001508" rel="nofollow">Naugol'nykh et al., 1993</a>).
+Gaussian impulsive velocity potentials have also been studied in nonlinear
+inviscid flow (<a href="https://doi.org/10.1017/S0022112007004648" rel="nofollow">Tjan &amp; Phillips, 2007</a>).
+Here the subsequent motion follows the linear viscous equations.</p>
+<p>A new impulse contributes zero elevation at its exact start, including when
+it is added to an existing wave field. The center initially moves downward;
+a surrounding upward response accompanies the displacement of fluid. The
+initial velocity distribution follows from the Gaussian pressure impulse
+and incompressibility.</p>
+<p>At the source center on an unbounded surface, the initial conditions are</p>
+<p><a href="../assets/impulse-initial-motion.svg" rel="noopener noreferrer" target="_blank"><img alt="The initial center elevation is zero. Its initial vertical velocity is minus the square root of pi over two times the pressure impulse divided by density and Gaussian width." src="../assets/impulse-initial-motion.svg" style="max-width: 100%;"/></a></p>
+<p>This follows from the Gaussian source spectrum and the unit initial slope of
+the <a href="physics.html#viscosity-and-transient-motion">viscous impulse response</a>.
+The velocity has units m/s; density, source width, and pressure impulse determine
+its initial value.</p>
+<p>The central elevation is a transient superposition, not a single periodic
+oscillation. Each wavenumber has its own gravity–capillary response, so successive
+extrema at a fixed location are not necessarily equally spaced. A sinusoid starting at
+equilibrium with downward velocity reaches its first trough after a quarter
+period; the following crest occurs half a period later. For water at 20 °C with
+a 50-mm characteristic wavelength and <em>J</em> = 0.10 Pa·s, the calculated center
+reaches its first trough at approximately 0.032 s. The inviscid reference period
+at that wavelength is approximately 0.169 s; it does not define the period of
+the complete ripple. The larger initial depression and smaller outward rings
+also occur in the inviscid solution as the disturbance spreads radially and
+its components disperse.</p>
+<p>The pressure-impulse approximation describes the generation of gravity–capillary
+ring waves by localized impacts (<a href="https://doi.org/10.1017/S0022112088003301" rel="nofollow">Le Méhauté, 1988</a>).
+In the linear model, the surface displacement is small relative to its horizontal
+variation scale. Comparing a source with a drop impact requires both the spatial
+footprint and the transferred impulse; the drop diameter alone does not specify <em>J</em>.
+In drop-generated ring-wave models, the effective footprint can extend beyond
+the drop itself. Comparisons of a momentum-based source with measured rings
+use an enlarged impact footprint and a generation delay associated with the
+collapsing stalk (<a href="https://doi.org/10.1029/2005JC003356" rel="nofollow">Contreras &amp; Plant, 2006</a>).
+Those fitted impact parameters are distinct from the fluid properties.</p>
+<p>The impulse integrated over the unbounded surface is</p>
+<p><a href="../assets/integrated-pressure-impulse.svg" rel="noopener noreferrer" target="_blank"><img alt="The total applied impulse is the integral of the Gaussian pressure impulse over the surface, equal to two pi times s squared times J." src="../assets/integrated-pressure-impulse.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>I</em> has units N·s, while <em>J</em> has units Pa·s. A pressure in Pa additionally
+requires a finite loading duration and a specified time profile. For the
+initially stationary, unbounded fluid, the kinetic energy immediately after
+the ideal impulse is</p>
+<p><a href="../assets/impulse-energy.svg" rel="noopener noreferrer" target="_blank"><img alt="The initial kinetic energy is pi to the power three halves times s times J squared divided by four times density." src="../assets/impulse-energy.svg" style="max-width: 100%;"/></a></p>
+<p>This follows by integrating the kinetic energy of the initial velocity
+potential through the fluid depth. Displacement scales with <em>J</em>, whereas
+energy scales with <em>J</em>². Source width therefore matters when comparing loads:
+equal values of <em>J</em> applied over different footprints supply different total
+impulses and energies.</p>
+<p>For perfectly reflecting boundaries, the Gaussian pressure profile is extended
+evenly across each wall and repeated with twice the domain width. This is
+the pressure source compatible with the cosine-mode boundary model. Mirror
+contributions overlap near a wall: the local peak there can exceed <em>J</em>.
+The pressure impulse integrated over the domain is always <em>2πs²J</em>, including
+edge and corner clicks. Rain and manual input use the same boundary-compatible
+profile; rain uses the same <em>J</em> at its default multiplier. The zero elevation
+mode remains unforced; the pressure source does not add fluid.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="four-cycle-wavemaker">Four-cycle wavemaker</h3></div>
+<p>In <strong>Four-cycle wavemaker</strong> mode, the Gaussian pressure oscillates for four
+reference periods with a smooth envelope:</p>
+<p><a href="../assets/wavemaker.svg" rel="noopener noreferrer" target="_blank"><img alt="Pressure equals J times omega0 times the Gaussian spatial profile times sin tau times sin squared of tau divided by eight, for tau from zero through eight pi." src="../assets/wavemaker.svg" style="max-width: 100%;"/></a></p>
+<p>Here <em>τ = ω</em>₀<em>t</em>, measured from that click. The forcing frequency <em>ω</em>₀ is
+calculated from the <a href="physics.html#wave-dispersion">inviscid gravity-capillary wave dispersion relation</a>
+at <em>k</em>₀ = 2π/λ. The characteristic wavelength therefore sets both the Gaussian
+footprint and the reference forcing frequency in this mode. The applied pressure is zero outside the
+stated interval. This mode is a finite-duration wavemaker, not an instantaneous
+impact. Its completed response continues to propagate and dissipate.</p>
+<p>The surface begins at equilibrium with zero velocity. The first pressure
+stroke acts downward. The envelope increases smoothly from zero, so the first
+oscillation is weaker than the central cycles.</p>
+<p>Oscillating surface pressure can excite both gravity and capillary waves.
+Experiments using periodic radiation pressure demonstrate outward propagation
+of capillary waves (<a href="https://doi.org/10.1016/S0021-9797(03)00448-X" rel="nofollow">Sakai et al., 2003</a>).
+The four-cycle Gaussian forcing specifies the spatial footprint and duration
+of the excitation; the fluid properties determine its dispersive response.</p>
+<p>For the wavemaker, <em>J</em> is a pressure-time scale in Pa·s. The coefficient
+<em>P</em>₀ = <em>Jω</em>₀ has units Pa and sets the pressure amplitude before the envelope
+is applied. The signed pressure integral over all four cycles is zero.</p>
+<p><a href="../assets/source-profiles.svg" rel="noopener noreferrer" target="_blank"><img alt="Gaussian pressure-impulse profile and four-cycle pressure forcing with its smooth envelope." src="../assets/source-profiles.svg" style="max-width: 100%;"/></a></p>
+<p><em>The Gaussian footprint decreases with distance from the source center.
+The wavemaker combines that footprint with four alternating pressure cycles;
+the dashed curves show the temporal envelope. Positive pressure acts downward.
+Both profiles are normalized by their defining source scales.</em></p>
+
+<div class="markdown-heading"><a id="preset-strength"></a><a id="preset-pressure-strength"></a><h3 class="heading-element" id="pressure-strength">Pressure strength</h3></div>
+<p>The <strong>Pressure strength</strong> in the menu, slider, and bottom panel specifies the common
+coefficient <em>J</em> in the two pressure histories above, expressed in mPa·s.
+Its physical interpretation depends on the excitation method:</p>
+<table>
+<thead>
+<tr>
+<th>Excitation method</th>
+<th>Physical interpretation of <em>J</em>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pressure impulse</td>
+<td>The time-integrated pressure at the center of an individual Gaussian source</td>
+</tr>
+<tr>
+<td>Four-cycle wavemaker</td>
+<td>The pressure amplitude coefficient divided by the reference angular frequency, <em>J</em> = <em>P</em>₀/<em>ω</em>₀</td>
+</tr>
+</tbody>
+</table>
+<p>The common coefficient scales the applied pressure and the resulting wave
+field. For fixed fluid properties, source width, and excitation method, the
+surface displacement is directly proportional to <em>J</em>. Equal values of <em>J</em>
+across the two methods do not imply equal transferred energies or wave
+amplitudes, which also depend on the pressure history.</p>
+<p>The characteristic elevation scale <em>A</em>₀ = <em>J k</em>₀/(<em>ρ ω</em>₀) relates the pressure
+loading to the fluid and source scale. It is a normalization scale, not the
+maximum elevation of every resulting ripple.</p>
+<p>For water at 20 °C, <em>J</em> = 0.10 Pa·s and <em>λ</em> = 50 mm give
+<em>A</em>₀ ≈ 0.339 mm and <em>A</em>₀/<em>λ</em> ≈ 0.00678. The balanced and capillary
+setups preserve this dimensionless loading while changing the physical scale.
+The actual crest, trough, and surface slope follow from the complete response.</p>
+<p>See <a href="controls.html#source">Source controls</a> for the pressure strength presets and the
+Auto-click and rain multipliers.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="physical-scales-and-drop-impacts">Physical scales and drop impacts</h3></div>
+<p>Drop momentum provides a useful comparison for the integrated impulse <em>I</em>.
+A measured 2.8-mm water drop falling 5.5 m has an incident kinetic energy of
+approximately 0.0003 J (<a href="https://doi.org/10.1109/48.775294" rel="nofollow">Craeye et al., 1999, p. 328</a>).
+Using a drop density of 1000 kg/m³ gives
+a mass of approximately 11.5 mg and momentum of 83.0 µN·s:</p>
+<p><a href="../assets/drop-momentum.svg" rel="noopener noreferrer" target="_blank"><img alt="The drop mass is pi times density times diameter cubed divided by six. Its momentum is the square root of twice its mass times its kinetic energy. The Gaussian strength with equal total impulse is the momentum divided by two pi times the squared source width." src="../assets/drop-momentum.svg" style="max-width: 100%;"/></a></p>
+<p>For a 50-mm characteristic wavelength, <em>s</em> ≈ 7.96 mm and the equal-impulse
+Gaussian has <em>J</em> ≈ 0.209 Pa·s. This strength is calculated from the reported
+drop size and kinetic energy; it is not a measured pressure history.</p>
+<p>At <em>J</em> = 0.10 Pa·s, the Gaussian supplies 39.8 µN·s of total impulse.
+The linear viscous response in unbounded water gives an early central
+depression of approximately 0.30 mm and an outward crest of approximately
+0.055 mm beyond a radius of 25 mm. The maximum calculated surface slope is
+approximately 0.027. These values describe a localized, small-slope disturbance;
+the central depression and the outward crest occur at different positions
+and times.</p>
+<p>At 0.8 s, the calculated outer crest is approximately 0.025 mm in the
+100–180-mm radial interval. The measured ring elevations are approximately
+0.05–0.10 mm near a radius of 130 mm at that time, with a timing uncertainty
+of about 0.04 s (<a href="https://doi.org/10.1109/48.775294" rel="nofollow">Craeye et al., 1999</a>).
+The Gaussian example therefore
+represents a gentler disturbance. Equal total impulse does not imply identical
+wave profiles: the forcing footprint, impact cavity, crown, and subsequent jet
+affect how drop momentum and energy enter the outgoing waves. This comparison
+establishes physical scales rather than a calibration of an individual drop.</p>
+<div class="markdown-heading"><h3 class="heading-element" id="overlapping-sources-and-rain">Overlapping sources and rain</h3></div>
+<p>Within the linear model, surface elevations and velocities are superimposed. Sources
+can interfere constructively or destructively without changing one another's
+definitions. Destructive interference in elevation does not imply that the
+fluid has no velocity or energy.</p>
+<p>A rain burst schedules twenty clicks at 0.05-second intervals of elapsed real
+time while playback runs.
+The first is issued immediately.</p>
+<p>Each scheduled click uses the wavelength, pressure strength, and excitation method
+in effect when it occurs, together with its burst's pressure multiplier.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="glossary">Glossary</h2></div>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capillary wave</td>
+<td>A surface wave whose restoring force is dominated by surface tension.</td>
+</tr>
+<tr>
+<td>Characteristic wavelength</td>
+<td>The source parameter λ = 2πs, where s is the Gaussian width. It sets the pressure footprint and, for the four-cycle wavemaker, the reference forcing frequency. A localized source contains a spectrum of wavelengths.</td>
+</tr>
+<tr>
+<td>Clean interface</td>
+<td>An interface without modeled surfactant, surface-film, or Marangoni stresses.</td>
+</tr>
+<tr>
+<td>Deep water</td>
+<td>The infinite-depth model used here; bottom motion and bottom friction are absent.</td>
+</tr>
+<tr>
+<td>Density, ρ</td>
+<td>Mass per volume, in kg/m³.</td>
+</tr>
+<tr>
+<td>Dispersion</td>
+<td>Dependence of wave frequency and propagation speeds on wavenumber.</td>
+</tr>
+<tr>
+<td>Dynamic viscosity, μ</td>
+<td>Newtonian shear-stress coefficient, in Pa s.</td>
+</tr>
+<tr>
+<td>Gravity wave</td>
+<td>A surface wave whose restoring force is dominated by gravity.</td>
+</tr>
+<tr>
+<td>Group velocity</td>
+<td>Rate of change of angular frequency with wavenumber; describes narrow wave-packet transport in the inviscid relation.</td>
+</tr>
+<tr>
+<td>Hankel reconstruction</td>
+<td>Radially symmetric spectral reconstruction using Bessel functions.</td>
+</tr>
+<tr>
+<td>Kinematic viscosity, ν</td>
+<td>Dynamic viscosity divided by density, in m²/s.</td>
+</tr>
+<tr>
+<td>Linearization</td>
+<td>Retaining first-order disturbances around the flat, motionless state. It permits superposition.</td>
+</tr>
+<tr>
+<td>Newtonian fluid</td>
+<td>A fluid whose deviatoric stress is proportional to strain rate with the specified constant viscosity.</td>
+</tr>
+<tr>
+<td>Numerical rest</td>
+<td>An exactly flat represented surface with zero velocity and slopes after all source contributions end.</td>
+</tr>
+<tr>
+<td>Observation domain</td>
+<td>The physical area sampled and displayed. By default, it shows part of the fluid's unbounded surface; optional boundaries reflect waves back into this area.</td>
+</tr>
+<tr>
+<td>Phase velocity</td>
+<td>Angular frequency divided by wavenumber; the velocity of a constant-phase crest in a monochromatic component.</td>
+</tr>
+<tr>
+<td>Physical time</td>
+<td>Time in the governing equations, in seconds.</td>
+</tr>
+<tr>
+<td>Playback rate</td>
+<td>Simulation seconds per second of real time while playback is running. Time spent paused is excluded.</td>
+</tr>
+<tr>
+<td>Pressure impulse</td>
+<td>Pressure integrated over time, in Pa s.</td>
+</tr>
+<tr>
+<td>Radial slope</td>
+<td>Spatial derivative of elevation with distance from a source; dimensionless.</td>
+</tr>
+<tr>
+<td>Surface elevation, η</td>
+<td>Vertical displacement relative to the still water level, in meters.</td>
+</tr>
+<tr>
+<td>Surface tension, σ</td>
+<td>Interfacial restoring coefficient, in N/m. It is not the damping coefficient.</td>
+</tr>
+<tr>
+<td>Height scale</td>
+<td>Display multiplier that specifies the vertical exaggeration.</td>
+</tr>
+<tr>
+<td>Vertical exaggeration</td>
+<td>Ratio of the displayed vertical scale to the physical scale used horizontally.</td>
+</tr>
+<tr>
+<td>Wavenumber, k</td>
+<td>2π divided by wavelength, in rad/m.</td>
+</tr>
+<tr>
+<td>Wavemaker</td>
+<td>The finite-duration, four-cycle imposed pressure source available alongside the impulse.</td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading"><h2 class="heading-element" id="further-reading">Further reading</h2></div>
+<p><a href="materials.html">Materials</a> ·
+<a href="numerics.html">Numerical methods</a> · <a href="references.html">References</a></p></div></main><script src="../resources/copycode.js">//</script><script src="../resources/ripple-navigation.js">//</script></body></html>

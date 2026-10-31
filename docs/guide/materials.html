@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en"><head><meta content="MATLAB R2026b with MATLAB DocMaker 0.7" name="generator"/><meta charset="utf-8"/><title>Materials</title><link href="../resources/github-markdown-light.css" rel="stylesheet"/><link href="../resources/matlaby.css" rel="stylesheet"/><link href="../resources/copycode.css" rel="stylesheet"/><meta content="width=device-width, initial-scale=1" name="viewport"/><link href="../resources/ripple-manual.css" rel="stylesheet"/></head><body class="markdown-body"><main class="markdown-body"><nav aria-label="Documentation" class="ripple-navigation"><a href="../index.html">Ripple Simulator</a><a href="../guide/controls.html">Controls</a><a href="../guide/physics.html">Physics</a><a href="../guide/numerics.html">Numerical methods</a><a aria-current="page" href="../guide/materials.html">Materials</a><a href="../guide/experiments.html">Experiments</a><a href="../guide/examples.html">Examples</a><a href="../reference/index.html">Functions and Properties</a><a href="../guide/sound.html">Sound</a><a href="../guide/installation.html">Installation and requirements</a><a href="../guide/references.html">References</a><a href="../guide/notices.html">Third-party notices</a></nav><aside class="manual-contents"><details class="manual-tree" open="open"><summary>Contents</summary><nav aria-label="Manual contents"><details class="manual-chapter" data-page="index"><summary><a href="../index.html">Ripple Simulator</a></summary><ul><li><a href="../index.html#quick-start">Quick start</a></li><li><a href="../index.html#learning-objectives">Learning objectives</a></li><li><a href="../index.html#explore">Explore</a></li><li><a href="../index.html#user-guide">User guide</a></li><li><a href="../index.html#scientific-guide">Scientific guide</a></li><li><a href="../index.html#programming-and-documentation">Programming and documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/controls"><summary><a href="../guide/controls.html">Controls</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/controls.html#menus">Menus</a></summary><ul><li><a href="../guide/controls.html#experiment">Experiment</a></li><li><a href="../guide/controls.html#source">Source</a></li><li><a href="../guide/controls.html#view">View</a></li><li><a href="../guide/controls.html#playback">Playback</a></li><li><a href="../guide/controls.html#help">Help</a></li></ul></details></li><li><a href="../guide/controls.html#axes-toolbar">Axes toolbar</a></li><li><a href="../guide/controls.html#parameter-controls">Parameter controls</a></li><li><a href="../guide/controls.html#mouse-interaction">Mouse interaction</a></li><li><a href="../guide/controls.html#keyboard-shortcuts">Keyboard shortcuts</a></li></ul></details><details class="manual-chapter" data-page="guide/physics"><summary><a href="../guide/physics.html">Physics of ripples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/physics.html#governing-equations">Governing equations</a></summary><ul><li><a href="../guide/physics.html#linear-boundary-value-problem">Linear boundary-value problem</a></li></ul></details></li><li><a href="../guide/physics.html#gravity-and-surface-tension">Gravity and surface tension</a></li><li><a href="../guide/physics.html#wave-dispersion">Wave dispersion</a></li><li><a href="../guide/physics.html#constitutive-model-and-rheology">Constitutive model and rheology</a></li><li><a href="../guide/physics.html#viscosity-and-transient-motion">Viscosity and transient motion</a></li><li><a href="../guide/physics.html#why-a-ripple-becomes-less-visible">Why a ripple becomes less visible</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#wave-reflection">Wave reflection</a></summary><ul><li><a href="../guide/physics.html#partial-wave-reflection">Partial wave reflection</a></li></ul></details></li><li><a href="../guide/physics.html#depth">Depth</a></li><li><a href="../guide/physics.html#height-scale-and-simulation-time">Height scale and simulation time</a></li><li><a href="../guide/physics.html#model-assumptions-and-numerical-approximations">Model assumptions and numerical approximations</a></li><li><details class="manual-section"><summary><a href="../guide/physics.html#source-definitions">Source definitions</a></summary><ul><li><a href="../guide/physics.html#characteristic-wavelength">Characteristic wavelength</a></li><li><a href="../guide/physics.html#pressure-impulse">Pressure impulse</a></li><li><a href="../guide/physics.html#four-cycle-wavemaker">Four-cycle wavemaker</a></li><li><a href="../guide/physics.html#pressure-strength">Pressure strength</a></li><li><a href="../guide/physics.html#physical-scales-and-drop-impacts">Physical scales and drop impacts</a></li><li><a href="../guide/physics.html#overlapping-sources-and-rain">Overlapping sources and rain</a></li></ul></details></li><li><a href="../guide/physics.html#glossary">Glossary</a></li><li><a href="../guide/physics.html#further-reading">Further reading</a></li></ul></details><details class="manual-chapter" data-page="guide/numerics"><summary><a href="../guide/numerics.html">Numerical methods</a></summary><ul><li><a href="../guide/numerics.html#state-and-coordinates">State and coordinates</a></li><li><a href="../guide/numerics.html#elapsed-time-playback">Elapsed-time playback</a></li><li><a href="../guide/numerics.html#radial-reconstruction">Radial reconstruction</a></li><li><a href="../guide/numerics.html#open-water-response-tables">Open-water response tables</a></li><li><a href="../guide/numerics.html#exact-numerical-equilibrium">Exact numerical equilibrium</a></li><li><a href="../guide/numerics.html#wave-reflection-geometry">Wave reflection geometry</a></li><li><a href="../guide/numerics.html#reflecting-wall-reconstruction">Reflecting-wall reconstruction</a></li><li><details class="manual-section"><summary><a href="../guide/numerics.html#images-for-partial-wave-reflection">Images for partial wave reflection</a></summary><ul><li><a href="../guide/numerics.html#repeated-wall-encounters">Repeated wall encounters</a></li><li><a href="../guide/numerics.html#reusing-the-image-response">Reusing the image response</a></li><li><a href="../guide/numerics.html#numerical-evaluation-and-accuracy">Numerical evaluation and accuracy</a></li></ul></details></li><li><a href="../guide/numerics.html#spatial-sampling">Spatial sampling</a></li><li><a href="../guide/numerics.html#precomputed-animation-and-performance">Precomputed animation and performance</a></li><li><a href="../guide/numerics.html#small-disturbance-loading">Small-disturbance loading</a></li><li><a href="../guide/numerics.html#verification-and-interpretation">Verification and interpretation</a></li></ul></details><details class="manual-chapter" data-page="guide/materials" open="open"><summary><a aria-current="page" href="../guide/materials.html">Materials</a></summary><ul><li><a href="../guide/materials.html#water">Water</a></li><li><a href="../guide/materials.html#olive-oil">Olive oil</a></li><li><a href="../guide/materials.html#silicone-oils">Silicone oils</a></li><li><a href="../guide/materials.html#honey">Honey</a></li><li><a href="../guide/materials.html#molten-chocolate">Molten chocolate</a></li><li><a href="../guide/materials.html#material-presets">Material presets</a></li><li><a href="../guide/materials.html#comparing-viscosity">Comparing viscosity</a></li><li><a href="../guide/materials.html#custom-fluids">Custom fluids</a></li></ul></details><details class="manual-chapter" data-page="guide/experiments"><summary><a href="../guide/experiments.html">Experiments</a></summary><ul><li><a href="../guide/experiments.html#scaled-water-experiments">Scaled water experiments</a></li><li><a href="../guide/experiments.html#reflecting-boundaries">Reflecting boundaries</a></li><li><a href="../guide/experiments.html#comparing-different-fluids">Comparing different fluids</a></li><li><details class="manual-section"><summary><a href="../guide/experiments.html#interpreting-the-experiments">Interpreting the experiments</a></summary><ul><li><a href="../guide/experiments.html#wave-propagation-and-dispersion">Wave propagation and dispersion</a></li><li><a href="../guide/experiments.html#wave-interference">Wave interference</a></li><li><a href="../guide/experiments.html#viscous-dissipation-and-geometric-spreading">Viscous dissipation and geometric spreading</a></li><li><a href="../guide/experiments.html#wave-reflection">Wave reflection</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/examples"><summary><a href="../guide/examples.html">Examples</a></summary><ul><li><details class="manual-section"><summary><a href="../guide/examples.html#application-examples">Application examples</a></summary><ul><li><a href="../guide/examples.html#interactive-examples">Interactive examples</a></li><li><a href="../guide/examples.html#demonstrations">Demonstrations</a></li></ul></details></li><li><a href="../guide/examples.html#apply-a-single-localized-impulse">Apply a single localized impulse</a></li><li><a href="../guide/examples.html#observe-the-wave-field">Observe the wave field</a></li><li><a href="../guide/examples.html#compare-physical-scales">Compare physical scales</a></li><li><a href="../guide/examples.html#compare-phase-and-group-velocities">Compare phase and group velocities</a></li><li><a href="../guide/examples.html#investigate-wave-interference">Investigate wave interference</a></li><li><a href="../guide/examples.html#change-wavelengths">Change wavelengths</a></li><li><a href="../guide/examples.html#investigate-wave-reflection">Investigate wave reflection</a></li><li><a href="../guide/examples.html#reproduce-rain">Reproduce rain</a></li><li><a href="../guide/examples.html#isolate-the-effect-of-viscosity">Isolate the effect of viscosity</a></li><li><a href="../guide/examples.html#examine-the-effect-of-spatial-resolution">Examine the effect of spatial resolution</a></li><li><a href="../guide/examples.html#compare-different-fluids">Compare different fluids</a></li></ul></details><details class="manual-chapter" data-page="reference/index"><summary><a href="../reference/index.html">Functions and Properties</a></summary><ul><li><a href="../reference/index.html#function-and-class-reference">Function and class reference</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator">rippleSimulator</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-syntax">Syntax</a></li><li><a href="../reference/index.html#ripplesimulator-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-examples">Examples</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-explore-a-capillary-scale-disturbance">Explore a capillary-scale disturbance</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-name-value-arguments">Name-Value Arguments</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#ripplesimulator-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#ripplesimulator-app-owning-application">app – Owning application</a></li></ul></details></li><li><a href="../reference/index.html#ripplesimulator-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp">app.RippleSimulatorApp</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-syntax">Syntax</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#app-ripplesimulatorapp-examples">Examples</a></summary><ul><li><a href="../reference/index.html#app-ripplesimulatorapp-change-presentation-without-changing-the-physical-field">Change presentation without changing the physical field</a></li></ul></details></li><li><a href="../reference/index.html#app-ripplesimulatorapp-name-value-arguments">Name-Value Arguments</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-properties">Properties</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-methods">Methods</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-events">Events</a></li><li><a href="../reference/index.html#app-ripplesimulatorapp-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple">addRipple</a></summary><ul><li><a href="../reference/index.html#addripple-syntax">Syntax</a></li><li><a href="../reference/index.html#addripple-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-examples">Examples</a></summary><ul><li><a href="../reference/index.html#addripple-create-simultaneous-disturbances">Create simultaneous disturbances</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#addripple-position-source-center">position – Source center</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#addripple-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#addripple-identifier-accepted-input-number">identifier – Accepted input number</a></li></ul></details></li><li><a href="../reference/index.html#addripple-algorithms">Algorithms</a></li><li><a href="../reference/index.html#addripple-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain">rain</a></summary><ul><li><a href="../reference/index.html#rain-syntax">Syntax</a></li><li><a href="../reference/index.html#rain-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-examples">Examples</a></summary><ul><li><a href="../reference/index.html#rain-repeat-a-burst-s-positions">Repeat a burst's positions</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#rain-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#rain-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#rain-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot">snapshot</a></summary><ul><li><a href="../reference/index.html#snapshot-syntax">Syntax</a></li><li><a href="../reference/index.html#snapshot-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-examples">Examples</a></summary><ul><li><a href="../reference/index.html#snapshot-inspect-the-wave-field">Inspect the wave field</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-name-value-arguments">Name-Value Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-derivatives-include-vertical-velocity-and-elevation-gradients">Derivatives – Include vertical velocity and elevation gradients</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#snapshot-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#snapshot-wavefield-wave-field-data">waveField – Wave field data</a></li></ul></details></li><li><a href="../reference/index.html#snapshot-limitations">Limitations</a></li><li><a href="../reference/index.html#snapshot-algorithms">Algorithms</a></li><li><a href="../reference/index.html#snapshot-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe">describe</a></summary><ul><li><a href="../reference/index.html#describe-syntax">Syntax</a></li><li><a href="../reference/index.html#describe-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-examples">Examples</a></summary><ul><li><a href="../reference/index.html#describe-inspect-the-scaled-experiment">Inspect the scaled experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#describe-simulator-application">simulator – Application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#describe-output-arguments">Output Arguments</a></summary><ul><li><a href="../reference/index.html#describe-info-configuration-record">info – Configuration record</a></li></ul></details></li><li><a href="../reference/index.html#describe-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update">update</a></summary><ul><li><a href="../reference/index.html#update-syntax">Syntax</a></li><li><a href="../reference/index.html#update-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-examples">Examples</a></summary><ul><li><a href="../reference/index.html#update-update-without-advancing-the-clock">Update without advancing the clock</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#update-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#update-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#update-algorithms">Algorithms</a></li><li><a href="../reference/index.html#update-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup">applySetup</a></summary><ul><li><a href="../reference/index.html#applysetup-syntax">Syntax</a></li><li><a href="../reference/index.html#applysetup-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-examples">Examples</a></summary><ul><li><a href="../reference/index.html#applysetup-select-the-capillary-scale">Select the capillary scale</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#applysetup-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#applysetup-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#applysetup-name-scaled-setup">name – Scaled setup</a></li></ul></details></li><li><a href="../reference/index.html#applysetup-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear">clear</a></summary><ul><li><a href="../reference/index.html#clear-syntax">Syntax</a></li><li><a href="../reference/index.html#clear-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-examples">Examples</a></summary><ul><li><a href="../reference/index.html#clear-cancel-a-scheduled-burst">Cancel a scheduled burst</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#clear-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#clear-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#clear-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset">reset</a></summary><ul><li><a href="../reference/index.html#reset-syntax">Syntax</a></li><li><a href="../reference/index.html#reset-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-examples">Examples</a></summary><ul><li><a href="../reference/index.html#reset-restore-display-and-physical-defaults">Restore display and physical defaults</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#reset-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#reset-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#reset-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera">setCameraView, restoreCamera</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-syntax">Syntax</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-examples">Examples</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-inspect-the-surface-from-above">Inspect the surface from above</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#setcameraview-restorecamera-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#setcameraview-restorecamera-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#setcameraview-restorecamera-name-camera-preset">name – Camera preset</a></li></ul></details></li><li><a href="../reference/index.html#setcameraview-restorecamera-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture">capture</a></summary><ul><li><a href="../reference/index.html#capture-syntax">Syntax</a></li><li><a href="../reference/index.html#capture-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-examples">Examples</a></summary><ul><li><a href="../reference/index.html#capture-capture-an-experiment">Capture an experiment</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#capture-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#capture-simulator-application">simulator – Application</a></li><li><a href="../reference/index.html#capture-filename-png-destination">filename – PNG destination</a></li></ul></details></li><li><a href="../reference/index.html#capture-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete">close, delete</a></summary><ul><li><a href="../reference/index.html#close-delete-syntax">Syntax</a></li><li><a href="../reference/index.html#close-delete-description">Description</a></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-examples">Examples</a></summary><ul><li><a href="../reference/index.html#close-delete-close-an-owned-application">Close an owned application</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#close-delete-input-arguments">Input Arguments</a></summary><ul><li><a href="../reference/index.html#close-delete-simulator-application">simulator – Application</a></li></ul></details></li><li><a href="../reference/index.html#close-delete-see-also">See Also</a></li></ul></details></li><li><details class="manual-section"><summary><a href="../reference/index.html#customization">Customization</a></summary><ul><li><a href="../reference/index.html#add-a-fluid-preset">Add a fluid preset</a></li></ul></details></li><li><a href="../reference/index.html#tests">Tests</a></li><li><a href="../reference/index.html#native-matlab-help">Native MATLAB help</a></li><li><a href="../reference/index.html#related-topics">Related Topics</a></li></ul></details><details class="manual-chapter" data-page="guide/sound"><summary><a href="../guide/sound.html">Sound</a></summary><ul><li><a href="../guide/sound.html#controls">Controls</a></li><li><a href="../guide/sound.html#recordings-and-overlap">Recordings and overlap</a></li><li><a href="../guide/sound.html#reusable-playback">Reusable playback</a></li></ul></details><details class="manual-chapter" data-page="guide/installation"><summary><a href="../guide/installation.html">Installation and requirements</a></summary><ul><li><a href="../guide/installation.html#matlab">MATLAB</a></li><li><a href="../guide/installation.html#optional-java-audio">Optional Java audio</a></li><li><a href="../guide/installation.html#documentation">Documentation</a></li><li><details class="manual-section"><summary><a href="../guide/installation.html#troubleshooting">Troubleshooting</a></summary><ul><li><a href="../guide/installation.html#reduced-playback-frame-rate">Reduced playback frame rate</a></li><li><a href="../guide/installation.html#playback-interruptions-during-mouse-movement">Playback interruptions during mouse movement</a></li></ul></details></li></ul></details><details class="manual-chapter" data-page="guide/references"><summary><a href="../guide/references.html">References</a></summary><ul><li><a href="../guide/references.html#wave-physics">Wave physics</a></li><li><a href="../guide/references.html#impulsive-excitation-and-ring-waves">Impulsive excitation and ring waves</a></li><li><a href="../guide/references.html#wave-reflection">Wave reflection</a></li><li><a href="../guide/references.html#numerical-interpolation">Numerical interpolation</a></li><li><a href="../guide/references.html#material-properties">Material properties</a></li><li><a href="../guide/references.html#matlab-documentation">MATLAB documentation</a></li></ul></details><details class="manual-chapter" data-page="guide/notices"><summary><a href="../guide/notices.html">Third-party notices</a></summary><ul><li><a href="../guide/notices.html#matlab-docmaker">MATLAB DocMaker</a></li><li><a href="../guide/notices.html#github-markdown-css">GitHub Markdown CSS</a></li><li><a href="../guide/notices.html#scientific-sources">Scientific sources</a></li></ul></details></nav></details></aside><div><div class="markdown-heading"><h1 class="heading-element" id="materials">Materials</h1></div>
+<p>Density, surface tension, and viscosity have separate roles in this model.
+Density and surface tension set the balance between gravity and capillarity.
+Kinematic viscosity controls momentum diffusion and the viscous response.
+Changing a material starts a new experiment with the selected fluid properties.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="water">Water</h2></div>
+<p>The Water preset represents pure liquid water, with properties evaluated at the
+selected temperature from 0 to 40 °C. At 20 °C (293.15 K) and a reference pressure
+of 0.1 MPa, its density is approximately 998.21 kg/m³. Density and dynamic
+viscosity use the correlations of the International Association for the
+Properties of Water and Steam (IAPWS) at that reference pressure
+(<a href="https://iapws.org/technical-guidance/release/LiquidWater" rel="nofollow">IAPWS, 2011</a>).
+Surface tension uses the IAPWS liquid–vapor interface correlation
+(<a href="https://iapws.org/technical-guidance/release/Surf-H2O" rel="nofollow">IAPWS, 2014</a>).
+Kinematic viscosity is calculated as dynamic viscosity divided by density.</p>
+<p><a href="../assets/water-properties.svg" rel="noopener noreferrer" target="_blank"><img alt="Density, dynamic viscosity, and surface tension of water from 0 to 40 degrees Celsius, calculated from the IAPWS correlations." src="../assets/water-properties.svg" style="max-width: 100%;"/></a></p>
+<p><em>Temperature dependence of water density, dynamic viscosity, and surface tension,
+calculated from the IAPWS correlations. Density and viscosity are evaluated at
+0.1 MPa; surface tension describes the liquid–vapor interface. Density has a
+maximum near 4 °C, while dynamic viscosity and surface tension decrease over
+the plotted range. Each plot uses its own vertical scale.</em></p>
+<p>These correlations describe a clean interface. Surfactants, contamination,
+temperature gradients, and surface films can change observed wave propagation and
+damping. The model does not represent those effects.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="olive-oil">Olive oil</h2></div>
+<p><strong>Oil &gt; Olive oil</strong> uses a measured extra virgin olive-oil sample:
+density 908.7 kg/m³, dynamic viscosity 0.0741 Pa s,
+and surface tension 0.0319 N/m. The nominal temperature is 23 °C; density and
+viscosity are tabulated at 22 ± 1 °C, with at least three measurements for each reported
+mean. Surface tension uses the KRÜSS pendant-drop result at 23 °C.
+These are sample-specific measurements, not universal cooking-oil constants
+(<a href="https://doi.org/10.1080/10942912.2017.1360905" rel="nofollow">Sahasrabudhe et al., 2017, Tables 2, 4, and 6</a>).</p>
+<p>The study checked Newtonian behavior under its measurement conditions. This
+preset uses the room-temperature values without a temperature correlation.
+Selecting it applies a golden display color.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="silicone-oils">Silicone oils</h2></div>
+<p>Silicone oils are synthetic silicone fluids, distinct from vegetable cooking
+oils. Two specified commercial grades provide viscosity comparisons.
+Their parameters are typical values reported by Shin-Etsu at 25 °C
+(<a href="https://www.shinetsusilicone-global.com/catalog/pdf/kf96_e.pdf" rel="nofollow">Shin-Etsu, property tables</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Grade</th>
+<th align="right">Kinematic viscosity</th>
+<th align="right">Specific gravity, 25 °C / 4 °C</th>
+<th align="right">Surface tension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KF-96L-5cs</td>
+<td align="right">5 mm²/s</td>
+<td align="right">0.915</td>
+<td align="right">19.7 mN/m</td>
+</tr>
+<tr>
+<td>KF-96-100cs</td>
+<td align="right">100 mm²/s</td>
+<td align="right">0.965</td>
+<td align="right">20.9 mN/m</td>
+</tr>
+</tbody>
+</table>
+<p>Density is calculated from the tabulated specific gravity using the water
+density at 4 °C
+(<a href="https://www.shinetsusilicone-global.com/catalog/pdf/kf96_e.pdf" rel="nofollow">Shin-Etsu, specific-gravity guidance</a>).
+Dynamic viscosity is then density times kinematic viscosity.
+The values are nominal product data, not measurements of a particular batch.
+No temperature interpolation or extrapolation is provided for these presets.</p>
+<p>The simulator models these grades as Newtonian fluids. This is a constitutive
+model assumption for the selected low-viscosity grades. It does not extend to
+every silicone product or every shear rate. The manufacturer's discussion of
+shear-dependent viscosity concerns substantially more viscous grades.</p>
+<p>Both grades use a neutral light color and an opaque surface by default.
+<strong>View &gt; Transparency</strong> adjusts the opacity of the filled surface. The opacity
+setting does not apply to Wireframe or views with lighting disabled. Alpha blending is a display
+approximation; refraction and absorption through the fluid are not modeled.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="honey">Honey</h2></div>
+<p><strong>Honey (acacia)</strong> represents a liquid acacia honey at 30 °C, using a measured
+viscosity of 0.27 Pa s. The study describes Newtonian flow for its honey samples
+over the measured conditions
+(<a href="https://doi.org/10.1016/j.jssas.2016.07.003" rel="nofollow">Nayik et al., 2018, Table 2</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nominal temperature</td>
+<td align="right">30 °C</td>
+</tr>
+<tr>
+<td>Dynamic viscosity</td>
+<td align="right">0.27 Pa s</td>
+</tr>
+<tr>
+<td>Representative density</td>
+<td align="right">1420 kg/m³</td>
+</tr>
+<tr>
+<td>Representative surface tension</td>
+<td align="right">0.0801 N/m</td>
+</tr>
+</tbody>
+</table>
+<p>Density and surface tension are approximations from separate samples.
+The density lies within a reported acacia-honey range of 1398–1445 kg/m³
+across moisture and temperature conditions
+(<a href="https://meli.be/app/uploads/2024/09/1.-Technical-sheet-ACACIA-HONEY-ENG-EUR-PALL-07042022-REF-1024988.pdf" rel="nofollow">Meli, 2022</a>).
+The surface tension is the central value measured for a different honey at
+30 ± 2 °C (<a href="https://doi.org/10.3389/frsfm.2023.1163393" rel="nofollow">Tyowua et al., 2023, Table 1</a>).</p>
+<p>The combined properties define a representative Newtonian approximation;
+they are not measurements of one common sample. No temperature correlation
+is applied. Composition, temperature, and crystallization can give other honeys
+markedly different behavior. Crystals, non-Newtonian effects, and nonlinear
+impact cavities are excluded.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="molten-chocolate">Molten chocolate</h2></div>
+<p><strong>Chocolate (molten)</strong> represents a fluid compound-chocolate formulation at
+60 °C. Its approximate viscosity of 0.50 Pa s is read from the temperature
+sweep for a 40 rpm, 10 minute refining condition, measured at
+a shear rate of 50 s⁻¹. The formulation
+contains vegetable fat and emulsifiers
+(<a href="https://doi.org/10.1111/ijfs.13336" rel="nofollow">Toker et al., 2017, Figure 5</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th align="right">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nominal temperature</td>
+<td align="right">60 °C</td>
+</tr>
+<tr>
+<td>Density</td>
+<td align="right">1270 kg/m³</td>
+</tr>
+<tr>
+<td>Dynamic viscosity</td>
+<td align="right">Approximately 0.50 Pa s</td>
+</tr>
+<tr>
+<td>Surface tension</td>
+<td align="right">Approximately 0.030 N/m</td>
+</tr>
+</tbody>
+</table>
+<p><a href="../assets/chocolate-temperature.svg" rel="noopener noreferrer" target="_blank"><img alt="Viscosity versus temperature for the selected compound chocolate, measured at a shear rate of 50 inverse seconds." src="../assets/chocolate-temperature.svg" style="max-width: 100%;"/></a></p>
+<p><em>Dynamic viscosity of compound chocolate as a function of temperature, measured
+at a shear rate of 50 s⁻¹ after refining at 40 rpm for 10 minutes. The points are
+digitized from <a href="https://doi.org/10.1111/ijfs.13336" rel="nofollow">Toker et al. (2017), Figure 5</a>.
+The highlighted point marks the model's constant viscosity of approximately
+0.50 Pa·s at 60 °C.</em></p>
+<p>The formulation's approximately Newtonian behavior was measured from 0.1 to
+100 s⁻¹ at 40 °C, giving 0.992 ± 0.008 Pa s and a coefficient of determination
+of 0.9986 (<a href="https://doi.org/10.1111/ijfs.13336" rel="nofollow">Toker et al., 2017, methods and Table 3</a>).
+The temperature sweep supports the lower viscosity at 60 °C;
+extending constant viscosity to lower shear rates at that temperature is a
+modeling assumption. Small surface disturbances can fall below the measured
+range, so these measurements do not establish the formulation's rheology
+arbitrarily close to rest.</p>
+<p>Density is a representative compiled chocolate value
+(<a href="https://doi.org/10.1088/0143-0807/37/1/015803" rel="nofollow">Townsend &amp; Wilson, 2016, Table 1 and Section 2</a>).
+Surface tension uses a representative 30 mN/m within the range of liquid
+chocolate measurements at 50 °C using the Wilhelmy-plate method
+(<a href="https://etheses.whiterose.ac.uk/id/eprint/12740/" rel="nofollow">Keijbets, 2009, Section 4.3.1.2 and Figure 4.1</a>).
+Neither property receives a temperature correction. The complete set is a
+documented approximation assembled from separate sources, not measurements
+of one formulation at 60 °C.</p>
+<p>Surface tension is spatially uniform in the model. Surfactant adsorption,
+surface-tension gradients, and the resulting Marangoni stresses are excluded;
+the measured equilibrium surface tension supplies the capillary restoring force.</p>
+<p>Other chocolates can have yield stress and strongly shear-dependent viscosity.
+For example, the Casson fit for a 95%-cocoa sample gives the following apparent
+viscosity (<a href="https://www.tainstruments.com/pdf/literature/RH113.pdf" rel="nofollow">TA Instruments, Table 1</a>):</p>
+<p><a href="../assets/chocolate-casson-viscosity.svg" rel="noopener noreferrer" target="_blank"><img alt="Apparent viscosity equals the square of the sum of the square root of yield stress divided by shear rate and the square root of Casson plastic viscosity. The reference values are 0.61 pascal, 0.28 pascal seconds, and 10 inverse seconds." src="../assets/chocolate-casson-viscosity.svg" style="max-width: 100%;"/></a></p>
+<p>This relation describes a different formulation and is not the preset's
+constitutive law. A viscosity selected at 10 s⁻¹ would not characterize its
+nearly quiescent surface. The apparent viscosity increases strongly at lower
+shear rates (<a href="https://www.tainstruments.com/pdf/literature/RH113.pdf" rel="nofollow">TA Instruments, Figure 8</a>).</p>
+<p>Yield stress, shear thinning, viscoelasticity, thixotropy, and crystallization are excluded
+from the simulator. A yield-stress chocolate can support stress without
+flowing, which the Newtonian model cannot represent
+(<a href="https://doi.org/10.3390/foods10112519" rel="nofollow">Kumbár et al., 2021</a>).</p>
+<p>Selecting the preset also applies its dark-brown display color. Changing the
+color afterward does not change the physical properties.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="material-presets">Material presets</h2></div>
+<p>Selecting a named material restores its fluid properties, characteristic
+wavelength, pressure strength, height scale, and appearance. Selecting Water
+also restores 20 °C. The excitation method, physical domain, grid resolution,
+and playback rate remain selected independently.</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th align="right">Characteristic wavelength</th>
+<th align="right">Pressure strength</th>
+<th align="right">Height scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Water</td>
+<td align="right">50 mm</td>
+<td align="right">100 mPa·s</td>
+<td align="right">100x</td>
+</tr>
+<tr>
+<td>Olive oil</td>
+<td align="right">50 mm</td>
+<td align="right">100 mPa·s</td>
+<td align="right">100x</td>
+</tr>
+<tr>
+<td>Silicone oil, 5 cSt</td>
+<td align="right">50 mm</td>
+<td align="right">100 mPa·s</td>
+<td align="right">100x</td>
+</tr>
+<tr>
+<td>Silicone oil, 100 cSt</td>
+<td align="right">50 mm</td>
+<td align="right">100 mPa·s</td>
+<td align="right">100x</td>
+</tr>
+<tr>
+<td>Honey (acacia)</td>
+<td align="right">100 mm</td>
+<td align="right">150 mPa·s</td>
+<td align="right">200x</td>
+</tr>
+<tr>
+<td>Chocolate (molten)</td>
+<td align="right">75 mm</td>
+<td align="right">200 mPa·s</td>
+<td align="right">200x</td>
+</tr>
+</tbody>
+</table>
+<p>These are adjustable experiment settings, not material properties.
+<strong>View &gt; Height scale &gt; Automatic</strong> calculates the height scale
+from the reference-impulse response instead of using a fixed preset.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="comparing-viscosity">Comparing viscosity</h2></div>
+<p>In Pressure impulse mode, equal pressure strength and characteristic wavelength
+specify the same individual Gaussian pressure impulse. The resulting surface
+elevation also depends on the fluid properties. For the four-cycle wavemaker,
+the reference frequency depends on density and surface tension, so equal
+pressure strength does not generally give the same pressure amplitude or
+forcing duration. Keep the physical domain, source position, reflection settings,
+and playback rate fixed when comparing materials.</p>
+<p>Automatic height scaling makes the smaller responses of viscous fluids
+visible. It compares peak center displacements from equal reference pressure
+impulses and adjusts the display multiplier relative to water at 20 °C.
+The multiplier is fixed during playback and shown as <strong>Height scale</strong>.
+For a visual comparison of physical amplitudes, select the same manual
+multiplier for every material. Crest elevation, Trough depth, and Wave height
+always report physical quantities before display exaggeration.</p>
+<p>As viscosity increases, some spectral components cease to oscillate and relax
+without completing a cycle. The linear deep-water response includes these
+nonoscillatory modes, oscillatory modes, and a viscous transient.</p>
+<p>In a high-viscosity fluid, a deformed surface can return to equilibrium more
+slowly, while a brief pressure impulse can produce only small surface
+displacements. Those are different initial conditions.
+Greater viscosity does not imply larger ripples or more oscillations.
+Increasing pressure strength scales the displacement without changing the
+wave dispersion or damping in a given fluid. The documented <a href="physics.html#model-assumptions-and-numerical-approximations">finite settling
+envelope</a> is an additional finite-duration model approximation, separate from
+viscosity. It smoothly restores each source’s calculated surface elevation and vertical velocity to zero over the settling interval.</p>
+<div class="markdown-heading"><h2 class="heading-element" id="custom-fluids">Custom fluids</h2></div>
+<p>Choose <strong>Experiment &gt; Material &gt; Custom &gt; Define properties...</strong> to enter
+density in kg/m³, dynamic viscosity in Pa s, surface tension in N/m, and the
+temperature in °C at which those values apply. Density and viscosity must be
+positive; surface tension may be zero. Kinematic viscosity is calculated as
+dynamic viscosity divided by density.</p>
+<p>Enter a consistent property set for the intended fluid and temperature.
+The app does not infer a temperature dependence for custom data. Editing
+the temperature in this dialog labels the supplied measurements; it does not
+recalculate the other properties. Custom fluids use the same homogeneous,
+Newtonian, clean-interface assumptions as the other presets.</p>
+<p>See <a href="physics.html">Physics</a> for the governing equations and model assumptions,
+<a href="physics.html#source-definitions">Source definitions</a> for the applied pressure sources,
+and <a href="numerics.html">Numerical methods</a> for interpolation, sampling, and finite settling.</p></div></main><script src="../resources/copycode.js">//</script><script src="../resources/ripple-navigation.js">//</script></body></html>
