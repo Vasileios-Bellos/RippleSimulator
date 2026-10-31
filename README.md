@@ -495,11 +495,11 @@ experiment, each source has a finite-duration envelope. This is an additional
 approximation, not a claim that viscous waves physically vanish at a finite time.
 For Gaussian width $s_j$, let
 
-$$
+```math
 T_{s,j}=\max\left\{\frac{2\pi}{\omega_0(k_{0,j})},\;
 \max_{0<k\leq12/s_j}\frac{2\nu k}{g+(\sigma/\rho)k^2}\right\},
 \qquad T_j=10T_{s,j}.
-$$
+```
 
 The second term retains the longest Stokes relaxation time over the retained
 source spectrum, allowing strongly viscous disturbances to relax beyond the
@@ -507,14 +507,14 @@ inviscid reference period. This sets the duration of the numerical envelope;
 the full viscous equations still determine the response. Define
 $q=(a-0.8T_j)/(0.2T_j)$. The envelope is
 
-$$
+```math
 E_j(a)=
 \begin{cases}
 1, & 0\leq a\leq0.8T_j,\\
 1-10q^3+15q^4-6q^5, & 0.8T_j<a<T_j,\\
 0, & a\geq T_j.
 \end{cases}
-$$
+```
 
 Elevation and its first two time derivatives join continuously at both ends
 of the transition. The app evaluates
