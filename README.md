@@ -169,7 +169,6 @@ $$
 \epsilon_s(t)=\max_{x,y}\left\Vert \nabla_h\sum\nolimits_j\eta_j(x,y,t)\right\Vert \ll1.
 $$
 
-<a id="fluid-motion-and-surface-conditions"></a>
 
 #### Linear boundary-value problem
 
@@ -197,8 +196,6 @@ $$
 
 The tangential and normal stress conditions are the dynamic free-surface boundary conditions. The subscript $h$ denotes horizontal components or derivatives. Disturbances decay with depth, and the fluid is initially at rest. Gravity and surface tension restore the displaced surface, and viscosity dissipates the wave energy.
 
-<a id="gravity-capillary-dispersion"></a>
-<a id="gravitycapillary-wave-dispersion"></a>
 
 ### Gravity and surface tension
 
@@ -229,7 +226,6 @@ $$
 
 In the gravity and capillary deep-water limits, respectively, $c_g=c_p/2$ and $c_g=3c_p/2$. A localized source contains many wavenumbers; its individual crests and overall envelope generally propagate at different velocities.
 
-<a id="viscous-response"></a>
 
 ### Viscosity and transient motion
 
@@ -256,7 +252,6 @@ $$
 
 This expression explains why short waves often damp faster; it is a limiting description, not the general response used for every material.
 
-<a id="clicks-rain-and-reconstruction"></a>
 
 ### Source definitions
 
