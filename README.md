@@ -83,6 +83,8 @@ Freely explore additional concepts. Create ripples using a pressure impulse or a
 
 The menus and parameter controls provide access to the app's settings. Common actions are also available through the axes toolbar and keyboard shortcuts.
 
+<div align="center">
+
 | Control | Action |
 | --- | --- |
 | Click the surface | Create a source at that physical position |
@@ -103,6 +105,8 @@ The menus and parameter controls provide access to the app's settings. Common ac
 | **Ctrl+S** (**Command+S** on macOS) | Save a screenshot of the displayed frame |
 | **View > Show FPS** | Show or hide the rolling frame rate, displayed by default; pause resets it to zero |
 | **Experiment > Restore default experiment** | Restore the default physical and display settings |
+
+</div>
 
 The default water experiment uses a 50 mm characteristic source wavelength, a 650 × 650 mm observation domain, 201 nodes per side, and 0.25x playback.
 
@@ -132,6 +136,8 @@ Ripple Simulator models small-amplitude gravity–capillary waves on a homogeneo
 
 The following table lists the physical quantities used in the model and their units in the International System of Units (SI):
 
+<div align="center">
+
 | Symbol | Quantity | Units |
 | --- | --- | --- |
 | $\eta(x,y,t)$ | Surface elevation relative to the still water level | m |
@@ -146,6 +152,8 @@ The following table lists the physical quantities used in the model and their un
 | $k=2\pi/\lambda$ | Wavenumber | rad/m |
 | $\omega_0$ | Inviscid reference angular frequency | rad/s |
 
+</div>
+
 ### Governing equations
 
 The model is based on [small-amplitude wave theory](https://vasileios-bellos.github.io/RippleSimulator/guide/physics.html#governing-equations). It assumes small wave amplitudes relative to the wavelengths and small free-surface slopes. The governing equations are therefore linearized, retaining first-order terms in the surface displacement and fluid velocity. For a sinusoidal component of amplitude $a$ and wavenumber $k$, the maximum slope is $ka$.
@@ -158,7 +166,7 @@ $$
 For overlapping ripples, the small-slope condition applies to the combined surface:
 
 $$
-\epsilon_s(t)=\max_{x,y}\left\|\nabla_h\sum\nolimits_j\eta_j(x,y,t)\right\|\ll1.
+\epsilon_s(t)=\max_{x,y}\left\Vert \nabla_h\sum\nolimits_j\eta_j(x,y,t)\right\Vert \ll1.
 $$
 
 <a id="fluid-motion-and-surface-conditions"></a>
@@ -230,7 +238,7 @@ The underlying equations are the linearized incompressible Navier–Stokes and c
 For each nonzero wavenumber, define dimensionless time $\tau=\omega_0t$ and viscosity $\varepsilon=\nu k^2/\omega_0$. The dimensionless unit-initial-velocity response $h_\varepsilon(\tau)$ has Laplace transform
 
 $$
-\mathcal{L}\{h_\varepsilon\}(\zeta)
+\mathcal{L}\lbrace h_\varepsilon\rbrace (\zeta)
 =\frac{1}
 {(\zeta+2\varepsilon)^2+1
 -4\varepsilon^2\sqrt{1+\zeta/\varepsilon}}.
@@ -256,7 +264,7 @@ A click at time $t_j$ and horizontal position $\boldsymbol{x}_j$ applies a Gauss
 
 $$
 p_{\mathrm{ext}}(\boldsymbol{x},t)
-=J\exp\!\left(-\frac{|\boldsymbol{x}-\boldsymbol{x}_j|^2}{2s^2}\right)
+=J\exp\negthinspace \left(-\frac{|\boldsymbol{x}-\boldsymbol{x}_j|^2}{2s^2}\right)
 \delta(t-t_j),
 \qquad s=\frac{\lambda_0}{2\pi},\quad k_0=\frac{1}{s}.
 $$
@@ -269,7 +277,7 @@ $$
 A_0=\frac{Jk_0}{\rho\omega_0(k_0)}.
 $$
 
-For water at 20 °C, $J=0.10\,\mathrm{Pa\,s}$ and $\lambda_0=50\,\mathrm{mm}$ give $A_0\approx0.339\,\mathrm{mm}$ and $A_0/\lambda_0\approx0.00678$. The balanced and capillary setups preserve this dimensionless loading. The resulting unbounded ripple has an early central depression of approximately 0.30 mm, an outward crest of approximately 0.055 mm beyond a radius of 25 mm, and a maximum surface slope of approximately 0.027. The [source calculations](https://vasileios-bellos.github.io/RippleSimulator/guide/physics.html#physical-scales-and-drop-impacts) relate the integrated impulse to published drop measurements and distinguish the initial depression from the later outgoing rings. Display exaggeration changes neither $J$ nor the calculated elevation.
+For water at 20 °C, $J=0.10\thinspace \mathrm{Pa\thinspace s}$ and $\lambda_0=50\thinspace \mathrm{mm}$ give $A_0\approx0.339\thinspace \mathrm{mm}$ and $A_0/\lambda_0\approx0.00678$. The balanced and capillary setups preserve this dimensionless loading. The resulting unbounded ripple has an early central depression of approximately 0.30 mm, an outward crest of approximately 0.055 mm beyond a radius of 25 mm, and a maximum surface slope of approximately 0.027. The [source calculations](https://vasileios-bellos.github.io/RippleSimulator/guide/physics.html#physical-scales-and-drop-impacts) relate the integrated impulse to published drop measurements and distinguish the initial depression from the later outgoing rings. Display exaggeration changes neither $J$ nor the calculated elevation.
 
 For one impulse in open water, radial reconstruction gives
 
@@ -279,7 +287,7 @@ $$
 \int_0^\infty
 \frac{k^2}{\omega_0(k)}
 e^{-s^2k^2/2}J_0(kr)
-h_{\varepsilon(k)}\!\bigl(\omega_0(k)a\bigr)\,dk,
+h_{\varepsilon(k)}\negthinspace \bigl(\omega_0(k)a\bigr)\thinspace dk,
 \qquad a=t-t_j\geq0.
 $$
 
@@ -298,7 +306,7 @@ The optional four-cycle wavemaker replaces the temporal impulse with
 $$
 p_{\mathrm{ext}}(r,a)
 =J\omega_0(k_0)e^{-r^2/(2s^2)}
-\sin\theta\,\sin^2\!\left(\frac{\theta}{8}\right),
+\sin\theta\thinspace \sin^2\negthinspace \left(\frac{\theta}{8}\right),
 \quad \theta=\omega_0(k_0)a,\quad 0\leq\theta\leq8\pi,
 $$
 
@@ -312,8 +320,8 @@ For a domain of width $L$ in both horizontal directions, perfectly reflecting bo
 
 $$
 \phi_{mn}(x,y)
-=\cos\!\left(\frac{m\pi(x+L/2)}{L}\right)
-\cos\!\left(\frac{n\pi(y+L/2)}{L}\right),
+=\cos\negthinspace \left(\frac{m\pi(x+L/2)}{L}\right)
+\cos\negthinspace \left(\frac{n\pi(y+L/2)}{L}\right),
 \qquad k_{mn}=\frac{\pi}{L}\sqrt{m^2+n^2}.
 $$
 
@@ -328,7 +336,7 @@ $$
 \eta_R(\boldsymbol{x},a)
 =\sum\nolimits_{m=-\infty}^{\infty}\sum\nolimits_{n=-\infty}^{\infty}
 R^{|m|+|n|}\eta_{\mathrm{open}}
-\!\left(\lVert\boldsymbol{x}-\boldsymbol{x}_{mn}\rVert,a\right).
+\negthinspace \left(\lVert\boldsymbol{x}-\boldsymbol{x}_{mn}\rVert,a\right).
 $$
 
 Every image retains the original source age, viscous decay, and dispersion. One wall encounter contributes one factor of $R$; two successive encounters contribute $R^2$. The image indices include repeated returns between opposite walls as well as reflections at perpendicular walls.
@@ -348,7 +356,7 @@ Every image retains the original source age, viscous decay, and dispersion. One 
 
 The coefficient represents specular reflection without a phase reversal; it does not resolve a wall's material impedance or distinguish transmitted energy from boundary dissipation. Partial reflections use a domain 6.5–26 characteristic wavelengths wide. Preparation combines a finite image expansion with an infinite filtered sum for the long-wave contribution. At 100%, the cosine solution above is used; at 0%, propagation is open water. For more information, see [Numerical methods](https://vasileios-bellos.github.io/RippleSimulator/guide/numerics.html#images-for-partial-wave-reflection).
 
-See [Numerical methods](https://vasileios-bellos.github.io/RippleSimulator/guide/numerics.html#wave-reflection-geometry) for the image construction, the amplitude weights for repeated wave reflections, and the reuse of precomputed fields. Numerical convergence checks are reported separately from the physical boundary assumptions.
+See [Numerical methods](https://vasileios-bellos.github.io/RippleSimulator/guide/numerics.html#wave-reflection-geometry) for the construction of image sources, the amplitude weights for repeated wave reflections, and the reuse of precomputed wave fields. Numerical convergence checks are reported separately from the physical boundary assumptions.
 
 ### Model assumptions and numerical approximations
 
@@ -399,6 +407,8 @@ Splash and rain recordings are loaded once. Java clips are initialized silently 
 
 The `examples` folder contains interactive experiments and demonstrations. Interactive examples open the app with a still surface, ready for clicks and changes through the controls. The demonstrations generate wave patterns, animate the wave field, or plot the dispersion relation.
 
+<div align="center">
+
 | Example | Type | Description |
 | --- | --- | --- |
 | [gravityWavesExample](examples/gravityWavesExample.m) | Interactive | Gravity-scale water waves |
@@ -419,6 +429,8 @@ The `examples` folder contains interactive experiments and demonstrations. Inter
 | [rainRipplesExample](examples/rainRipplesExample.m) | Demonstration | A reproducible burst of twenty localized sources |
 | [plotWaveDispersion](examples/plotWaveDispersion.m) | Demonstration | Phase and group velocities across gravity and capillary wavelengths |
 | [inspectWaveField](examples/inspectWaveField.m) | Demonstration | Surface elevation and radial profiles animated through settling |
+
+</div>
 
 Add the `examples` folder to the MATLAB search path, then run a function from the table. For example, `inspectWaveField` animates the surface elevation for capillary waves generated using a four-cycle wavemaker source in three different plots: the wave field, the complete centerline profile, and the outward profile. The fixed elevation scales show both the central motion and the smaller traveling waves.
 
