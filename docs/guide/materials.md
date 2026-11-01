@@ -154,8 +154,8 @@ viscosity ([TA Instruments, Table 1](https://www.tainstruments.com/pdf/literatur
 $$
 \mu_{\mathrm{app}}=
 \left(\sqrt{\frac{\tau_y}{\dot\gamma}}+\sqrt{\mu_C}\right)^2,
-\qquad \tau_y=0.61\;\mathrm{Pa},\quad
-\mu_C=0.28\;\mathrm{Pa\,s},\quad \dot\gamma=10\;\mathrm{s}^{-1}.
+\qquad \tau_y=0.61\mskip5mu \mathrm{Pa},\quad
+\mu_C=0.28\mskip5mu \mathrm{Pa\thinspace s},\quad \dot\gamma=10\mskip5mu \mathrm{s}^{-1}.
 $$
 
 This relation describes a different formulation and is not the preset's

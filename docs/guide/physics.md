@@ -52,7 +52,7 @@ surface:
 <!-- equation: combined-surface-slope | The maximum slope of the combined surface is the maximum magnitude of the horizontal gradient of the sum of the individual elevations, and must be much smaller than one. -->
 
 $$
-\epsilon_s(t)=\max_{x,y}\left\|\nabla_h\sum_j\eta_j(x,y,t)\right\|\ll1.
+\epsilon_s(t)=\max_{x,y}\left\Vert \nabla_h\sum_j\eta_j(x,y,t)\right\Vert \ll1.
 $$
 
 ### Linear boundary-value problem
@@ -465,7 +465,7 @@ For source age *a*, the physical response is unchanged through *8T*ₛ. Between
 <!-- equation: settling-polynomial | The settling envelope is q cubed times ten minus fifteen q plus six q squared. -->
 
 $$
-E(a)=q^3(10-15q+6q^2),\qquad q=\frac{10T_s-a}{2T_s},\quad8T_s<a<10T_s
+E(a)=q^3(10-15q+6q^2),\qquad q=\frac{10T_s-a}{2T_s},\quad8T_s\lt a\lt 10T_s
 $$
 
 Before this interval, *E* = 1; at and after *10T*ₛ, *E* = 0. The envelope and
@@ -541,7 +541,7 @@ time-integrated applied pressure is
 <!-- equation: pressure-impulse | The pressure impulse at distance r is J times the exponential of minus r squared divided by twice s squared. -->
 
 $$
-\int p_{\mathrm{ext}}(r,t)\,dt=J\exp\!\left(-\frac{r^2}{2s^2}\right)
+\int p_{\mathrm{ext}}(r,t)\thinspace dt=J\exp\negthinspace \left(-\frac{r^2}{2s^2}\right)
 $$
 
 The pressure impulse has its maximum value *J*, in Pa·s, at the source center.
@@ -565,7 +565,7 @@ At the source center on an unbounded surface, the initial conditions are
 
 $$
 \eta(0,0^+)=0,\qquad
-\left.\frac{\partial\eta}{\partial t}\right|_{r=0,\,t=0^+}
+\left.\frac{\partial\eta}{\partial t}\right|_{r=0,\thinspace t=0^+}
 =-\sqrt{\frac{\pi}{2}}\frac{J}{\rho s}.
 $$
 
@@ -602,7 +602,7 @@ The impulse integrated over the unbounded surface is
 <!-- equation: integrated-pressure-impulse | The total applied impulse is the integral of the Gaussian pressure impulse over the surface, equal to two pi times s squared times J. -->
 
 $$
-I=\int_0^\infty J e^{-r^2/(2s^2)}\,2\pi r\,dr=2\pi s^2J.
+I=\int_0^\infty J e^{-r^2/(2s^2)}\thinspace 2\pi r\thinspace dr=2\pi s^2J.
 $$
 
 Here *I* has units N·s, while *J* has units Pa·s. A pressure in Pa additionally
@@ -639,7 +639,7 @@ reference periods with a smooth envelope:
 <!-- equation: wavemaker | Pressure equals J times omega0 times the Gaussian spatial profile times sin tau times sin squared of tau divided by eight, for tau from zero through eight pi. -->
 
 $$
-p_{\mathrm{ext}}(r,t)=J\omega_0 e^{-r^2/(2s^2)}\sin\tau\,\sin^2(\tau/8),\quad 0\leq\tau\leq8\pi
+p_{\mathrm{ext}}(r,t)=J\omega_0 e^{-r^2/(2s^2)}\sin\tau\thinspace \sin^2(\tau/8),\quad 0\leq\tau\leq8\pi
 $$
 
 Here *τ = ω*₀*t*, measured from that click. The forcing frequency *ω*₀ is

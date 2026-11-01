@@ -77,7 +77,7 @@ A pressure impulse has a Gaussian spatial profile with width
 <!-- equation: pressure-impulse | The pressure impulse at distance r is J times the exponential of minus r squared divided by twice s squared. -->
 
 $$
-\int p_{\mathrm{ext}}(r,t)\,dt=J\exp\!\left(-\frac{r^2}{2s^2}\right)
+\int p_{\mathrm{ext}}(r,t)\thinspace dt=J\exp\negthinspace \left(-\frac{r^2}{2s^2}\right)
 $$
 
 *J* is the `PressureImpulse` scale in Pa s; positive applied pressure acts

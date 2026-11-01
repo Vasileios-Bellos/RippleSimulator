@@ -418,7 +418,7 @@ A pressure impulse has a Gaussian spatial profile with width
 <!-- equation: pressure-impulse | The pressure impulse at distance r is J times the exponential of minus r squared divided by twice s squared. -->
 
 $$
-\int p_{\mathrm{ext}}(r,t)\,dt=J\exp\!\left(-\frac{r^2}{2s^2}\right)
+\int p_{\mathrm{ext}}(r,t)\thinspace dt=J\exp\negthinspace \left(-\frac{r^2}{2s^2}\right)
 $$
 
 *J* is the `PressureImpulse` scale in Pa s; positive applied pressure acts
@@ -645,7 +645,7 @@ For a pressure impulse in open water, the unmodified elevation is
 <!-- equation: hankel-response | The radial elevation is minus J s squared over density times the integral of k squared times the Gaussian spectrum, Bessel J zero, and h epsilon over omega zero. -->
 
 $$
-\eta_{\mathrm{v}}(r,a)=-\frac{Js^2}{\rho}\int_0^\infty\frac{k^2}{\omega_0(k)}e^{-s^2k^2/2}J_0(kr)h_\epsilon(\omega_0(k)a)\,dk
+\eta_{\mathrm{v}}(r,a)=-\frac{Js^2}{\rho}\int_0^\infty\frac{k^2}{\omega_0(k)}e^{-s^2k^2/2}J_0(kr)h_\epsilon(\omega_0(k)a)\thinspace dk
 $$
 
 Here *a* is source age, *s* its Gaussian width, *J* the pressure impulse,
@@ -839,7 +839,7 @@ increment Δ*t* advances simulation time by
 <!-- equation: playback-time | The change in simulation time equals playback rate times elapsed real time. -->
 
 $$
-\Delta t_{\mathrm{sim}}=b\,\Delta t_{\mathrm{real}}
+\Delta t_{\mathrm{sim}}=b\thinspace \Delta t_{\mathrm{real}}
 $$
 
 The clock accounts for pause intervals and changes in rate. A rate change

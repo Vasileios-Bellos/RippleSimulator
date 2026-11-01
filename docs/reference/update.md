@@ -63,7 +63,7 @@ increment Δ*t* advances simulation time by
 <!-- equation: playback-time | The change in simulation time equals playback rate times elapsed real time. -->
 
 $$
-\Delta t_{\mathrm{sim}}=b\,\Delta t_{\mathrm{real}}
+\Delta t_{\mathrm{sim}}=b\thinspace \Delta t_{\mathrm{real}}
 $$
 
 The clock accounts for pause intervals and changes in rate. A rate change

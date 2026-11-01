@@ -62,7 +62,7 @@ dependence. For a pressure impulse, the unmodified viscous response is
 <!-- equation: hankel-response | The radial elevation is minus J s squared over density times the integral of k squared times the Gaussian spectrum, Bessel J zero, and h epsilon over omega zero. -->
 
 $$
-\eta_{\mathrm{v}}(r,a)=-\frac{Js^2}{\rho}\int_0^\infty\frac{k^2}{\omega_0(k)}e^{-s^2k^2/2}J_0(kr)h_\epsilon(\omega_0(k)a)\,dk
+\eta_{\mathrm{v}}(r,a)=-\frac{Js^2}{\rho}\int_0^\infty\frac{k^2}{\omega_0(k)}e^{-s^2k^2/2}J_0(kr)h_\epsilon(\omega_0(k)a)\thinspace dk
 $$
 
 Here *J*₀ is the Bessel function of the first kind, order zero, and *h*ε is
@@ -235,7 +235,7 @@ The reflecting domain uses products of cosine modes in the two horizontal direct
 <!-- equation: reflecting-modes | A cosine mode is cos of m pi X over L times cos of n pi Y over L; its wavenumber is pi over L times the square root of m squared plus n squared. -->
 
 $$
-\phi_{mn}=\cos\!\left(\frac{m\pi X}{L}\right)\cos\!\left(\frac{n\pi Y}{L}\right),\qquad k_{mn}=\frac{\pi}{L}\sqrt{m^2+n^2}
+\phi_{mn}=\cos\negthinspace \left(\frac{m\pi X}{L}\right)\cos\negthinspace \left(\frac{n\pi Y}{L}\right),\qquad k_{mn}=\frac{\pi}{L}\sqrt{m^2+n^2}
 $$
 
 Here *X* and *Y* measure distance from the lower domain boundaries; *m* and
@@ -306,7 +306,7 @@ The weighted-image model for one source's elevation is
 <!-- equation: weighted-images | The reflected elevation is the infinite sum over integer m and n of R to the power absolute m plus absolute n, times the open-water response at the distance from image m n and the original source age. -->
 
 $$
-\eta_R(\mathbf{x},a)=\sum_{m=-\infty}^{\infty}\sum_{n=-\infty}^{\infty}R^{|m|+|n|}\eta_{\mathrm{open}}\!\left(\left\|\mathbf{x}-\mathbf{x}_{mn}\right\|,a\right)
+\eta_R(\mathbf{x},a)=\sum_{m=-\infty}^{\infty}\sum_{n=-\infty}^{\infty}R^{|m|+|n|}\eta_{\mathrm{open}}\negthinspace \left(\left\Vert \mathbf{x}-\mathbf{x}_{mn}\right\Vert ,a\right)
 $$
 
 Each term retains the same physical age *a*, including the viscous response
@@ -346,7 +346,7 @@ opposite directions. The app therefore groups the image sum by the parity of
 <!-- equation: image-parity-basis | B p q is the weighted sum of the open-water radial response over image indices m equals two i plus p and n equals two j plus q. -->
 
 $$
-B_{pq}(u,v,a)=\sum_{i=-\infty}^{\infty}\sum_{j=-\infty}^{\infty}R^{|2i+p|+|2j+q|}\eta_{\mathrm{open}}\!\left(\sqrt{[u-(2i+p)L]^2+[v-(2j+q)L]^2},a\right).
+B_{pq}(u,v,a)=\sum_{i=-\infty}^{\infty}\sum_{j=-\infty}^{\infty}R^{|2i+p|+|2j+q|}\eta_{\mathrm{open}}\negthinspace \left(\sqrt{[u-(2i+p)L]^2+[v-(2j+q)L]^2},a\right).
 $$
 
 The source position then enters through four translated groups:
@@ -354,7 +354,7 @@ The source position then enters through four translated groups:
 <!-- equation: translated-image-basis | The reflected elevation is the sum over parity p and q of B p q evaluated at x minus minus one to power p times x zero, y minus minus one to power q times y zero, and source age a. -->
 
 $$
-\eta_R(x,y,a)=\sum_{p=0}^{1}\sum_{q=0}^{1}B_{pq}\!\left(x-(-1)^p x_0,\ y-(-1)^q y_0,\ a\right).
+\eta_R(x,y,a)=\sum_{p=0}^{1}\sum_{q=0}^{1}B_{pq}\negthinspace \left(x-(-1)^p x_0,\ y-(-1)^q y_0,\ a\right).
 $$
 
 This is a rearrangement of the weighted-image sum. Preparation evaluates these
@@ -390,7 +390,7 @@ the original Fourier response by
 <!-- equation: image-filter | The smooth filter F of k equals one minus the fourth power of one minus G of k, where G of k equals exp of minus one half times k L over four squared. -->
 
 $$
-F(k)=1-[1-G(k)]^4,\qquad G(k)=\exp\!\left[-\frac12\left(\frac{kL}{4}\right)^2\right].
+F(k)=1-[1-G(k)]^4,\qquad G(k)=\exp\negthinspace \left[-\frac12\left(\frac{kL}{4}\right)^2\right].
 $$
 
 The complementary remainder has multiplier [1 − *G*(*k*)]⁴, which approaches
@@ -545,7 +545,7 @@ the unbounded field as
 <!-- equation: translated-source-sum | The unbounded elevation is the sum of each source pressure strength times its precomputed radial response at the distance from that source and its elapsed age. -->
 
 $$
-\eta(\mathbf{x},t)=\sum_j J_j K_j\!\left(\|\mathbf{x}-\mathbf{x}_j\|,\ t-t_j\right),\qquad K_j(r,a)=0\ \mathrm{for}\ a<0.
+\eta(\mathbf{x},t)=\sum_j J_j K_j\negthinspace \left(\Vert \mathbf{x}-\mathbf{x}_j\Vert ,\ t-t_j\right),\qquad K_j(r,a)=0\ \mathrm{for}\ a<0.
 $$
 
 Sources with the same fluid, wavelength parameter, and forcing mode share
