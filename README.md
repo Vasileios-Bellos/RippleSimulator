@@ -330,11 +330,11 @@ The indices $m,n$ are nonnegative integers. Each nonzero mode uses the same grav
 **Experiment > Wave reflection > Reflection coefficient** sets the amplitude fraction $R$ returned by each wall encounter. Its default is 100%; an individual reflected component retains the energy fraction $R^2$. Intermediate coefficients use weighted images of the open-water source:
 
 $$
-\boldsymbol{x}_{mn}
+\boldsymbol{x}_ {mn}
 =\left(mL+(-1)^m x_0,\ nL+(-1)^n y_0\right),
 \qquad
 \eta_R(\boldsymbol{x},a)
-=\sum\nolimits_{m=-\infty}^{\infty}\sum\nolimits_{n=-\infty}^{\infty}
+=\sum\nolimits_ {m=-\infty}^{\infty}\sum\nolimits_{n=-\infty}^{\infty}
 R^{|m|+|n|}\eta_{\mathrm{open}}
 \negthinspace \left(\lVert\boldsymbol{x}-\boldsymbol{x}_{mn}\rVert,a\right).
 $$
@@ -364,15 +364,15 @@ See [Numerical methods](https://vasileios-bellos.github.io/RippleSimulator/guide
 
 **Finite settling.** To return to equilibrium completely in a short interactive experiment, each source has a finite-duration envelope. This is an additional approximation, not a claim that viscous waves physically vanish at a finite time. For Gaussian width $s_j$, let
 
-```math
-T_{s,j}=\max\left\{\frac{2\pi}{\omega_0(k_{0,j})},\; \max_{0\lt k\leq12/s_j}\frac{2\nu k}{g+(\sigma/\rho)k^2}\right\}, \qquad T_j=10T_{s,j}.
-```
+$$
+T_{s,j}=\max\left\lbrace\frac{2\pi}{\omega_0(k_{0,j})},\mskip5mu \max_{0\lt k\leq12/s_j}\frac{2\nu k}{g+(\sigma/\rho)k^2}\right\rbrace, \qquad T_j=10T_{s,j}.
+$$
 
 The second term retains the longest Stokes relaxation time over the retained source spectrum, allowing strongly viscous disturbances to relax beyond the inviscid reference period. This sets the duration of the numerical envelope; the full viscous equations still determine the response. Define $q=(a-0.8T_j)/(0.2T_j)$. The envelope is
 
-```math
-E_j(a)= \begin{cases} 1, & 0\leq a\leq0.8T_j,\\ 1-10q^3+15q^4-6q^5, & 0.8T_j\lt a\lt T_j,\\ 0, & a\geq T_j. \end{cases}
-```
+$$
+E_j(a)= \begin{cases} 1, & 0\leq a\leq0.8T_j,\cr 1-10q^3+15q^4-6q^5, & 0.8T_j\lt a\lt T_j,\cr 0, & a\geq T_j. \end{cases}
+$$
 
 Elevation and its first two time derivatives join continuously at both ends of the transition. The app evaluates
 
