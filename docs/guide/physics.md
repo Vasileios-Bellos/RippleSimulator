@@ -450,7 +450,7 @@ relaxation. With Gaussian width *s* and source wavenumber *k*₀, define
 <!-- equation: settling-time-scale | The settling time scale is the maximum of the inviscid reference period and the longest Stokes relaxation time over retained wavenumbers up to twelve divided by the Gaussian width. -->
 
 $$
-T_s=\max\left\{\frac{2\pi}{\omega_0(k_0)},\;\max_{0<k\leq12/s}\frac{2\nu k}{g+(\sigma/\rho)k^2}\right\}.
+T_s=\max\left\lbrace\frac{2\pi}{\omega_0(k_0)},\mskip5mu\max_{0< k\leq12/s}\frac{2\nu k}{g+(\sigma/\rho)k^2}\right\rbrace.
 $$
 
 The second term is the Stokes relaxation time of an overdamped surface mode.
