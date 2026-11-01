@@ -5,7 +5,7 @@
 Ripple Simulator is a programmatic MATLAB class app. It requires MATLAB R2022a
 or later. MATLAB R2026b is recommended. No additional MathWorks toolboxes or
 documentation-authoring tools are required. The source code is available in the
-project repository.
+[project repository](https://github.com/Vasileios-Bellos/RippleSimulator).
 Keep the package folders, launcher, and documentation together when moving
 the project.
 

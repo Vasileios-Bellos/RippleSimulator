@@ -101,6 +101,6 @@ Newtonian fluid of infinite depth based on small-amplitude wave theory. The full
 viscous response is obtained by solving the linearized Navier–Stokes and continuity
 equations subject to the linearized kinematic and dynamic free-surface boundary
 conditions.
-The source code is available in the project
-repository. See [Installation and requirements](guide/installation.md) for
+The source code is available in the [project
+repository](https://github.com/Vasileios-Bellos/RippleSimulator). See [Installation and requirements](guide/installation.md) for
 prerequisites, setup instructions, and troubleshooting.
