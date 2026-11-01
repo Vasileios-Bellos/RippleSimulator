@@ -1,10 +1,9 @@
 function setup = defaultSetup(name)
 % DEFAULTSETUP Define comparable physical scales for three water experiments.
 %   The default gravity-scale experiment spans 650 mm with a characteristic
-%   wavelength of 50 mm.
-%   The smaller presets span 6.5 characteristic wavelengths. Each preset
-%   uses a small-disturbance source. Capillary playback starts at 0.10x;
-%   the other presets start at 0.25x.
+%   wavelength of 50 mm. The smaller presets span 6.5 characteristic
+%   wavelengths. Each preset uses a small-disturbance source. Capillary
+%   playback starts at 0.10x; the other presets start at 0.25x.
 
     arguments
         name {mustBeTextScalar, mustBeMember(name, ["Balanced", "Capillary", "Gravity"])} = "Gravity"

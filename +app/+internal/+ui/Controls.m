@@ -1,8 +1,7 @@
 classdef (Sealed) Controls < handle
     % CONTROLS Present accepted application state through shared command routes.
-    %   Menus, toolbar buttons, and optional sliders submit the same operations.
-    %   Controls display accepted values only; slider drafts do not modify the
-    %   simulation until the user completes the edit.
+    %   Commands from menus, toolbar buttons, and sliders are routed
+    %   through a shared callback function.
 
     properties (Access = private)
         View app.internal.ui.rendering.SurfaceView

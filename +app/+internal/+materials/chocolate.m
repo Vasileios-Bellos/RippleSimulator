@@ -3,9 +3,9 @@ function fluid = chocolate()
 %   Viscosity is approximately 0.50 Pa s at 60 degrees Celsius, read from
 %   Toker et al. (2017), Figure 5, for the 40 rpm, 10 minute formulation
 %   at 50 s^-1. Constant viscosity at lower shear rates is an assumption.
-%   Density and liquid surface tension are separate
-%   representative values; the complete property set is not one measured
-%   sample. Yield stress, shear thinning, and crystallization are excluded.
+%   Density and liquid surface tension are separate representative values;
+%   the complete property set is not one measured sample. Yield stress,
+%   shear thinning, and crystallization are excluded.
 
     reference = "Toker et al. (2017), Figure 5, doi:10.1111/ijfs.13336; " ...
         + "compound chocolate refined at 40 rpm for 10 minutes. " ...

@@ -1,8 +1,8 @@
 classdef (Sealed) SplashAudio < handle
     % SPLASHAUDIO Play preloaded splash and rain recordings with an audio fallback.
-    %   The splash recording is normalized once and played at twice
-    %   its recorded sample rate.
-    %   Each rain burst plays its own recording at the recorded sample rate.
+    %   The splash recording is normalized once and played at twice its
+    %   recorded sample rate. Each rain burst plays its own recording at
+    %   the recorded sample rate.
 
     properties (SetAccess = private)
         % Available Whether an initialized playback backend is usable.
